@@ -7,4 +7,5 @@ install:
   - rm -rf public || exit 0
 
 script:
-  - hugo
+  - cd src
+  - ../binaries/hugo
