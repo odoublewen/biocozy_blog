@@ -7,4 +7,4 @@ install:
   - rm -rf public || exit 0
 
 script:
-  - binaries/hugo --theme=fresh
+  - hugo
