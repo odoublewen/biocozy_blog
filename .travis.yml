@@ -14,4 +14,4 @@ script:
   - hugo
 
 after_success:
-  - curl --ftp-create-dirs -T public sftp://${SFTP_USER}:${SFTP_PASSWORD}@biocozy.net/biocozy.net/blog
+  - rsync -avz -e ssh public {SFTP_USER}@biocozy.net/biocozy.net/blog
