@@ -1,14 +1,11 @@
-install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.40.3/hugo_0.40.3_Linux-64bit.deb
-  - sudo dpkg -i hugo*.deb
+language: go
 
-addons:
-  apt:
-    packages:
-      - python-pygments
+go:
+  - master # This uses automatically the latest version of go
 
 install:
-  - rm -rf public || exit 0
+  - go get github.com/spf13/hugo # This provides the latest version of Hugo to Travis CI
 
 script:
-  - hugo
+  - hugo # This commands builds your website on travis
+
