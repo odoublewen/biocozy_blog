@@ -1,3 +1,7 @@
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.40.3/hugo_0.40.3_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
+
 addons:
   apt:
     packages:
@@ -7,5 +11,4 @@ install:
   - rm -rf public || exit 0
 
 script:
-  - cd src
-  - ../binaries/hugo
+  - hugo
