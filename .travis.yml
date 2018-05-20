@@ -14,4 +14,4 @@ script:
   - hugo
 
 after_success:
-  - rsync -avz -e ssh public {SFTP_USER}@biocozy.net/biocozy.net/blog
+  - rsync -avz -e ssh public {SFTP_USER}@biocozy.net:biocozy.net/blog
