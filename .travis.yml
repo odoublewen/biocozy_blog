@@ -10,8 +10,9 @@ deploy:
   skip-cleanup: true
   github-token: "$GITHUB_TOKEN"
   keep-history: false
+  local-dir: public
   on:
-    branch: gh-pages
+    branch: master
 env:
   global:
     secure: VPItp5uBo4HL0/WQV9VH4YQs9SEuHdwrrqPnPkCCBKBYCm8sqbNs/vQ7rbCSHE90InTdeczZTvMLDUuug7qurgYZxkycRX/oGeJW+Blx0lELziW/vTYUHa10T0thymA8kqTIhSfcqn9Xt9bvSfWaMs6uhnsC2c33QDsTjS7lBBqZi7Mbf5r+NInYkhDtHgGMIny3xGYYfEMCKo/63ovE6jCnIWr9Iv35/V4HW3R49gjCEWKSNBsN3f51nVsgbs3FVSinHDCphLkd378WltFqwer88JobFLJ3ENFb7hhaDOfJ9hBM77HzAz7uuugauzbn+0KqRl0kQVEiIat25ESWa9U5VBnsCWkCG81urqrSFLYbB/O46e7Y7eLSq0CNZDZFodDIWpQ4WBTigq/cvQhKqrvl1+/6U2yVdnaYqJqs3kEJTiILUxeBOn/PbKl3YvsGFqv0kzgU0Ux18AVspgY3dU7wHdxg2VOy2zL7Kr73QXHr6/rP63oE40oxtlM6xjCtbOGKin8qNQjQE28o+3tUFd8KIZ4AldMc8A8UN+VlVeKqr0XudRIvhR87dkiuSHVbeC74pU1PuoD8E/r/3WtU4mjf8xOHL5YrHaYUp89V+aY0LVrusoy47zsw7vR1LQq60j7FmEd6YwWHHHzyEnMiFOF+BC5Hv6Z/7HV4BrK1HxA=
