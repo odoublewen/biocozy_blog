@@ -5,11 +5,10 @@ install:
 - pip install Pygments
 script:
 - hugo
-after_success:
-- rsync -avz -e "ssh -o StrictHostKeyChecking=no -i keyfile.dec" public ${SSH_USER}@biocozy.net:biocozy.net/blog
-env:
-  global:
-    secure: PYUXjMS4sTUu+pVuC96U9j1HritI4utZCrkDXPH4239HBFntWGOgBMyF0HpcKNvfiGH0oYF+z+OrM8u9QZ8EVT41gsLe2WpLBz/Tg4488oNFoljSgH1GfKgHTG2gTxtKnE2wVJYBogn+/njSLRpaplly6vqeyGwYThiMcZ2YblIi5mgSzReZhU9ZHQvxqry2xABmaTtz5YnZp3QeuXTh7yZXgQDdP/CrHoC3KXMqvMfv22xxQ5yU+lFnIrbkr3+EMwfQ9vUiTACg1d1hlWYbAN8RNgayUw28Q/i1SYB62dSyMtsHroFqJzEBPwBPDIes6L6mca7NsV8sbvmOeXAZFJFLJRw/4JMan4D1M59cf90SMNw8KHxVVd6J8YQsAx9+MEVKI+6G23mr5gadTomb02EwpQj/skGvkCQEeCQadnEnZtYgq8ebJTKRiekyPWzadzpjRgURfkIf3QioQfTnK/WaX/2XgB3TL48cWWw0Y4GVJfgZKjNpvW1dWXyhIskDKtraQ5bqLfJNSCXQryjTDoeLI55anbyKnZAfZD9jwwlke5a+kP46g2TYWtQLJ59Nik0ng1RaWgRIK4tYI/WMPwM2FqeTjFFhHLerorUkwsDyI9u8IV00f9LSXLuufXHVCzrtSGXQm8/jP8lE1xSxMGcm4AOBAUImKkDwCNjhcCQ=
-before_install:
-- openssl aes-256-cbc -K $encrypted_22447609d391_key -iv $encrypted_22447609d391_iv -in keyfile.enc -out keyfile -d
-- base64 -d keyfile > keyfile.dec; chmod 400 keyfile.dec
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: false
+  on:
+    branch: gh-pages
