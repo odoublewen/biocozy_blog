@@ -1,4 +1,6 @@
-baseurl = "https://biocozy.net/blog/"
+#baseurl = "https://biocozy.net/"
+baseurl = "https://odoublewen.github.io/biocozy_blog/"
+
 title = "Biocozy.net"
 languageCode = "en-us"
 
