@@ -15,7 +15,7 @@ theme = "hugo-bootstrap"
   category = "categories"
 
 # Google analytics
-googleAnalytics = "UA-47268287-3"
+googleAnalytics = "UA-120822435-1""
 
 # Languages
 
@@ -25,7 +25,7 @@ defaultContentLanguage = "en"
   languageName = "English"
 
   # Replace the default footer message with a localized message
-  copyright = "Site built with Hugo using Bootstrap template"
+  copyright = "Copyright Biocozy.net"
 
   [[languages.en.menu.main]]
     url = "/"
