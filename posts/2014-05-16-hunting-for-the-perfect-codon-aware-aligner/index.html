@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Hunting for the perfect codon aware aligner" />
+<meta property="og:description" content="Yesterday I went looking for a well-behaved codon-aware aligner. A question that has been brought up on both Stack Overflow and BioStars.
+What I discovered is that many software projects that claim to be codon aligners are actually just (1) translating the nucleotide sequence to an amino acid seqeunce, (2) aligning the amino acid sequencing, and (3) mapping the a.a. alignment structure to the nucleotide sequences, in a codon-by-codon fashion." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biocozy.net/posts/2014-05-16-hunting-for-the-perfect-codon-aware-aligner/" />
+
+
+
+<meta property="article:published_time" content="2014-05-16T10:20:00-07:00"/>
+
+<meta property="article:modified_time" content="2014-05-16T10:20:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hunting for the perfect codon aware aligner"/>
+<meta name="twitter:description" content="Yesterday I went looking for a well-behaved codon-aware aligner. A question that has been brought up on both Stack Overflow and BioStars.
+What I discovered is that many software projects that claim to be codon aligners are actually just (1) translating the nucleotide sequence to an amino acid seqeunce, (2) aligning the amino acid sequencing, and (3) mapping the a.a. alignment structure to the nucleotide sequences, in a codon-by-codon fashion."/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/2014-05-16-hunting-for-the-perfect-codon-aware-aligner/">
+
+    <title>
+      
+        Hunting for the perfect codon aware aligner | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/2014-05-16-hunting-for-the-perfect-codon-aware-aligner/">Hunting for the perfect codon aware aligner</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        May 16, 2014
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    
+
+<p>Yesterday I went looking for a well-behaved codon-aware aligner.   A
+question that has been brought up on both <a href="http://stackoverflow.com/questions/20843867/codon-alignment-via-python">Stack
+Overflow</a>
+and <a href="https://www.biostars.org/p/2576/">BioStars</a>.</p>
+
+<p>What I discovered is that many software projects that claim to be codon
+aligners are actually just (1) translating the nucleotide sequence to an
+amino acid seqeunce, (2) aligning the amino acid sequencing, and (3)
+mapping the a.a. alignment structure to the nucleotide sequences, in a
+codon-by-codon fashion.  Well, that&rsquo;s fine as far as it goes, but (a) I
+can do that myself, and (b) this strategy fails in certain cases (e.g.,
+a polymeric stretch of amino acids that have different, synonymous
+codons.)</p>
+
+<p>Here are the software programs I tried. Sources are available for all of
+them, and most also have web app interfaces (not ultimately what I want
+but good for a test drive.)</p>
+
+<ul>
+<li><a href="http://translatorx.co.uk/">TranslatorX</a>
+[<a href="http://nar.oxfordjournals.org/content/38/suppl_2/W7">cite</a>] -
+Perl script and web app by Abascal F, Zardoya R, Telford MJ</li>
+<li><a href="http://mbb.univ-montp2.fr/macse">MACSE</a>
+[<a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0022594">cite</a>] -
+Java jar archive by <span class="author" rel="dc:creator"><span
+class="person">Vincent Ranwez at Université Montpellier
+2</span></span></li>
+<li><a href="http://www.uni-oldenburg.de/ibu/systematik-evolutionsbiologie/programme/">transAlign</a> 
+[<a href="http://www.biomedcentral.com/1471-2105/6/156/">cite</a>] - Perl
+script by Olaf R.P. Bininda-Emonds at University of Oldenburg</li>
+<li><a href="http://www.ebi.ac.uk/goldman-srv/prank/prank/">PRANK</a>
+[<a href="http://code.google.com/p/prank-msa/wiki/PRANK">code</a>|<a href="http://www.pnas.org/content/102/30/10557.full">cite</a>] -
+C++ program by <a href="http://blogs.helsinki.fi/sa-at-bi">Ari Löytynoja</a>
+developed in the Goldman lab at EMBL-EBI and now at the University
+of Helsinki</li>
+<li><a href="https://github.com/zruan/biopython/tree/master/Bio/CodonAlign">Bio.CodonAlign</a>
+[<a href="http://zruanweb.com/">docs</a>] - fork of BioPython by Zheng Ruan
+written in a Google Summer of Code 2013
+
+<br />
+<br /></li>
+</ul>
+
+<p><a href="http://code.google.com/p/prank-msa/wiki/PRANK">PRANK</a>The upshot:  only
+PRANK seems to be a <strong>true</strong> codon-aware aligner. </p>
+
+<p>Wish-list:  What I really want is something like PRANK but that is
+streamlined for fast pairwise alignment.  Ideally callable as a Python
+module!  Or at least be able to communicate with the binary via stdin
+and stout pipes.  Wish I knew some C++ but I don&rsquo;t :/</p>
+
+<p><span style="font-weight: normal;">Here are details of my test and the
+results I got: </span></p>
+
+<h2 id="span-style-font-weight-normal-test-sequences-span"><span style="font-weight: normal;">Test Sequences</span></h2>
+
+<p><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;">&gt;one<br />
+AGTAAGAAAGCAGCACAGCAA<span
+style="background-color: #cccccc;">GCAGCAGCT</span>AACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;two<br />
+AGTAAGAAAAAGGAACAGCAG<span
+style="background-color: #cccccc;">GCAGCT</span>AACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;three<br />
+AGTAAGAAAAAGGAACAGCAG<span
+style="background-color: #cccccc;">GCAGCA</span>AACACAGGAAACAGCGGTCAGGTTAGC</span></p>
+
+<h2 id="span-style-font-weight-normal-results-from-translatorx-https-www-blogger-com-null-span"><strong><span style="font-weight: normal;">Results from translatorX[](<a href="https://www.blogger.com/null">https://www.blogger.com/null</a>)</span></strong></h2>
+
+<table>
+<tbody>
+<tr class="odd">
+<td>one</td>
+<td>AGT</td>
+<td>AAG</td>
+<td>AAA</td>
+<td>GCA</td>
+<td>GCA</td>
+<td>CAG</td>
+<td>CAA</td>
+<td>GCA</td>
+<td>GCA</td>
+<td>GCT</td>
+<td>AAC</td>
+<td>ACA</td>
+<td>GGA</td>
+<td>AAC</td>
+<td>AGC</td>
+<td>GGT</td>
+<td>CAG</td>
+<td>GTT</td>
+<td>AGC</td>
+</tr>
+<tr class="even">
+<td>two</td>
+<td>AGT</td>
+<td>AAG</td>
+<td>AAA</td>
+<td>AAG</td>
+<td>GAA</td>
+<td>CAG</td>
+<td>CAG</td>
+<td>---</td>
+<td>GCA</td>
+<td>GCT</td>
+<td>AAC</td>
+<td>ACA</td>
+<td>GGA</td>
+<td>AAC</td>
+<td>AGC</td>
+<td>GGT</td>
+<td>CAG</td>
+<td>GTT</td>
+<td>AGC</td>
+</tr>
+<tr class="odd">
+<td>three</td>
+<td>AGT</td>
+<td>AAG</td>
+<td>AAA</td>
+<td>AAG</td>
+<td>GAA</td>
+<td>CAG</td>
+<td>CAG</td>
+<td>---</td>
+<td>GCA</td>
+<td><strong><span style="color: red;">GCA</span></strong></td>
+<td>AAC</td>
+<td>ACA</td>
+<td>GGA</td>
+<td>AAC</td>
+<td>AGC</td>
+<td>GGT</td>
+<td>CAG</td>
+<td>GTT</td>
+<td>AGC</td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="font-size: small;"><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;">&gt;one<br />
+SKKAAQQAAANTGNSGQVS<br />
+&gt;two<br />
+SKKKEQQ-AANTGNSGQVS<br />
+&gt;three<br />
+SKKKEQQ-AANTGNSGQVS</span></span></p>
+
+<h2 id="span-style-font-weight-normal-results-from-macse-span"><strong><span style="font-weight: normal;">Results from MACSE</span></strong></h2>
+
+<p><span style="font-size: small;"><br />
+</span></p>
+
+<pre><code>&gt;one
+AGTAAGAAAGCAGCACAGCAAGCAGCAGCTAACACAGGAAACAGCGGTCAGGTTAGC
+&gt;two
+AGTAAGAAAAAGGAACAGCAGGCAGCT---AACACAGGAAACAGCGGTCAGGTTAGC
+&gt;three
+AGTAAGAAAAAGGAACAGCAGGCAGCA---AACACAGGAAACAGCGGTCAGGTTAGC 
+
+ 
+
+&gt;one
+SKKAAQQAAANTGNSGQVS
+&gt;two
+SKKKEQQAA-NTGNSGQVS
+&gt;three
+SKKKEQQAA-NTGNSGQVS 
+
+ 
+</code></pre>
+
+<h2 id="span-style-font-weight-normal-results-from-transalign-https-www-blogger-com-null-span"><span style="font-weight: normal;">Results from transAlign[](<a href="https://www.blogger.com/null">https://www.blogger.com/null</a>)</span></h2>
+
+<p><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;">&gt;one<br />
+AGTAAGAAAGCAGCACAGCAAGCAGCAGCTAACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;three<br />
+AGTAAGAAAAAGGAACAGCAG&mdash;GCA<strong><span style="color: red;"><span
+style="background-color: white;">GCA</span></span></strong>AACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;two<br />
+AGTAAGAAAAAGGAACAGCAG&mdash;GCAGCTAACACAGGAAACAGCGGTCAGGTTAGC</span></p>
+
+<p>CLUSTAL 2.1 multiple sequence alignment</p>
+
+<p><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;">tAlign_2       
+SKKKEQQ-AANTGNSGQVS<br />
+tAlign_3        SKKKEQQ-AANTGNSGQVS<br />
+tAlign_1        SKKAAQQAAANTGNSGQVS<br />
+                ***  ** ***********</span></p>
+
+<h2 id="span-style-font-weight-normal-results-from-prank-span"><strong><span style="font-weight: normal;">Results from PRANK</span></strong></h2>
+
+<p>(with &ldquo;align translated codons&rdquo; option checked)</p>
+
+<p>Curiously, with all three test sequences, it doesn&rsquo;t put the GCT where I
+want it&hellip;</p>
+
+<p><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;">&gt;one<br />
+AGTAAGAAAGCAGCACAGCAAGCAGCAGCTAACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;two<br />
+AGTAAGAAAAAGGAACAGCAGGCA<strong><span
+style="color: red;">GCT</span></strong>&mdash;AACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;three<br />
+AGTAAGAAAAAGGAACAGCAGGCAGCA&mdash;AACACAGGAAACAGCGGTCAGGTTAGC</span></p>
+
+<p>But with seqs 1 and 3, it works correctly&hellip;</p>
+
+<p><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;">&gt;one<br />
+AGTAAGAAAGCAGCACAGCAAGCAGCAGCTAACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;three<br />
+AGTAAGAAAAAGGAACAGCAGGCAGCA&mdash;AACACAGGAAACAGCGGTCAGGTTAGC</span><br />
+ <br />
+As it does with just seqs 1 and 2&hellip;</p>
+
+<p><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;">&gt;one<br />
+AGTAAGAAAGCAGCACAGCAAGCAGCAGCTAACACAGGAAACAGCGGTCAGGTTAGC<br />
+&gt;two<br />
+TGGAAGAAAAAGGAACAGCAGGCA&mdash;GCTAACACAGGAAACAGCGGTCAGGTTAGC</span></p>
+
+<p>I think the behavior with all 3 seqs is not a glitch but is rather a
+result of the probabilistic model that PRANK uses for multiple sequence
+alignments (ie, the alignments inform each other.)</p>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

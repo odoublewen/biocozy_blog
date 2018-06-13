@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Making sense of Python version madness and pip/setuptools/virtualenv game" />
+<meta property="og:description" content="This posting is motivated by cases where you are stuck using an older server OS (CentOS 5.8 in this case) and want to install an up-to-date python 2.7 along with a raft of necessary packages. What is the best way?
+distribute? pip? setuptools? virtualenv? What to make of all this?
+Bottom line: use pip. To install pip, you either install it from source, or else install virtualenv (which includes pip). Installing from source allows you to manage packages with pip globally on your system (and not in a virtual environment), then you have to install pip from source." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biocozy.net/posts/2013-08-28-making-sense-of-python-version-madness-and-pip-setuptools-virtualenv-game/" />
+
+
+
+<meta property="article:published_time" content="2013-08-28T07:02:00-07:00"/>
+
+<meta property="article:modified_time" content="2013-08-28T07:02:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Making sense of Python version madness and pip/setuptools/virtualenv game"/>
+<meta name="twitter:description" content="This posting is motivated by cases where you are stuck using an older server OS (CentOS 5.8 in this case) and want to install an up-to-date python 2.7 along with a raft of necessary packages. What is the best way?
+distribute? pip? setuptools? virtualenv? What to make of all this?
+Bottom line: use pip. To install pip, you either install it from source, or else install virtualenv (which includes pip). Installing from source allows you to manage packages with pip globally on your system (and not in a virtual environment), then you have to install pip from source."/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/2013-08-28-making-sense-of-python-version-madness-and-pip-setuptools-virtualenv-game/">
+
+    <title>
+      
+        Making sense of Python version madness and pip/setuptools/virtualenv game | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/2013-08-28-making-sense-of-python-version-madness-and-pip-setuptools-virtualenv-game/">Making sense of Python version madness and pip/setuptools/virtualenv game</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        Aug 28, 2013
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    <p>This posting is motivated by cases where you are stuck using an older
+server OS (CentOS 5.8 in this case) and want to install an up-to-date
+python 2.7 along with a raft of necessary packages.  What is the best
+way?</p>
+
+<p>distribute? pip? setuptools? virtualenv?  What to make of all this?</p>
+
+<p><a href="http://stackoverflow.com/questions/3220404/why-use-pip-over-easy-install">Bottom
+line</a>:
+use pip.  To install pip, you either install it from source, or else
+install virtualenv (which includes pip).  Installing from source allows
+you to manage packages with pip globally on your system (and not in a
+virtual environment), then you have to install pip from source.  But to
+install pip yourself, you first need to install setuptools.  All of
+these installs should be done using the target python interpreter.   Got
+that?</p>
+
+<p>I wrote the following notes after digesting the helpful hints given at a
+variety of places, such
+as <a href="https://gist.github.com/stantonk/4082043">these</a> <a href="https://gist.github.com/mersilde/1372355">two</a> gist
+pages.  Note that although there are many tutorials that still guide you
+to install virtualenv with easy_install (such
+as <a href="http://simononsoftware.com/virtualenv-tutorial/">here</a> or <a href="http://iamzed.com/2009/05/07/a-primer-on-virtualenv/">here</a>),
+we&rsquo;re actually <a href="http://stackoverflow.com/questions/4324558/whats-the-proper-way-to-install-pip-virtualenv-and-distribute-for-python">not
+supposed</a>
+to do it this way any longer.  My notes that follow will not make use of
+virtualenv, but in some situations this might be desirable &ndash; this is
+just for a system-wide fresh installation of Python 2.7 and pip to
+install packages. (<a href="http://dubroy.com/blog/so-you-want-to-install-a-python-package/">Here is a nice
+overview</a>
+of setting up virtualenv if you want to go that route.)</p>
+
+<p><span style="font-size: small;">First you want to be sure your CentOS
+machine is ready to built something like Python:</span></p>
+
+<p><span
+style="background-color: white; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 12px; line-height: 16px;">yum
+groupinstall </span><span class="s2"
+style="background-color: white; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 12px; line-height: 16px;">&ldquo;Development
+tools&rdquo;</span></p>
+
+<pre><code>yum install zlib-devel bzip2-devel openssl-devel ncurses-devel
+
+
+
+Then you will fetch and unzip Python:
+
+wget http://www.python.org/ftp/python/2.7.5/Python-2.7.5.tar.bz2
+tar xf Python-2.7.5.tar.bz2 
+
+cd Python-2.7.5
+Do the usual &quot;configure, make, make install&quot; waltz:  
+
+ 
+./configure --prefix=/opt/python2.7.5 --with-threads --enable-shared
+makemake install
+
+At this point, it seems like you're done but not quite.  
+</code></pre>
+
+<p>$ /opt/python2.7.5/bin/python /opt/python2.7.5/bin/python: error while
+loading shared libraries: libpython2.7.so.1.0: cannot open shared object
+file: No such file or directory</p>
+
+<pre><code>/opt/python2.7.5/
+ 
+
+The trick is to tell ldconfig where to find the new python shared libraries:  
+</code></pre>
+
+<p><span class="nb" style="color: #0086b3;">echo</span> <span class="s2"
+style="color: #dd1144;">&rdquo;/opt/python2.7.5/lib/&rdquo;</span> &gt;
+/etc/ld.so.conf.d/opt-python2.7.5.conf</p>
+
+<pre><code>ldconfig 
+
+ 
+
+Now we're cooking with gas: 
+
+$ /opt/python2.7.5/bin/python 
+
+Python 2.7.5 (default, Aug 21 2013, 09:50:18) 
+[GCC 4.1.2 20080704 (Red Hat 4.1.2-54)] on linux2
+</code></pre>
+
+<p>Get setuptools from the <a href="https://pypi.python.org/pypi/setuptools">setuptools project
+page</a>.  You have to click on
+the version you want and then to find the download link, scroll to the
+very bottom of the page (&ldquo;In the basement, down a long hallway behind a
+door marked &lsquo;danger-TIGER!&rsquo;&ldquo;)</p>
+
+<p><span style="color: #b45f06;">Aside: I am having bad luck these days
+trying to wget from https servers &ndash; something about SSL certificates
+and my corporate proxy and the old version of wget that is on CentOS
+5.8.</span><br />
+<span style="color: #b45f06;"><br />
+</span><span style="font-size: x-small;"><span
+style="color: #b45f06; font-family: &quot;Courier New&quot;,Courier,monospace;">#
+wget
+&ldquo;<a href="https://pypi.python.org/packages/source/s/setuptools/setuptools-1.0.tar.gz&quot;">https://pypi.python.org/packages/source/s/setuptools/setuptools-1.0.tar.gz&quot;</a><br />
+&ndash;2013-08-21 11:49:47&ndash; 
+<a href="https://pypi.python.org/packages/source/s/setuptools/setuptools-1.0.tar.gz">https://pypi.python.org/packages/source/s/setuptools/setuptools-1.0.tar.gz</a><br />
+Resolving proxy.company.com&hellip; </span></span><br />
+<span style="font-size: x-small;"><span
+style="color: #b45f06; font-family: &quot;Courier New&quot;,Courier,monospace;">Connecting
+to proxy.company.com:8080&hellip; connected.<br />
+ERROR: certificate common name `*.a.ssl.proxy.net&rsquo; doesn&rsquo;t match
+requested host name `pypi.python.org&rsquo;.<br />
+To connect to pypi.python.org insecurely, use
+`&ndash;no-check-certificate&rsquo;.<br />
+Unable to establish SSL connection.</span></span><br />
+<span style="color: #b45f06;"><br />
+</span><span style="color: #b45f06;">So curl seems to work better. 
+Maybe because it is not checking SSL certs?</span><br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="color: #b45f06; font-size: x-small;"># curl -O
+&ldquo;<a href="https://pypi.python.org/packages/source/s/setuptools/setuptools-1.0.tar.gz&quot;">https://pypi.python.org/packages/source/s/setuptools/setuptools-1.0.tar.gz&quot;</a><br />
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time 
+Current<br />
+                                 Dload  Upload   Total   Spent    Left 
+Speed<br />
+100  663k  100  663k    0     0   229k      0  0:00:02  0:00:02
+&ndash;:&ndash;:&ndash;  359k</span></span></p>
+
+<p>Once you have downloaded and untar&rsquo;ed setuptools, you want to install
+it.  But it seems the setuptools
+<a href="https://pypi.python.org/pypi/setuptools/1.0#installation-instructions">instructions</a>
+appear flawed:<br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;"># /opt/python2.7.5/bin/python setup.py
+&ndash;prefix=/opt/setuptools<br />
+error: option &ndash;prefix not recognized</span></span></p>
+
+<p>So just do the usual &ldquo;python setup.py build and install&rdquo; two-step.  Be
+sure you are calling the desired target python version.<br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;">/opt/python2.7.5/bin/python setup.py
+build</span></span><br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;">/opt/python2.7.5/bin/python setup.py
+install</span></span></p>
+
+<p>Now you can install pip:<br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;">curl -O
+<a href="https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz">https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz</a><br />
+tar xvzf pip-1.4.1.tar.gz<br />
+cd pip-1.4.1<br />
+/opt/python2.7.5/bin/python setup.py build<br />
+/opt/python2.7.5/bin/python setup.py install</span></span><br />
+And now&hellip; <span style="font-size: large;">now&hellip;</span> <strong><span
+style="font-size: x-large;">NOW!</span></strong>  Praise the Almighty, you are
+ready to use pip to install packages!!!</p>
+
+<p><span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;">/opt/python2.7.5/bin/pip install numpy   #
+install this before biopython</span></span><br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;">/opt/python2.7.5/bin/pip install
+scipy</span></span><br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;">/opt/python2.7.5/bin/pip install
+biopython</span></span><br />
+<span
+style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span
+style="font-size: x-small;">/opt/python2.7.5/bin/pip install
+pysam</span></span></p>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

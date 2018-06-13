@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installation on Biocozy.net</title>
+    <link>https://biocozy.net/tags/installation/</link>
+    <description>Recent content in Installation on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Mon, 15 Dec 2008 11:15:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/installation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to get the BioConductor packages to install correctly in Ubuntu 8.10</title>
+      <link>https://biocozy.net/posts/2008-12-15-how-to-get-the-bioconductor-packages-to-install-correctly-in-ubuntu-8-10/</link>
+      <pubDate>Mon, 15 Dec 2008 11:15:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2008-12-15-how-to-get-the-bioconductor-packages-to-install-correctly-in-ubuntu-8-10/</guid>
+      <description>Apparently, the repositories for the 8.10 (Intrepid Ibex) release of Ubuntu do not completely specify all of the dependencies for the R-base synaptic package.
+I could not get various packages to compile, until I installed
+sudo apt-get install libxml2-dev libatlas-base-dev
+This solved many build problems, including package XML, but I was still getting the following error when attempting to load library vsn:
+
+ &amp;gt; library(vsn)
+Loading required package: lattice</description>
+    </item>
+    
+  </channel>
+</rss>

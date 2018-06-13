@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Biocozy.net</title>
+    <link>https://biocozy.net/tags/shell/</link>
+    <description>Recent content in Shell on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Wed, 12 Sep 2012 12:02:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>join command requires alphanumeric sort</title>
+      <link>https://biocozy.net/posts/2012-09-12-join-command-requires-alphanumeric-sort/</link>
+      <pubDate>Wed, 12 Sep 2012 12:02:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-09-12-join-command-requires-alphanumeric-sort/</guid>
+      <description>You may already know that the linux join command requires sorted fields to work properly &amp;ndash; after all, it tells you so right in the man page:
+Important: FILE1 and FILE2 must be sorted on the join fields.
+But I just found out the hard way that it must be an alphanumeric sort, not a numeric sort.
+Lesson learned.</description>
+    </item>
+    
+    <item>
+      <title>Pull desired sequences out of a multiple FASTA file with regex pattern
+match</title>
+      <link>https://biocozy.net/posts/2011-09-13-pull-desired-sequences-out-of-a-multiple-fasta-file-with-regex-pattern-match/</link>
+      <pubDate>Tue, 13 Sep 2011 07:01:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-09-13-pull-desired-sequences-out-of-a-multiple-fasta-file-with-regex-pattern-match/</guid>
+      <description>This simple problem stumped me for a while.
+Say you want just the human sequences (&amp;ldquo;hsa&amp;rdquo;) from the following multiple FASTA file:
+&amp;gt;cel-mir-90 MI0000059 Caenorhabditis elegans miR-90 stem-loop GGGCGCCAUUUCGAGCGGCUUUCAACGACGAUAUCAACCGACAACUCACACUUUUGCGUG UUGAUAUGUUGUUUGAAUGCCCCUUGAAUUGGAUGCCA &amp;gt;hsa-let-7a-1 MI0000060 Homo sapiens let-7a-1 stem-loop UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAU ACAAUCUACUGUCUUUCCUA &amp;gt;hsa-let-7a-2 MI0000061 Homo sapiens let-7a-2 stem-loop AGGUUGAGGUAGUAGGUUGUAUAGUUUAGAAUUACAUCAAGGGAGAUAACUGUACAGCCU CCUAGCUUUCCU &amp;gt;dme-mir-13b-2 MI0000135 Drosophila melanogaster miR-13b-2 stem-loop UAUUAACGCGUCAAAAUGACUGUGAGCUAUGUGGAUUUGACUUCAUAUCACAGCCAUUUU GACGAGUUUG &amp;gt;dme-mir-14 MI0000136 Drosophila melanogaster miR-14 stem-loop UGUGGGAGCGAGACGGGGACUCACUGUGCUUAUUAAAUAGUCAGUCUUUUUCUCUCUCCU AUA &amp;gt;mmu-let-7g MI0000137 Mus musculus let-7g stem-loop CCAGGCUGAGGUAGUAGUUUGUACAGUUUGAGGGUCUAUGAUACCACCCGGUACAGGAGA UAACUGUACAGGCCACUGCCUUGCCAGG &amp;gt;hsa-mir-30d MI0000255 Homo sapiens miR-30d stem-loop GUUGUUGUAAACAUCCCCGACUGGAAGCUGUAAGACACAGCUAAGCUUUCAGUCAGAUGU UUGCUGCUAC &amp;gt;mmu-mir-122 MI0000256 Mus musculus miR-122 stem-loop AGCUGUGGAGUGUGACAAUGGUGUUUGUGUCCAAACCAUCAAACGCCAUUAUCACACUAA AUAGCU  In other words, you want just these sequences:</description>
+    </item>
+    
+    <item>
+      <title>Package search tools: &#34;provided by&#34; and &#34;what provides&#34;</title>
+      <link>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</link>
+      <pubDate>Mon, 08 Aug 2011 13:27:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</guid>
+      <description>Ubuntu community help forum has a nice page if you need to be reminded how to search files provided by a particular package.
+dpkg -L will show you what files came with an installed package
+apt-file, which needs to be installed first, will tell you what package provides a given file. Actually, it can also replicate the same thing that dpkg -L does, see below:
+$ dpkg -L picard-tools /. /usr /usr/bin /usr/bin/picard-tools /usr/share /usr/share/java /usr/share/java/picard-1.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac Os X on Biocozy.net</title>
+    <link>https://biocozy.net/tags/mac-os-x/</link>
+    <description>Recent content in Mac Os X on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Thu, 02 Feb 2012 02:50:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/mac-os-x/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>get rid of dashboard in mac os X</title>
+      <link>https://biocozy.net/posts/2012-02-02-get-rid-of-dashboard-in-mac-os-x/</link>
+      <pubDate>Thu, 02 Feb 2012 02:50:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-02-02-get-rid-of-dashboard-in-mac-os-x/</guid>
+      <description>Dashboard seems like a good idea, but I can&amp;rsquo;t stand how it always seems to take 5 seconds to &amp;ldquo;wake up&amp;rdquo; all those widgets whenever I open it up. So, as a result, I never use it. It just idles there in the background taking up a sliver of CPU cycles. Oh and occasionally I accidentally key into it. So, I am glad I finally did this:
+defaults write com.apple.dashboard mcx-disabled -boolean YES</description>
+    </item>
+    
+  </channel>
+</rss>

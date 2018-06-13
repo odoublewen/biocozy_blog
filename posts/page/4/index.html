@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://biocozy.net/posts/" />
+
+
+
+<meta property="og:updated_time" content="2013-05-23T20:09:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/">
+
+    <title>
+      
+        Posts | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+    <link href="https://biocozy.net/posts/index.xml" rel="alternate" type="application/rss+xml" title="Biocozy.net" />
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+            <a class="text-dark" href="/posts/2013-05-23-rna-seq-analysis-pitfalls-to-avoid/">RNA-Seq analysis: pitfalls to avoid</a>
+        </h2>
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        May 23, 2013
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+        
+        
+    </header>
+    Here I am writing out some of the details of my tophat/cufflinks RNA-Seq workflow. I will try to concisely summarize what works and what pitfalls to avoid. None of what follows is particularly cutting edge, but since these analyses often involve days of computation, each and every trial-and-error glitch adds up and sets you back. This document is intended to help you avoid such setbacks.
+I. Get reference genome and annotation
+    <p></p>
+    <a href="/posts/2013-05-23-rna-seq-analysis-pitfalls-to-avoid/">Read More →</a>
+</article>
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+            <a class="text-dark" href="/posts/2013-05-01-indispensable-bookmarks-for-fixing-computing-annoyances/">Indispensable bookmarks for fixing computing annoyances</a>
+        </h2>
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        May 1, 2013
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+        
+        
+    </header>
+    This list will no doubt grow&hellip;
+Understanding GNU Emacs and Tabs
+Executive summary: put this in your .emacs.el file:
+(setq-default major-mode &lsquo;text-mode)
+(define-key text-mode-map (kbd &ldquo;TAB&rdquo;) &lsquo;self-insert-command); 
+ggplot2: Changing the Default Order of Legend Labels and Stacking of Data
+Executive summary:
+ggplot(diamonds, aes(clarity, fill=cut, order= -as.numeric(cut))) 
+actually, this is better, available in recent versions of ggplot2:
+guides(color = guide_legend(reverse = TRUE))
+    <p></p>
+    <a href="/posts/2013-05-01-indispensable-bookmarks-for-fixing-computing-annoyances/">Read More →</a>
+</article>
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+            <a class="text-dark" href="/posts/2013-04-11-bioinformatic-workshops-and-courses-a-list-of-lists/">Bioinformatic workshops and courses (a list of lists)</a>
+        </h2>
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        Apr 11, 2013
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+        
+        
+    </header>
+     List of Bioinformatics Workshops and Training Resources posted by Stephen Turner A list of bioinformatics courses posted at C. Titus Brown  
+    <p></p>
+    <a href="/posts/2013-04-11-bioinformatic-workshops-and-courses-a-list-of-lists/">Read More →</a>
+</article>
+    
+
+
+
+
+
+<nav class="blog-pagination">
+    <ul class="pagination justify-content-center">
+        
+        <li class="page-item">
+            <a class="page-link" href="/posts/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        </li>
+        
+        <li class="page-item ">
+            <a class="page-link" href="/posts/page/3/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+        </li>
+        
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/posts/">1</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/posts/page/2/">2</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/posts/page/3/">3</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item active">
+                    <a class="page-link" href="/posts/page/4/">4</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/posts/page/5/">5</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/posts/page/23/">23</a>
+                </li>
+            
+        
+        <li class="page-item ">
+            <a class="page-link" href="/posts/page/5/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+        </li>
+        
+            <li class="page-item">
+                <a class="page-link" href="/posts/page/23/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

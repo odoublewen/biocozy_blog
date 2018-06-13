@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Parallel Computing on Biocozy.net</title>
+    <link>https://biocozy.net/tags/parallel-computing/</link>
+    <description>Recent content in Parallel Computing on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Mon, 05 Oct 2009 13:56:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/parallel-computing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>parallel computation using the caret package</title>
+      <link>https://biocozy.net/posts/2009-10-05-parallel-computation-using-the-caret-package/</link>
+      <pubDate>Mon, 05 Oct 2009 13:56:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-10-05-parallel-computation-using-the-caret-package/</guid>
+      <description>Library caret is a wonderful R package for tuning a variety of machine learning classification and regression algorithms. But it can take a long time to run, since model tuning usually involves running multiple bootstrapped replicates for each point in your tuning grid.
+If you have a multi-core desktop machine, you can speed up your calls to the caret function train by using explicit parallelism.
+There were just a couple hitches to get it flying on my 64bit quad core Optiplex 960 running linux kernel 2.</description>
+    </item>
+    
+    <item>
+      <title>fork processes in R using package multicore</title>
+      <link>https://biocozy.net/posts/2009-10-01-fork-processes-in-r-using-package-multicore/</link>
+      <pubDate>Thu, 01 Oct 2009 16:17:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-10-01-fork-processes-in-r-using-package-multicore/</guid>
+      <description>I just found this wicked cool way to fork processes (for multi-core CPUs) in R&amp;hellip;. Works just like you&amp;rsquo;d expect!
+library(multicore)
+job1 &amp;lt;- mcparallel(bigMachingLeaningFunction1())
+job2 &amp;lt;- mcparallel(bigMachingLeaningFunction2())
+job3 &amp;lt;- mcparallel(bigMachingLeaningFunction3())
+job4 &amp;lt;- mcparallel(bigMachingLeaningFunction4())
+###### time goes by &amp;hellip;..
+results1 &amp;lt;- collect(job1)
+results2 &amp;lt;- collect(job2)
+results3 &amp;lt;- collect(job3)
+results4 &amp;lt;- collect(job4)
+Note to emacs ESS users &amp;ndash; just be sure all your libraries are already loaded, and set silent=TRUE in the mcparallel call&amp;hellip;.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Loading custom genomes into IGV" />
+<meta property="og:description" content="bp_genbank2gff3
+bp_genbank2gff3 -out stdout NC_014117.gbk &gt;NC_014117.gff3
+NC_014117.gff3
+&gt;gi|295675101|ref|NC_014117.1| Burkholderia sp. CCGE1002 chromosome 1, complete sequence
+AAAACCGCGCGATCATCGCTGAAAGCGCAATGGCCGGTGGTTTACTGGAATTGGTTTTCGCGGAACCCGC
+TATTTAAACCGGTTTTCCGTTGGCCGTCAATAGTTTAGCCCGCTTCTGACGCAGCCGACGTTTCCCGGGC
+NC_014117.gff3
+##gff-version 3
+# sequence-region NC_014117.1 1 3518940
+# conversion-by bp_genbank2gff3.pl
+# organism Burkholderia sp. CCGE1002
+# date 06-JUN-2011
+# Note Burkholderia sp. CCGE1002 chromosome 1, complete sequence.
+NC_014117.1 GenBank chromosome 1 3518940 . &#43; . ID=NC_014117.1;Alias=1;Dbxref=taxon:640511
+NC_014117.1 GenBank gene 363 1961 . &#43; . ID=BC1002_0001;Dbxref=GeneID:9090916;locus_tag=BC1002_0001
+samtools view ALL_NC_014117.sorted.bam |head
+SOLEXA2_0903_FC628A5AAXX:8:82:19168:11203#0/1 0 gi|295675101|ref|NC_014117.1| 130 255 15M * 0 0 GTTTCCCGGGCGATG fffffeffffffdff XA:i:0 MD:Z:15 NM:i:0" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biocozy.net/posts/2011-10-06-loading-custom-genomes-into-igv/" />
+
+
+
+<meta property="article:published_time" content="2011-10-06T04:37:00-07:00"/>
+
+<meta property="article:modified_time" content="2011-10-06T04:37:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Loading custom genomes into IGV"/>
+<meta name="twitter:description" content="bp_genbank2gff3
+bp_genbank2gff3 -out stdout NC_014117.gbk &gt;NC_014117.gff3
+NC_014117.gff3
+&gt;gi|295675101|ref|NC_014117.1| Burkholderia sp. CCGE1002 chromosome 1, complete sequence
+AAAACCGCGCGATCATCGCTGAAAGCGCAATGGCCGGTGGTTTACTGGAATTGGTTTTCGCGGAACCCGC
+TATTTAAACCGGTTTTCCGTTGGCCGTCAATAGTTTAGCCCGCTTCTGACGCAGCCGACGTTTCCCGGGC
+NC_014117.gff3
+##gff-version 3
+# sequence-region NC_014117.1 1 3518940
+# conversion-by bp_genbank2gff3.pl
+# organism Burkholderia sp. CCGE1002
+# date 06-JUN-2011
+# Note Burkholderia sp. CCGE1002 chromosome 1, complete sequence.
+NC_014117.1 GenBank chromosome 1 3518940 . &#43; . ID=NC_014117.1;Alias=1;Dbxref=taxon:640511
+NC_014117.1 GenBank gene 363 1961 . &#43; . ID=BC1002_0001;Dbxref=GeneID:9090916;locus_tag=BC1002_0001
+samtools view ALL_NC_014117.sorted.bam |head
+SOLEXA2_0903_FC628A5AAXX:8:82:19168:11203#0/1 0 gi|295675101|ref|NC_014117.1| 130 255 15M * 0 0 GTTTCCCGGGCGATG fffffeffffffdff XA:i:0 MD:Z:15 NM:i:0"/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/2011-10-06-loading-custom-genomes-into-igv/">
+
+    <title>
+      
+        Loading custom genomes into IGV | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/2011-10-06-loading-custom-genomes-into-igv/">Loading custom genomes into IGV</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        Oct 6, 2011
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    <p>bp_genbank2gff3</p>
+
+<p>bp_genbank2gff3 -out stdout NC_014117.gbk &gt;NC_014117.gff3</p>
+
+<p>NC_014117.gff3</p>
+
+<p>&gt;gi|295675101|ref|NC_014117.1| Burkholderia sp. CCGE1002 chromosome
+1, complete sequence<br />
+AAAACCGCGCGATCATCGCTGAAAGCGCAATGGCCGGTGGTTTACTGGAATTGGTTTTCGCGGAACCCGC<br />
+TATTTAAACCGGTTTTCCGTTGGCCGTCAATAGTTTAGCCCGCTTCTGACGCAGCCGACGTTTCCCGGGC</p>
+
+<p>NC_014117.gff3</p>
+
+<p>##gff-version 3<br />
+# sequence-region NC_014117.1 1 3518940<br />
+# conversion-by bp_genbank2gff3.pl<br />
+# organism Burkholderia sp. CCGE1002<br />
+# date 06-JUN-2011<br />
+# Note Burkholderia sp. CCGE1002 chromosome 1, complete sequence.<br />
+NC_014117.1 GenBank chromosome 1 3518940 . + .
+ID=NC_014117.1;Alias=1;Dbxref=taxon:640511<br />
+NC_014117.1 GenBank gene 363 1961 . + .
+ID=BC1002_0001;Dbxref=GeneID:9090916;locus_tag=BC1002_0001</p>
+
+<p>samtools view ALL_NC_014117.sorted.bam |head</p>
+
+<p>SOLEXA2_0903_FC628A5AAXX:8:82:19168:11203#0/1 0
+gi|295675101|ref|NC_014117.1| 130 255 15M * 0 0 GTTTCCCGGGCGATG
+fffffeffffffdff XA:i:0 MD:Z:15 NM:i:0<br />
+SOLEXA1_0917_FC628DCAAXX:2:46:13694:14478#0/1 0
+gi|295675101|ref|NC_014117.1| 2620 255 15M * 0 0 CGATTTCGGCGTCGG
+ffaffffffffdfcf XA:i:0 MD:Z:15 NM:i:0<br />
+SOLEXA1_0917_FC628DCAAXX:2:92:3430:18241#0/1 0
+gi|295675101|ref|NC_014117.1| 2620 255 15M * 0 0 CGATTTCGGCGTCGG
+fffffffffffffff XA:i:0 MD:Z:15 NM:i:0<br />
+S</p>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Biocozy.net</title>
+    <link>https://biocozy.net/tags/linux/</link>
+    <description>Recent content in Linux on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Wed, 12 Sep 2012 12:02:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>join command requires alphanumeric sort</title>
+      <link>https://biocozy.net/posts/2012-09-12-join-command-requires-alphanumeric-sort/</link>
+      <pubDate>Wed, 12 Sep 2012 12:02:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-09-12-join-command-requires-alphanumeric-sort/</guid>
+      <description>You may already know that the linux join command requires sorted fields to work properly &amp;ndash; after all, it tells you so right in the man page:
+Important: FILE1 and FILE2 must be sorted on the join fields.
+But I just found out the hard way that it must be an alphanumeric sort, not a numeric sort.
+Lesson learned.</description>
+    </item>
+    
+    <item>
+      <title>Package search tools: &#34;provided by&#34; and &#34;what provides&#34;</title>
+      <link>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</link>
+      <pubDate>Mon, 08 Aug 2011 13:27:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</guid>
+      <description>Ubuntu community help forum has a nice page if you need to be reminded how to search files provided by a particular package.
+dpkg -L will show you what files came with an installed package
+apt-file, which needs to be installed first, will tell you what package provides a given file. Actually, it can also replicate the same thing that dpkg -L does, see below:
+$ dpkg -L picard-tools /. /usr /usr/bin /usr/bin/picard-tools /usr/share /usr/share/java /usr/share/java/picard-1.</description>
+    </item>
+    
+    <item>
+      <title>How to access Time Machine files from Linux UNIX</title>
+      <link>https://biocozy.net/posts/2011-05-26-how-to-access-time-machine-files-from-linux-unix/</link>
+      <pubDate>Thu, 26 May 2011 12:34:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-05-26-how-to-access-time-machine-files-from-linux-unix/</guid>
+      <description>Found this very handy script that allows you to access a Time Machine created backup, which Apple engineered (almost) too cleverly.
+Handy if you want to copy files off of a backup, directly to a linux computer, for example.</description>
+    </item>
+    
+  </channel>
+</rss>

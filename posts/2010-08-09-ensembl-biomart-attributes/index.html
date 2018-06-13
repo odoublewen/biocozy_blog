@@ -1,0 +1,1750 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Ensembl Biomart Attributes" />
+<meta property="og:description" content="Here is the list, current as of posting, for the ensembl biomart attributes available from within R/Bioconductor&hellip;
+name description
+1 ensembl_gene_id Ensembl Gene ID
+2 ensembl_transcript_id Ensembl Transcript ID
+3 ensembl_peptide_id Ensembl Protein ID
+4 canonical_transcript_stable_id Canonical transcript stable ID(s)
+5 description Description
+6 chromosome_name Chromosome Name
+7 start_position Gene Start (bp)
+8 end_position Gene End (bp)
+9 strand Strand
+10 band Band
+11 transcript_start Transcript Start (bp)
+12 transcript_end Transcript End (bp)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biocozy.net/posts/2010-08-09-ensembl-biomart-attributes/" />
+
+
+
+<meta property="article:published_time" content="2010-08-09T12:52:00-07:00"/>
+
+<meta property="article:modified_time" content="2010-08-09T12:52:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ensembl Biomart Attributes"/>
+<meta name="twitter:description" content="Here is the list, current as of posting, for the ensembl biomart attributes available from within R/Bioconductor&hellip;
+name description
+1 ensembl_gene_id Ensembl Gene ID
+2 ensembl_transcript_id Ensembl Transcript ID
+3 ensembl_peptide_id Ensembl Protein ID
+4 canonical_transcript_stable_id Canonical transcript stable ID(s)
+5 description Description
+6 chromosome_name Chromosome Name
+7 start_position Gene Start (bp)
+8 end_position Gene End (bp)
+9 strand Strand
+10 band Band
+11 transcript_start Transcript Start (bp)
+12 transcript_end Transcript End (bp)"/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/2010-08-09-ensembl-biomart-attributes/">
+
+    <title>
+      
+        Ensembl Biomart Attributes | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/2010-08-09-ensembl-biomart-attributes/">Ensembl Biomart Attributes</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        Aug 9, 2010
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    <p>Here is the list, current as of posting, for the ensembl biomart
+attributes available from within R/Bioconductor&hellip;</p>
+
+<p>name description<br />
+1 ensembl_gene_id Ensembl Gene ID<br />
+2 ensembl_transcript_id Ensembl Transcript ID<br />
+3 ensembl_peptide_id Ensembl Protein ID<br />
+4 canonical_transcript_stable_id Canonical transcript stable ID(s)<br />
+5 description Description<br />
+6 chromosome_name Chromosome Name<br />
+7 start_position Gene Start (bp)<br />
+8 end_position Gene End (bp)<br />
+9 strand Strand<br />
+10 band Band<br />
+11 transcript_start Transcript Start (bp)<br />
+12 transcript_end Transcript End (bp)<br />
+13 external_gene_id Associated Gene Name<br />
+14 external_transcript_id Associated Transcript Name<br />
+15 external_gene_db Associated Gene DB<br />
+16 transcript_db_name Associated Transcript DB<br />
+17 transcript_count Transcript count<br />
+18 percentage_gc_content % GC content<br />
+19 gene_biotype Gene Biotype<br />
+20 transcript_biotype Transcript Biotype<br />
+21 source Source<br />
+22 status Status (gene)<br />
+23 transcript_status Status (transcript)<br />
+24 go_biological_process_id GO Term Accession (bp)<br />
+25 name_1006 GO Term Name (bp)<br />
+26 definition_1006 GO Term Definition (bp)<br />
+27 go_biological_process_linkage_type GO Term Evidence Code (bp)<br />
+28 go_cellular_component_id GO Term Accession (cc)<br />
+29 go_cellular_component__dm_name_1006 GO Term Name (cc)<br />
+30 go_cellular_component__dm_definition_1006 GO Term Definition
+(cc)<br />
+31 go_cellular_component_linkage_type GO Term Evidence Code (cc)<br />
+32 go_molecular_function_id GO Term Accession<br />
+33 go_molecular_function__dm_name_1006 GO Term Name (mf)<br />
+34 go_molecular_function__dm_definition_1006 GO Term Definition
+(mf)<br />
+35 go_molecular_function_linkage_type GO Term Evidence Code (mf)<br />
+36 goslim_goa_accession GOSlim GOA Accession(s)<br />
+37 goslim_goa_description GOSlim GOA Description<br />
+38 ucsc UCSC ID<br />
+39 pdb PDB ID<br />
+40 clone_based_ensembl_gene_name Clone based Ensembl gene name<br />
+41 clone_based_ensembl_transcript_name Clone based Ensembl
+transcript name<br />
+42 clone_based_vega_gene_name Clone based VEGA gene name<br />
+43 clone_based_vega_transcript_name Clone based VEGA transcript
+name<br />
+44 ccds CCDS ID<br />
+45 embl EMBL (Genbank) ID<br />
+46 ox_ens_lrg_transcript__dm_dbprimary_acc_1074 Ensembl LRG
+transcript<br />
+47 entrezgene EntrezGene ID<br />
+48 ottt VEGA transcript ID(s) (OTTT)<br />
+49 ottg VEGA gene ID(s) (OTTG)<br />
+50 shares_cds_with_enst Ensembl transcript (where OTTT shares CDS
+with ENST)<br />
+51 shares_cds_with_ottt HAVANA transcript (where ENST shares CDS with
+OTTT)<br />
+52 shares_cds_and_utr_with_ottt HAVANA transcript (where ENST
+identical to OTTT)<br />
+53 hgnc_id HGNC ID<br />
+54 hgnc_symbol HGNC symbol<br />
+55 hgnc_automatic_gene_name HGNC automatic gene name<br />
+56 hgnc_curated_gene_name HGNC curated gene name<br />
+57 hgnc_automatic_transcript_name HGNC automatic transcript name<br />
+58 hgnc_curated_transcript_name HGNC curated transcript name<br />
+59 hgnc_mb001 HGNC mb001 ID<br />
+60 ipi IPI ID<br />
+61 merops MEROPS ID<br />
+62 mim_morbid_accession MIM Morbid Accession<br />
+63 mim_morbid_description MIM Morbid Description<br />
+64 mim_gene_accession MIM Gene Accession<br />
+65 mim_gene_description MIM Gene Description<br />
+66 mirbase_accession miRBase Accession(s)<br />
+67 mirbase_id miRBase ID(s)<br />
+68 protein_id Protein (Genbank) ID<br />
+69 refseq_dna RefSeq DNA ID<br />
+70 refseq_dna_predicted RefSeq Predicted DNA ID<br />
+71 refseq_peptide RefSeq Protein ID<br />
+72 refseq_peptide_predicted RefSeq Predicted Protein ID<br />
+73 refseq_genomic RefSeq Genomic ID(s)<br />
+74 rfam Rfam ID<br />
+75 unigene Unigene ID<br />
+76 uniprot_sptrembl UniProt/TrEMBL Accession<br />
+77 uniprot_swissprot_accession UniProt/SwissProt Accession<br />
+78 wikigene_name WikiGene name<br />
+79 wikigene_description WikiGene description<br />
+80 hpa Human Protein Atlas Antibody ID<br />
+81 dbass3_id Database of Aberrant 3&rsquo; Splice Sites (DBASS3) IDs<br />
+82 dbass3_name DBASS3 Gene Name<br />
+83 dbass5_id Database of Aberrant 5&rsquo; Splice Sites (DBASS5) IDs<br />
+84 dbass5_name DBASS5 Gene Name<br />
+85 affy_hc_g110 Affy HC G110<br />
+86 affy_hg_focus Affy HG FOCUS<br />
+87 affy_hg_u133_plus_2 Affy HG U133-PLUS-2<br />
+88 affy_hg_u133a_2 Affy HG U133A_2<br />
+89 affy_hg_u133a Affy HG U133A<br />
+90 affy_hg_u133b Affy HG U133B<br />
+91 affy_hg_u95av2 Affy HG U95AV2<br />
+92 affy_hg_u95b Affy HG U95B<br />
+93 affy_hg_u95c Affy HG U95C<br />
+94 affy_hg_u95d Affy HG U95D<br />
+95 affy_hg_u95e Affy HG U95E<br />
+96 affy_hg_u95a Affy HG U95A<br />
+97 affy_hugenefl Affy HuGene FL<br />
+98 affy_huex_1_0_st_v2 Affy HuEx 1_0 st v2<br />
+99 affy_hugene_1_0_st_v1 Affy HuGene 1_0 st v1<br />
+100 affy_u133_x3p Affy U133 X3P<br />
+101 agilent_cgh_44b Agilent CGH 44b<br />
+102 agilent_wholegenome Agilent WholeGenome<br />
+103 codelink Codelink<br />
+104 illumina_humanwg_6_v1 Illumina HumanWG 6 v1<br />
+105 illumina_humanwg_6_v2 Illumina HumanWG 6 v2<br />
+106 illumina_humanwg_6_v3 Illumina HumanWG 6 v3<br />
+107 illumina_humanht_12 Illumina Human HT 12<br />
+108 phalanx_onearray Phalanx OneArray<br />
+109 anatomical_system Anatomical System (egenetics)<br />
+110 development_stage Development Stage (egenetics)<br />
+111 cell_type Cell Type (egenetics)<br />
+112 pathology Pathology (egenetics)<br />
+113 anatomical_system_gnf Anatomical System (gnf)<br />
+114 development_stage_gnf Development Stage (gnf)<br />
+115 cell_type_gnf Cell Type (gnf)<br />
+116 pathology_gnf Pathology (gnf)<br />
+117 family_description Ensembl Family Description<br />
+118 family Ensembl Protein Family ID(s)<br />
+119 pirsf PIRSF SuperFamily ID<br />
+120 superfamily Superfamily ID<br />
+121 smart SMART ID<br />
+122 profile PROFILE ID<br />
+123 prosite PROSITE ID<br />
+124 prints PRINTS ID<br />
+125 pfam PFAM ID<br />
+126 tigrfam TIGRFam ID<br />
+127 interpro Interpro ID<br />
+128 interpro_short_description Interpro Short Description<br />
+129 interpro_description Interpro Description<br />
+130 transmembrane_domain Transmembrane domain<br />
+131 signal_domain Signal domain<br />
+132 ncoils Ncoils<br />
+133 ensembl_gene_id Ensembl Gene ID<br />
+134 ensembl_transcript_id Ensembl Transcript ID<br />
+135 ensembl_peptide_id Ensembl Protein ID<br />
+136 chromosome_name Chromosome Name<br />
+137 start_position Gene Start (bp)<br />
+138 end_position Gene End (bp)<br />
+139 transcript_start Transcript Start (bp)<br />
+140 transcript_end Transcript End (bp)<br />
+141 strand Strand<br />
+142 external_gene_id Associated Gene Name<br />
+143 external_gene_db Associated Gene DB<br />
+144 5_utr_start 5&rsquo; UTR Start<br />
+145 5_utr_end 5&rsquo; UTR End<br />
+146 3_utr_start 3&rsquo; UTR Start<br />
+147 3_utr_end 3&rsquo; UTR End<br />
+148 cds_length CDS Length<br />
+149 transcript_count Transcript count<br />
+150 description Description<br />
+151 gene_biotype Gene Biotype<br />
+152 ensembl_exon_id Ensembl Exon ID<br />
+153 exon_chrom_start Exon Chr Start (bp)<br />
+154 exon_chrom_end Exon Chr End (bp)<br />
+155 is_constitutive Constitutive Exon<br />
+156 rank Exon Rank in Transcript<br />
+157 phase phase<br />
+158 cdna_coding_start cDNA coding start<br />
+159 cdna_coding_end cDNA coding end<br />
+160 genomic_coding_start Genomic coding start<br />
+161 genomic_coding_end Genomic coding end<br />
+162 cds_start CDS Start<br />
+163 cds_end CDS End<br />
+164 ensembl_gene_id Ensembl Gene ID<br />
+165 ensembl_transcript_id Ensembl Transcript ID<br />
+166 ensembl_peptide_id Ensembl Protein ID<br />
+167 ensembl_exon_id Ensembl Exon ID<br />
+168 name_1078 Gene Name With Corresponding Event<br />
+169 splicing_event__dm_name_1059 Chromosome Name<br />
+170 seq_region_start_1078 Seq Region Start (bp)<br />
+171 seq_region_end_1078 Seq Region End (bp)<br />
+172 seq_region_strand_1078 Strand<br />
+173 ensembl_gene_id Ensembl Gene ID<br />
+174 ensembl_transcript_id Ensembl Transcript ID<br />
+175 ensembl_peptide_id Ensembl Protein ID<br />
+176 chromosome_name Chromosome Name<br />
+177 start_position Gene Start (bp)<br />
+178 end_position Gene End (bp)<br />
+179 strand Strand<br />
+180 band Band<br />
+181 external_gene_id Associated Gene Name<br />
+182 external_gene_db Associated Gene DB<br />
+183 transcript_count Transcript count<br />
+184 percentage_gc_content % GC content<br />
+185 description Description<br />
+186 alpaca_ensembl_gene Alpaca Ensembl Gene ID<br />
+187 alpaca_homolog_ensembl_peptide Alpaca Ensembl Protein ID<br />
+188 alpaca_chromosome Alpaca Chromosome<br />
+189 alpaca_chrom_start Alpaca Chromosome Start (bp)<br />
+190 alpaca_chrom_end Alpaca Chromosome End (bp)<br />
+191 alpaca_orthology_type Homology Type<br />
+192 alpaca_homolog_subtype Ancestor<br />
+193 alpaca_homolog_dn dS<br />
+194 alpaca_homolog_ds dN<br />
+195 alpaca_homolog_perc_id % Identity<br />
+196 alpaca_homolog_perc_id_r1 Alpaca % Identity<br />
+197 anole_lizard_ensembl_gene Anole Lizard Ensembl Gene ID<br />
+198 anole_lizard_ensembl_peptide Anole Lizard Ensembl Protein ID<br />
+199 anole_lizard_chromosome Anole Lizard Chromosome<br />
+200 anole_lizard_chrom_start Anole Lizard Chromosome Start (bp)<br />
+201 anole_lizard_chrom_end Anole Lizard Chromosome End (bp)<br />
+202 anole_lizard_orthology_type Homology Type<br />
+203 anole_lizard_homolog_subtype Ancestor<br />
+204 anole_lizard_homolog_dn dS<br />
+205 anole_lizard_homolog_ds dN<br />
+206 anole_lizard_perc_id % Identity<br />
+207 anole_lizard_perc_id_r1 Anole Lizard % Identity<br />
+208 armadillo_ensembl_gene Armadillo Ensembl Gene ID<br />
+209 armadillo_homolog_ensembl_peptide Armadillo Ensembl Protein ID<br />
+210 armadillo_chromosome Armadillo Chromosome<br />
+211 armadillo_chrom_start Armadillo Chromosome Start (bp)<br />
+212 armadillo_chrom_end Armadillo Chromosome End (bp)<br />
+213 armadillo_orthology_type Homology Type<br />
+214 armadillo_homolog_subtype Ancestor<br />
+215 armadillo_homolog_dn dS<br />
+216 armadillo_homolog_ds dN<br />
+217 armadillo_homolog_perc_id % Identity<br />
+218 armadillo_homolog_perc_id_r1 Armadillo % Identity<br />
+219 bushbaby_ensembl_gene Bushbaby Ensembl Gene ID<br />
+220 bushbaby_homolog_ensembl_peptide Bushbaby Ensembl Protein ID<br />
+221 bushbaby_chromosome Bushbaby Chromosome<br />
+222 bushbaby_chrom_start Bushbaby Chromosome Start (bp)<br />
+223 bushbaby_chrom_end Bushbaby Chromosome End (bp)<br />
+224 bushbaby_orthology_type Homology Type<br />
+225 bushbaby_homolog_subtype Ancestor<br />
+226 bushbaby_homolog_dn dS<br />
+227 bushbaby_homolog_ds dN<br />
+228 bushbaby_homolog_perc_id % Identity<br />
+229 bushbaby_homolog_perc_id_r1 Bushbaby % Identity<br />
+230 cat_ensembl_gene Cat Ensembl Gene ID<br />
+231 cat_homolog_ensembl_peptide Cat Ensembl Protein ID<br />
+232 cat_chromosome Cat Chromosome<br />
+233 cat_chrom_start Cat Chromosome Start (bp)<br />
+234 cat_chrom_end Cat Chromosome End (bp)<br />
+235 cat_orthology_type Homology Type<br />
+236 cat_homolog_subtype Ancestor<br />
+237 cat_homolog_dn dS<br />
+238 cat_homolog_ds dN<br />
+239 cat_homolog_perc_id % Identity<br />
+240 cat_homolog_perc_id_r1 Cat % Identity<br />
+241 chicken_ensembl_gene Chicken Ensembl Gene ID<br />
+242 chicken_homolog_ensembl_peptide Chicken Ensembl Protein ID<br />
+243 chicken_chromosome Chicken Chromosome<br />
+244 chicken_chrom_start Chicken Chromosome Start (bp)<br />
+245 chicken_chrom_end Chicken Chromosome End (bp)<br />
+246 chicken_orthology_type Homology Type<br />
+247 chicken_homolog_subtype Ancestor<br />
+248 chicken_homolog_dn dS<br />
+249 chicken_homolog_ds dN<br />
+250 chicken_homolog_perc_id % Identity<br />
+251 chicken_homolog_perc_id_r1 Chicken % Identity<br />
+252 chimp_ensembl_gene Chimp Ensembl Gene ID<br />
+253 chimp_homolog_ensembl_peptide Chimp Ensembl Protein ID<br />
+254 chimp_chromosome Chimp Chromosome<br />
+255 chimp_chrom_start Chimp Chromosome Start (bp)<br />
+256 chimp_chrom_end Chimp Chromosome End (bp)<br />
+257 chimp_orthology_type Homology Type<br />
+258 chimp_homolog_subtype Ancestor<br />
+259 chimp_homolog_dn dS<br />
+260 chimp_homolog_ds dN<br />
+261 chimp_homolog_perc_id % Identity<br />
+262 chimp_homolog_perc_id_r1 Chimp % Identity<br />
+263 ciona_intestinalis_ensembl_gene Ciona intestinalis Ensembl Gene
+ID<br />
+264 ciona_intestinalis_homolog_ensembl_peptide Ciona intestinalis
+Ensembl Protein ID<br />
+265 ciona_intestinalis_chromosome Ciona intestinalis Chromosome<br />
+266 ciona_intestinalis_chrom_start Ciona intestinalis Chromosome
+Start (bp)<br />
+267 ciona_intestinalis_chrom_end Ciona intestinalis Chromosome End
+(bp)<br />
+268 ciona_intestinalis_orthology_type Homology Type<br />
+269 ciona_intestinalis_homolog_subtype Ancestor<br />
+270 ciona_intestinalis_homolog_dn dS<br />
+271 ciona_intestinalis_homolog_ds dN<br />
+272 ciona_intestinalis_homolog_perc_id % Identity<br />
+273 ciona_intestinalis_homolog_perc_id_r1 Ciona intestinalis %
+Identity<br />
+274 ciona_savignyi_ensembl_gene Ciona savignyi Ensembl Gene ID<br />
+275 ciona_savignyi_homolog_ensembl_peptide Ciona savignyi Ensembl
+Protein ID<br />
+276 ciona_savignyi_chromosome Ciona savignyi Chromosome<br />
+277 ciona_savignyi_chrom_start Ciona savignyi Chromosome Start (bp)<br />
+278 ciona_savignyi_chrom_end Ciona savignyi Chromosome End (bp)<br />
+279 ciona_savignyi_orthology_type Homology Type<br />
+280 ciona_savignyi_homolog_subtype Ancestor<br />
+281 ciona_savignyi_homolog_dn dS<br />
+282 ciona_savignyi_homolog_ds dN<br />
+283 ciona_savignyi_homolog_perc_id % Identity<br />
+284 ciona_savignyi_homolog_perc_id_r1 Ciona savignyi % Identity<br />
+285 common_shrew_ensembl_gene Common Shrew Ensembl Gene ID<br />
+286 common_shrew_homolog_ensembl_peptide Common Shrew Ensembl
+Protein ID<br />
+287 common_shrew_chromosome Common Shrew Chromosome<br />
+288 common_shrew_chrom_start Common Shrew Chromosome Start (bp)<br />
+289 common_shrew_chrom_end Common Shrew Chromosome End (bp)<br />
+290 common_shrew_orthology_type Homology Type<br />
+291 common_shrew_homolog_subtype Ancestor<br />
+292 common_shrew_homolog_dn dS<br />
+293 common_shrew_homolog_ds dN<br />
+294 common_shrew_homolog_perc_id % Identity<br />
+295 common_shrew_homolog_perc_id_r1 Common Shrew % Identity<br />
+296 cow_homolog_subtype Ancestor<br />
+297 cow_ensembl_gene Cow Ensembl Gene ID<br />
+298 cow_homolog_ensembl_peptide Cow Ensembl Protein ID<br />
+299 cow_chromosome Cow Chromosome<br />
+300 cow_chrom_start Cow Chromosome Start (bp)<br />
+301 cow_chrom_end Cow Chromosome End (bp)<br />
+302 cow_orthology_type Homology Type<br />
+303 cow_homolog_dn dS<br />
+304 cow_homolog_ds dN<br />
+305 cow_homolog_perc_id % Identity<br />
+306 cow_homolog_perc_id_r1 Cow % Identity<br />
+307 dog_ensembl_gene Dog Ensembl Gene ID<br />
+308 dog_homolog_ensembl_peptide Dog Ensembl Protein ID<br />
+309 dog_chromosome Dog Chromosome<br />
+310 dog_chrom_start Dog Chromosome Start (bp)<br />
+311 dog_chrom_end Dog Chromosome End (bp)<br />
+312 dog_orthology_type Homology Type<br />
+313 dog_homolog_subtype Ancestor<br />
+314 dog_homolog_dn dS<br />
+315 dog_homolog_ds dN<br />
+316 dog_homolog_perc_id % Identity<br />
+317 dog_homolog_perc_id_r1 Dog % Identity<br />
+318 dolphin_ensembl_gene Dolphin Ensembl Gene ID<br />
+319 dolphin_homolog_ensembl_peptide Dolphin Ensembl Protein ID<br />
+320 dolphin_chromosome Dolphin Chromosome<br />
+321 dolphin_chrom_start Dolphin Chromosome Start (bp)<br />
+322 dolphin_chrom_end Dolphin Chromosome End (bp)<br />
+323 dolphin_orthology_type Homology Type<br />
+324 dolphin_homolog_subtype Ancestor<br />
+325 dolphin_homolog_dn dS<br />
+326 dolphin_homolog_ds dN<br />
+327 dolphin_homolog_perc_id % Identity<br />
+328 dolphin_homolog_perc_id_r1 Dolphin % Identity<br />
+329 drosophila_ensembl_gene Drosophila Ensembl Gene ID<br />
+330 drosophila_homolog_ensembl_peptide Drosophila Ensembl Protein
+ID<br />
+331 drosophila_chromosome Drosophila Chromosome<br />
+332 drosophila_chrom_start Drosophila Chromosome Start (bp)<br />
+333 drosophila_chrom_end Drosophila Chromosome End (bp)<br />
+334 drosophila_orthology_type Homology Type<br />
+335 drosophila_homolog_subtype Ancestor<br />
+336 drosophila_homolog_dn dS<br />
+337 drosophila_homolog_ds dN<br />
+338 drosophila_homolog_perc_id % Identity<br />
+339 drosophila_homolog_perc_id_r1 Drosophila % Identity<br />
+340 elegans_ensembl_gene Elegans Ensembl Gene ID<br />
+341 elegans_homolog_ensembl_peptide Elegans Ensembl Protein ID<br />
+342 elegans_chromosome Elegans Chromosome<br />
+343 elegans_chrom_start Elegans Chromosome Start (bp)<br />
+344 elegans_chrom_end Elegans Chromosome End (bp)<br />
+345 elegans_orthology_type Homology Type<br />
+346 elegans_homolog_subtype Ancestor<br />
+347 elegans_homolog_dn dS<br />
+348 elegans_homolog_ds dN<br />
+349 elegans_homolog_perc_id % Identity<br />
+350 elegans_homolog_perc_id_r1 Elegans % Identity<br />
+351 elephant_ensembl_gene Elephant Ensembl Gene ID<br />
+352 elephant_homolog_ensembl_peptide Elephant Ensembl Protein ID<br />
+353 elephant_chromosome Elephant Chromosome<br />
+354 elephant_chrom_start Elephant Chromosome Start (bp)<br />
+355 elephant_chrom_end Elephant Chromosome End (bp)<br />
+356 elephant_orthology_type Homology Type<br />
+357 elephant_homolog_subtype Ancestor<br />
+358 elephant_homolog_dn dS<br />
+359 elephant_homolog_ds dN<br />
+360 elephant_homolog_perc_id % Identity<br />
+361 elephant_homolog_perc_id_r1 Elephant % Identity<br />
+362 xenopus_ensembl_gene Frog Ensembl Gene ID<br />
+363 xenopus_homolog_ensembl_peptide Frog Ensembl Protein ID<br />
+364 xenopus_chromosome Frog Chromosome<br />
+365 xenopus_chrom_start Frog Chromosome Start (bp)<br />
+366 xenopus_chrom_end Frog Chromosome End (bp)<br />
+367 xenopus_orthology_type Homology Type<br />
+368 xenopus_homolog_subtype Ancestor<br />
+369 xenopus_homolog_dn dS<br />
+370 xenopus_homolog_ds dN<br />
+371 xenopus_homolog_perc_id % Identity<br />
+372 xenopus_homolog_perc_id_r1 Frog % Identity<br />
+373 fugu_ensembl_gene Fugu Ensembl Gene ID<br />
+374 fugu_homolog_ensembl_peptide Fugu Ensembl Protein ID<br />
+375 fugu_chromosome Fugu Chromosome<br />
+376 fugu_chrom_start Fugu Chromosome Start (bp)<br />
+377 fugu_chrom_end Fugu Chromosome End (bp)<br />
+378 fugu_orthology_type Homology Type<br />
+379 fugu_homolog_subtype Ancestor<br />
+380 fugu_homolog_dn dS<br />
+381 fugu_homolog_ds dN<br />
+382 fugu_homolog_perc_id % Identity<br />
+383 fugu_homolog_perc_id_r1 Fugu % Identity<br />
+384 gorilla_ensembl_gene Gorilla Ensembl Gene ID<br />
+385 gorilla_homolog_ensembl_peptide Gorilla Ensembl Protein ID<br />
+386 gorilla_chromosome Gorilla Chromosome<br />
+387 gorilla_chrom_start Gorilla Chromosome Start (bp)<br />
+388 gorilla_chrom_end Gorilla Chromosome End (bp)<br />
+389 gorilla_orthology_type Homology Type<br />
+390 gorilla_homolog_subtype Ancestor<br />
+391 gorilla_homolog_dn dS<br />
+392 gorilla_homolog_ds dN<br />
+393 gorilla_homolog_perc_id % Identity<br />
+394 gorilla_homolog_perc_id_r1 Gorilla % Identity<br />
+395 guineapig_ensembl_gene Guinea Pig Ensembl Gene ID<br />
+396 guineapig_homolog_ensembl_peptide Guinea Pig Ensembl Protein ID<br />
+397 guineapig_chromosome Guinea Pig Chromosome<br />
+398 guineapig_chrom_start Guinea Pig Chromosome Start (bp)<br />
+399 guineapig_chrom_end Guinea Pig Chromosome End (bp)<br />
+400 guineapig_orthology_type Homology Type<br />
+401 guineapig_homolog_subtype Ancestor<br />
+402 guineapig_homolog_dn dS<br />
+403 guineapig_homolog_ds dN<br />
+404 guineapig_homolog_perc_id % Identity<br />
+405 guineapig_homolog_perc_id_r1 Guinea Pig % Identity<br />
+406 hedgehog_ensembl_gene Hedgehog Ensembl Gene ID<br />
+407 hedgehog_homolog_ensembl_peptide Hedgehog Ensembl Protein ID<br />
+408 hedgehog_chromosome Hedgehog Chromosome<br />
+409 hedgehog_chrom_start Hedgehog Chromosome Start (bp)<br />
+410 hedgehog_chrom_end Hedgehog Chromosome End (bp)<br />
+411 hedgehog_orthology_type Homology Type<br />
+412 hedgehog_homolog_subtype Ancestor<br />
+413 hedgehog_homolog_dn dS<br />
+414 hedgehog_homolog_ds dN<br />
+415 hedgehog_homolog_perc_id % Identity<br />
+416 hedgehog_homolog_perc_id_r1 Hedgehog % Identity<br />
+417 horse_ensembl_gene Horse Ensembl Gene ID<br />
+418 horse_homolog_ensembl_peptide Horse Ensembl Protein ID<br />
+419 horse_chromosome Horse Chromosome<br />
+420 horse_chrom_start Horse Chromosome Start (bp)<br />
+421 horse_chrom_end Horse Chromosome End (bp)<br />
+422 horse_orthology_type Homology Type<br />
+423 horse_homolog_subtype Ancestor<br />
+424 horse_homolog_dn dS<br />
+425 horse_homolog_ds dN<br />
+426 horse_homolog_perc_id % Identity<br />
+427 horse_homolog_perc_id_r1 Horse % Identity<br />
+428 dordii_ensembl_gene Kangaroo Ensembl Gene ID<br />
+429 dordii_homolog_ensembl_peptide Kangaroo Ensembl Protein ID<br />
+430 dordii_chromosome Kangaroo Chromosome<br />
+431 dordii_chrom_start Kangaroo Chromosome Start (bp)<br />
+432 dordii_chrom_end Kangaroo Chromosome End (bp)<br />
+433 dordii_orthology_type Homology Type<br />
+434 dordii_homolog_subtype Ancestor<br />
+435 dordii_homolog_dn dS<br />
+436 dordii_homolog_ds dN<br />
+437 dordii_homolog_perc_id % Identity<br />
+438 dordii_homolog_perc_id_r1 Kangaroo % Identity<br />
+439 mmur_ensembl_gene M.murinus Ensembl Gene ID<br />
+440 mmur_homolog_ensembl_peptide M.murinus Ensembl Protein ID<br />
+441 mmur_chromosome M.murinus Chromosome<br />
+442 mmur_chrom_start M.murinus Chromosome Start (bp)<br />
+443 mmur_chrom_end M.murinus Chromosome End (bp)<br />
+444 mmur_orthology_type Homology Type<br />
+445 mmur_homolog_subtype Ancestor<br />
+446 mmur_homolog_dn dS<br />
+447 mmur_homolog_ds dN<br />
+448 mmur_homolog_perc_id % Identity<br />
+449 mmur_homolog_perc_id_r1 M.murinus % Identity<br />
+450 marmoset_ensembl_gene Marmoset Ensembl Gene ID<br />
+451 marmoset_homolog_ensembl_peptide Marmoset Ensembl Protein ID<br />
+452 marmoset_chromosome Marmoset Chromosome<br />
+453 marmoset_chrom_start Marmoset Chromosome Start (bp)<br />
+454 marmoset_chrom_end Marmoset Chromosome End (bp)<br />
+455 marmoset_orthology_type Homology Type<br />
+456 marmoset_homolog_subtype Ancestor<br />
+457 marmoset_homolog_dn dS<br />
+458 marmoset_homolog_ds dN<br />
+459 marmoset_homolog_perc_id % Identity<br />
+460 marmoset_homolog_perc_id_r1 Marmoset % Identity<br />
+461 medaka_ensembl_gene Medaka Ensembl Gene ID<br />
+462 medaka_homolog_ensembl_peptide Medaka Ensembl Protein ID<br />
+463 medaka_chromosome Medaka Chromosome<br />
+464 medaka_chrom_start Medaka Chromosome Start (bp)<br />
+465 medaka_chrom_end Medaka Chromosome End (bp)<br />
+466 medaka_orthology_type Homology Type<br />
+467 medaka_homolog_subtype Ancestor<br />
+468 medaka_homolog_dn dS<br />
+469 medaka_homolog_ds dN<br />
+470 medaka_homolog_perc_id % Identity<br />
+471 medaka_homolog_perc_id_r1 Medaka % Identity<br />
+472 megabat_ensembl_gene Megabat Ensembl Gene ID<br />
+473 megabat_homolog_ensembl_peptide Megabat Ensembl Protein ID<br />
+474 megabat_chromosome Megabat Chromosome<br />
+475 megabat_chrom_start Megabat Chromosome Start (bp)<br />
+476 megabat_chrom_end Megabat Chromosome End (bp)<br />
+477 megabat_orthology_type Homology Type<br />
+478 megabat_homolog_subtype Ancestor<br />
+479 megabat_homolog_dn dS<br />
+480 megabat_homolog_ds dN<br />
+481 megabat_homolog_perc_id % Identity<br />
+482 megabat_homolog_perc_id_r1 Megabat % Identity<br />
+483 microbat_ensembl_gene Microbat Ensembl Gene ID<br />
+484 microbat_homolog_ensembl_peptide Microbat Ensembl Protein ID<br />
+485 microbat_chromosome Microbat Chromosome<br />
+486 microbat_chrom_start Microbat Chromosome Start (bp)<br />
+487 microbat_chrom_end Microbat Chromosome End (bp)<br />
+488 microbat_orthology_type Homology Type<br />
+489 microbat_homolog_subtype Ancestor<br />
+490 microbat_homolog_dn dS<br />
+491 microbat_homolog_ds dN<br />
+492 microbat_homolog_perc_id % Identity<br />
+493 microbat_homolog_perc_id_r1 Microbat % Identity<br />
+494 opossum_ensembl_gene Monodelphis domestica Ensembl Gene ID<br />
+495 opossum_homolog_ensembl_peptide Monodelphis domestica Ensembl
+Protein ID<br />
+496 opossum_chromosome Monodelphis domestica Chromosome<br />
+497 opossum_chrom_start Monodelphis domestica Chromosome Start (bp)<br />
+498 opossum_chrom_end Monodelphis domestica Chromosome End (bp)<br />
+499 opossum_orthology_type Homology Type<br />
+500 opossum_homolog_subtype Ancestor<br />
+501 opossum_homolog_dn dS<br />
+502 opossum_homolog_ds dN<br />
+503 opossum_homolog_perc_id % Identity<br />
+504 opossum_homolog_perc_id_r1 Monodelphis domestica % Identity<br />
+505 mouse_ensembl_gene Mouse Ensembl Gene ID<br />
+506 mouse_homolog_ensembl_peptide Mouse Ensembl Protein ID<br />
+507 mouse_chromosome Mouse Chromosome<br />
+508 mouse_chrom_start Mouse Chromosome Start (bp)<br />
+509 mouse_chrom_end Mouse Chromosome End (bp)<br />
+510 mouse_orthology_type Homology Type<br />
+511 mouse_homolog_subtype Ancestor<br />
+512 mouse_homolog_dn dS<br />
+513 mouse_homolog_ds dN<br />
+514 mouse_homolog_perc_id % Identity<br />
+515 mouse_homolog_perc_id_r1 Mouse % Identity<br />
+516 orangutan_ensembl_gene Orangutan Ensembl Gene ID<br />
+517 orangutan_homolog_ensembl_peptide Orangutan Ensembl Protein ID<br />
+518 orangutan_chromosome Orangutan Chromosome<br />
+519 orangutan_chrom_start Orangutan Chromosome Start (bp)<br />
+520 orangutan_chrom_end Orangutan Chromosome End (bp)<br />
+521 orangutan_orthology_type Homology Type<br />
+522 orangutan_homolog_subtype Ancestor<br />
+523 orangutan_homolog_dn dS<br />
+524 orangutan_homolog_ds dN<br />
+525 orangutan_homolog_perc_id % Identity<br />
+526 orangutan_homolog_perc_id_r1 Orangutan % Identity<br />
+527 pig_ensembl_gene Pig Ensembl Gene ID<br />
+528 pig_homolog_ensembl_peptide Pig Ensembl Protein ID<br />
+529 pig_chromosome Pig Chromosome<br />
+530 pig_chrom_start Pig Chromosome Start (bp)<br />
+531 pig_chrom_end Pig Chromosome End (bp)<br />
+532 pig_orthology_type Homology Type<br />
+533 pig_homolog_subtype Ancestor<br />
+534 pig_homolog_dn dS<br />
+535 pig_homolog_ds dN<br />
+536 pig_homolog_perc_id % Identity<br />
+537 pig_homolog_perc_id_r1 Pig % Identity<br />
+538 pika_ensembl_gene Pika Ensembl Gene ID<br />
+539 pika_homolog_ensembl_peptide Pika Ensembl Protein ID<br />
+540 pika_chromosome Pika Chromosome<br />
+541 pika_chrom_start Pika Chromosome Start (bp)<br />
+542 pika_chrom_end Pika Chromosome End (bp)<br />
+543 pika_orthology_type Homology Type<br />
+544 pika_homolog_subtype Ancestor<br />
+545 pika_homolog_dn dS<br />
+546 pika_homolog_ds dN<br />
+547 pika_homolog_perc_id % Identity<br />
+548 pika_homolog_perc_id_r1 Pika % Identity<br />
+549 platypus_ensembl_gene Platypus Ensembl Gene ID<br />
+550 platypus_homolog_ensembl_peptide Platypus Ensembl Protein ID<br />
+551 platypus_chromosome Platypus Chromosome<br />
+552 platypus_chrom_start Platypus Chromosome Start (bp)<br />
+553 platypus_chrom_end Platypus Chromosome End (bp)<br />
+554 platypus_orthology_type Homology Type<br />
+555 platypus_homolog_subtype Ancestor<br />
+556 platypus_homolog_dn dS<br />
+557 platypus_homolog_ds dN<br />
+558 platypus_homolog_perc_id % Identity<br />
+559 platypus_homolog_perc_id_r1 Platypus % Identity<br />
+560 rabbit_ensembl_gene Rabbit Ensembl Gene ID<br />
+561 rabbit_homolog_ensembl_peptide Rabbit Ensembl Protein ID<br />
+562 rabbit_chromosome Rabbit Chromosome<br />
+563 rabbit_chrom_start Rabbit Chromosome Start (bp)<br />
+564 rabbit_chrom_end Rabbit Chromosome End (bp)<br />
+565 rabbit_orthology_type Homology Type<br />
+566 rabbit_homolog_subtype Ancestor<br />
+567 rabbit_homolog_dn dS<br />
+568 rabbit_homolog_ds dN<br />
+569 rabbit_homolog_perc_id % Identity<br />
+570 rabbit_homolog_perc_id_r1 Rabbit % Identity<br />
+571 rat_ensembl_gene Rat Ensembl Gene ID<br />
+572 rat_homolog_ensembl_peptide Rat Ensembl Protein ID<br />
+573 rat_chromosome Rat Chromosome<br />
+574 rat_chrom_start Rat Chromosome Start (bp)<br />
+575 rat_chrom_end Rat Chromosome End (bp)<br />
+576 rat_orthology_type Homology Type<br />
+577 rat_homolog_subtype Ancestor<br />
+578 rat_homolog_dn dS<br />
+579 rat_homolog_ds dN<br />
+580 rat_homolog_perc_id % Identity<br />
+581 rat_homolog_perc_id_r1 Rat % Identity<br />
+582 rhesus_ensembl_gene Rhesus Ensembl Gene ID<br />
+583 rhesus_homolog_ensembl_peptide Rhesus Ensembl Protein ID<br />
+584 rhesus_chromosome Rhesus Chromosome<br />
+585 rhesus_chrom_start Rhesus Chromosome Start (bp)<br />
+586 rhesus_chrom_end Rhesus Chromosome End (bp)<br />
+587 rhesus_orthology_type Homology Type<br />
+588 rhesus_homolog_subtype Ancestor<br />
+589 rhesus_homolog_dn dS<br />
+590 rhesus_homolog_ds dN<br />
+591 rhesus_homolog_perc_id % Identity<br />
+592 rhesus_homolog_perc_id_r1 Rhesus % Identity<br />
+593 pcapensis_ensembl_gene Rock Hyrax Ensembl Gene ID<br />
+594 pcapensis_homolog_ensembl_peptide Rock Hyrax Ensembl Protein ID<br />
+595 pcapensis_chromosome Rock Hyrax Chromosome<br />
+596 pcapensis_chrom_start Rock Hyrax Chromosome Start (bp)<br />
+597 pcapensis_chrom_end Rock Hyrax Chromosome End (bp)<br />
+598 pcapensis_orthology_type Homology Type<br />
+599 pcapensis_homolog_subtype Ancestor<br />
+600 pcapensis_homolog_dn dS<br />
+601 pcapensis_homolog_ds dN<br />
+602 pcapensis_homolog_perc_id % Identity<br />
+603 pcapensis_homolog_perc_id_r1 Rock Hyrax % Identity<br />
+604 sloth_ensembl_gene Sloth Ensembl Gene ID<br />
+605 sloth_homolog_ensembl_peptide Sloth Ensembl Protein ID<br />
+606 sloth_chromosome Sloth Chromosome<br />
+607 sloth_chrom_start Sloth Chromosome Start (bp)<br />
+608 sloth_chrom_end Sloth Chromosome End (bp)<br />
+609 sloth_orthology_type Homology Type<br />
+610 sloth_homolog_subtype Ancestor<br />
+611 sloth_homolog_dn dS<br />
+612 sloth_homolog_ds dN<br />
+613 sloth_homolog_perc_id % Identity<br />
+614 sloth_homolog_perc_id_r1 Sloth % Identity<br />
+615 squirrel_ensembl_gene Squirrel Ensembl Gene ID<br />
+616 squirrel_homolog_ensembl_peptide Squirrel Ensembl Protein ID<br />
+617 squirrel_chromosome Squirrel Chromosome<br />
+618 squirrel_chrom_start Squirrel Chromosome Start (bp)<br />
+619 squirrel_chrom_end Squirrel Chromosome End (bp)<br />
+620 squirrel_orthology_type Homology Type<br />
+621 squirrel_homolog_subtype Ancestor<br />
+622 squirrel_homolog_dn dS<br />
+623 squirrel_homolog_ds dN<br />
+624 squirrel_homolog_perc_id % Identity<br />
+625 squirrel_homolog_perc_id_r1 Squirrel % Identity<br />
+626 gaculeatus_ensembl_gene Stickleback Ensembl Gene ID<br />
+627 gaculeatus_homolog_ensembl_peptide Stickleback Ensembl Protein
+ID<br />
+628 gaculeatus_chromosome Stickleback Chromosome<br />
+629 gaculeatus_chrom_start Stickleback Chromosome Start (bp)<br />
+630 gaculeatus_chrom_end Stickleback Chromosome End (bp)<br />
+631 gaculeatus_orthology_type Homology Type<br />
+632 gaculeatus_homolog_subtype Ancestor<br />
+633 gaculeatus_homolog_dn dS<br />
+634 gaculeatus_homolog_ds dN<br />
+635 gaculeatus_homolog_perc_id % Identity<br />
+636 gaculeatus_homolog_perc_id_r1 Stickleback % Identity<br />
+637 tarsier_ensembl_gene Tarsier Ensembl Gene ID<br />
+638 tarsier_homolog_ensembl_peptide Tarsier Ensembl Protein ID<br />
+639 tarsier_chromosome Tarsier Chromosome<br />
+640 tarsier_chrom_start Tarsier Chromosome Start (bp)<br />
+641 tarsier_chrom_end Tarsier Chromosome End (bp)<br />
+642 tarsier_orthology_type Homology Type<br />
+643 tarsier_homolog_subtype Ancestor<br />
+644 tarsier_homolog_dn dS<br />
+645 tarsier_homolog_ds dN<br />
+646 tarsier_homolog_perc_id % Identity<br />
+647 tarsier_homolog_perc_id_r1 Tarsier % Identity<br />
+648 tenrec_ensembl_gene Tenrec Ensembl Gene ID<br />
+649 tenrec_homolog_ensembl_peptide Tenrec Ensembl Protein ID<br />
+650 tenrec_chromosome Tenrec Chromosome<br />
+651 tenrec_chrom_start Tenrec Chromosome Start (bp)<br />
+652 tenrec_chrom_end Tenrec Chromosome End (bp)<br />
+653 tenrec_orthology_type Homology Type<br />
+654 tenrec_homolog_subtype Ancestor<br />
+655 tenrec_homolog_dn dS<br />
+656 tenrec_homolog_ds dN<br />
+657 tenrec_homolog_perc_id % Identity<br />
+658 tenrec_homolog_perc_id_r1 Tenrec % Identity<br />
+659 tetraodon_ensembl_gene Tetraodon Ensembl Gene ID<br />
+660 tetraodon_homolog_ensembl_peptide Tetraodon Ensembl Protein ID<br />
+661 tetraodon_chromosome Tetraodon Chromosome<br />
+662 tetraodon_chrom_start Tetraodon Chromosome Start (bp)<br />
+663 tetraodon_chrom_end Tetraodon Chromosome End (bp)<br />
+664 tetraodon_orthology_type Homology Type<br />
+665 tetraodon_homolog_subtype Ancestor<br />
+666 tetraodon_homolog_dn dS<br />
+667 tetraodon_homolog_ds dN<br />
+668 tetraodon_homolog_perc_id % Identity<br />
+669 tetraodon_homolog_perc_id_r1 Tetraodon % Identity<br />
+670 tree_shrew_ensembl_gene Tree Shrew Ensembl Gene ID<br />
+671 tree_shrew_homolog_ensembl_peptide Tree Shrew Ensembl Protein
+ID<br />
+672 tree_shrew_chromosome Tree Shrew Chromosome<br />
+673 tree_shrew_chrom_start Tree Shrew Chromosome Start (bp)<br />
+674 tree_shrew_chrom_end Tree Shrew Chromosome End (bp)<br />
+675 tree_shrew_orthology_type Homology Type<br />
+676 tree_shrew_homolog_subtype Ancestor<br />
+677 tree_shrew_homolog_dn dS<br />
+678 tree_shrew_homolog_ds dN<br />
+679 tree_shrew_homolog_perc_id % Identity<br />
+680 tree_shrew_homolog_perc_id_r1 Tree Shrew % Identity<br />
+681 wallaby_ensembl_gene Wallaby Ensembl Gene ID<br />
+682 wallaby_homolog_ensembl_peptide Wallaby Ensembl Protein ID<br />
+683 wallaby_chromosome Wallaby Chromosome<br />
+684 wallaby_chrom_start Wallaby Chromosome Start (bp)<br />
+685 wallaby_chrom_end Wallaby Chromosome End (bp)<br />
+686 wallaby_orthology_type Homology Type<br />
+687 wallaby_homolog_subtype Ancestor<br />
+688 wallaby_homolog_dn dS<br />
+689 wallaby_homolog_ds dN<br />
+690 wallaby_homolog_perc_id % Identity<br />
+691 wallaby_homolog_perc_id_r1 Wallaby % Identity<br />
+692 yeast_ensembl_gene Yeast Ensembl Gene ID<br />
+693 yeast_homolog_ensembl_peptide Yeast Ensembl Protein ID<br />
+694 yeast_chromosome Yeast Chromosome<br />
+695 yeast_chrom_start Yeast Chromosome Start (bp)<br />
+696 yeast_chrom_end Yeast Chromosome End (bp)<br />
+697 yeast_orthology_type Homology Type<br />
+698 yeast_homolog_subtype Ancestor<br />
+699 yeast_homolog_dn dS<br />
+700 yeast_homolog_ds dN<br />
+701 yeast_homolog_perc_id % Identity<br />
+702 yeast_homolog_perc_id_r1 Yeast % Identity<br />
+703 zebra_finch_ensembl_gene Zebra Finch Ensembl Gene ID<br />
+704 zebra_finch_homolog_ensembl_peptide Zebra Finch Ensembl Protein
+ID<br />
+705 zebra_finch_chromosome Zebra Finch Chromosome<br />
+706 zebra_finch_chrom_start Zebra Finch Chromosome Start (bp)<br />
+707 zebra_finch_chrom_end Zebra Finch Chromosome End (bp)<br />
+708 zebra_finch_orthology_type Homology Type<br />
+709 zebra_finch_homolog_subtype Ancestor<br />
+710 zebra_finch_homolog_dn dS<br />
+711 zebra_finch_homolog_ds dN<br />
+712 zebra_finch_homolog_perc_id % Identity<br />
+713 zebra_finch_homolog_perc_id_r1 Zebra Finch % Identity<br />
+714 zebrafish_ensembl_gene Zebrafish Ensembl Gene ID<br />
+715 zebrafish_homolog_ensembl_peptide Zebrafish Ensembl Protein ID<br />
+716 zebrafish_chromosome Zebrafish Chromosome<br />
+717 zebrafish_chrom_start Zebrafish Chromosome Start (bp)<br />
+718 zebrafish_chrom_end Zebrafish Chromosome End (bp)<br />
+719 zebrafish_orthology_type Homology Type<br />
+720 zebrafish_homolog_subtype Ancestor<br />
+721 zebrafish_homolog_dn dS<br />
+722 zebrafish_homolog_ds dN<br />
+723 zebrafish_homolog_perc_id % Identity<br />
+724 zebrafish_homolog_perc_id_r1 Zebrafish % Identity<br />
+725 inter_paralog_alpaca_ensembl_gene Alpaca Ensembl Gene ID<br />
+726 inter_paralog_alpaca_inter_paralog_ensembl_peptide Alpaca
+Ensembl Protein ID<br />
+727 inter_paralog_alpaca_chromosome Alpaca Chromosome<br />
+728 inter_paralog_alpaca_chrom_start Alpaca Chromosome Start (bp)<br />
+729 inter_paralog_alpaca_chrom_end Alpaca Chromosome End (bp)<br />
+730 inter_paralog_alpaca_orthology_type Homology Type<br />
+731 alpaca_inter_paralog_subtype Ancestor<br />
+732 alpaca_inter_paralog_dn dS<br />
+733 alpaca_inter_paralog_ds dN<br />
+734 alpaca_inter_paralog_perc_id % Identity<br />
+735 alpaca_inter_paralog_perc_id_r1 Alpaca % Identity<br />
+736 inter_paralog_anole_lizard_ensembl_gene Anole Lizard Ensembl
+Gene ID<br />
+737 inter_paralog_anole_lizard_inter_paralog_ensembl_peptide
+Anole Lizard Ensembl Protein ID<br />
+738 inter_paralog_anole_lizard_chromosome Anole Lizard Chromosome<br />
+739 inter_paralog_anole_lizard_chrom_start Anole Lizard Chromosome
+Start (bp)<br />
+740 inter_paralog_anole_lizard_chrom_end Anole Lizard Chromosome
+End (bp)<br />
+741 inter_paralog_anole_lizard_orthology_type Homology Type<br />
+742 anole_lizard_inter_paralog_subtype Ancestor<br />
+743 anole_lizard_inter_paralog_dn dS<br />
+744 anole_lizard_inter_paralog_ds dN<br />
+745 anole_lizard_inter_paralog_perc_id % Identity<br />
+746 anole_lizard_inter_paralog_perc_id_r1 Anole Lizard %
+Identity<br />
+747 inter_paralog_armadillo_ensembl_gene Armadillo Ensembl Gene ID<br />
+748 inter_paralog_armadillo_inter_paralog_ensembl_peptide
+Armadillo Ensembl Protein ID<br />
+749 inter_paralog_armadillo_chromosome Armadillo Chromosome<br />
+750 inter_paralog_armadillo_chrom_start Armadillo Chromosome Start
+(bp)<br />
+751 inter_paralog_armadillo_chrom_end Armadillo Chromosome End
+(bp)<br />
+752 inter_paralog_armadillo_orthology_type Homology Type<br />
+753 armadillo_inter_paralog_subtype Ancestor<br />
+754 armadillo_inter_paralog_dn dS<br />
+755 armadillo_inter_paralog_ds dN<br />
+756 armadillo_inter_paralog_perc_id % Identity<br />
+757 armadillo_inter_paralog_perc_id_r1 Armadillo % Identity<br />
+758 inter_paralog_bushbaby_ensembl_gene Bushbaby Ensembl Gene ID<br />
+759 inter_paralog_bushbaby_inter_paralog_ensembl_peptide Bushbaby
+Ensembl Protein ID<br />
+760 inter_paralog_bushbaby_chromosome Bushbaby Chromosome<br />
+761 inter_paralog_bushbaby_chrom_start Bushbaby Chromosome Start
+(bp)<br />
+762 inter_paralog_bushbaby_chrom_end Bushbaby Chromosome End (bp)<br />
+763 inter_paralog_bushbaby_orthology_type Homology Type<br />
+764 bushbaby_inter_paralog_subtype Ancestor<br />
+765 bushbaby_inter_paralog_dn dS<br />
+766 bushbaby_inter_paralog_ds dN<br />
+767 bushbaby_inter_paralog_perc_id % Identity<br />
+768 bushbaby_inter_paralog_perc_id_r1 Bushbaby % Identity<br />
+769 inter_paralog_cat_ensembl_gene Cat Ensembl Gene ID<br />
+770 inter_paralog_cat_inter_paralog_ensembl_peptide Cat Ensembl
+Protein ID<br />
+771 inter_paralog_cat_chromosome Cat Chromosome<br />
+772 inter_paralog_cat_chrom_start Cat Chromosome Start (bp)<br />
+773 inter_paralog_cat_chrom_end Cat Chromosome End (bp)<br />
+774 inter_paralog_cat_orthology_type Homology Type<br />
+775 cat_inter_paralog_subtype Ancestor<br />
+776 cat_inter_paralog_dn dS<br />
+777 cat_inter_paralog_ds dN<br />
+778 cat_inter_paralog_perc_id % Identity<br />
+779 cat_inter_paralog_perc_id_r1 Cat % Identity<br />
+780 inter_paralog_chicken_ensembl_gene Chicken Ensembl Gene ID<br />
+781 inter_paralog_chicken_inter_paralog_ensembl_peptide Chicken
+Ensembl Protein ID<br />
+782 inter_paralog_chicken_chromosome Chicken Chromosome<br />
+783 inter_paralog_chicken_chrom_start Chicken Chromosome Start
+(bp)<br />
+784 inter_paralog_chicken_chrom_end Chicken Chromosome End (bp)<br />
+785 inter_paralog_chicken_orthology_type Homology Type<br />
+786 chicken_inter_paralog_subtype Ancestor<br />
+787 chicken_inter_paralog_dn dS<br />
+788 chicken_inter_paralog_ds dN<br />
+789 chicken_inter_paralog_perc_id % Identity<br />
+790 chicken_inter_paralog_perc_id_r1 Chicken % Identity<br />
+791 inter_paralog_chimp_ensembl_gene Chimp Ensembl Gene ID<br />
+792 inter_paralog_chimp_inter_paralog_ensembl_peptide Chimp
+Ensembl Protein ID<br />
+793 inter_paralog_chimp_chromosome Chimp Chromosome<br />
+794 inter_paralog_chimp_chrom_start Chimp Chromosome Start (bp)<br />
+795 inter_paralog_chimp_chrom_end Chimp Chromosome End (bp)<br />
+796 inter_paralog_chimp_orthology_type Homology Type<br />
+797 chimp_inter_paralog_subtype Ancestor<br />
+798 chimp_inter_paralog_dn dS<br />
+799 chimp_inter_paralog_ds dN<br />
+800 chimp_inter_paralog_perc_id % Identity<br />
+801 chimp_inter_paralog_perc_id_r1 Chimp % Identity<br />
+802 inter_paralog_ciona_intestinalis_ensembl_gene Ciona
+intestinalis Ensembl Gene ID<br />
+803
+inter_paralog_ciona_intestinalis_inter_paralog_ensembl_peptide
+Ciona intestinalis Ensembl Protein ID<br />
+804 inter_paralog_ciona_intestinalis_chromosome Ciona intestinalis
+Chromosome<br />
+805 inter_paralog_ciona_intestinalis_chrom_start Ciona intestinalis
+Chromosome Start (bp)<br />
+806 inter_paralog_ciona_intestinalis_chrom_end Ciona intestinalis
+Chromosome End (bp)<br />
+807 inter_paralog_ciona_intestinalis_orthology_type Homology Type<br />
+808 ciona_intestinalis_inter_paralog_subtype Ancestor<br />
+809 ciona_intestinalis_inter_paralog_dn dS<br />
+810 ciona_intestinalis_inter_paralog_ds dN<br />
+811 ciona_intestinalis_inter_paralog_perc_id % Identity<br />
+812 ciona_intestinalis_inter_paralog_perc_id_r1 Ciona intestinalis
+% Identity<br />
+813 inter_paralog_ciona_savigngi_ensembl_gene Ciona savigngi
+Ensembl Gene ID<br />
+814 inter_paralog_ciona_savigngi_inter_paralog_ensembl_peptide
+Ciona savigngi Ensembl Protein ID<br />
+815 inter_paralog_ciona_savigngi_chromosome Ciona savigngi
+Chromosome<br />
+816 inter_paralog_ciona_savigngi_chrom_start Ciona savigngi
+Chromosome Start (bp)<br />
+817 inter_paralog_ciona_savigngi_chrom_end Ciona savigngi
+Chromosome End (bp)<br />
+818 inter_paralog_ciona_savigngi_orthology_type Homology Type<br />
+819 ciona_savigngi_inter_paralog_subtype Ancestor<br />
+820 ciona_savigngi_inter_paralog_dn dS<br />
+821 ciona_savigngi_inter_paralog_ds dN<br />
+822 ciona_savigngi_inter_paralog_perc_id % Identity<br />
+823 ciona_savigngi_inter_paralog_perc_id_r1 Ciona savigngi %
+Identity<br />
+824 inter_paralog_common_shrew_ensembl_gene Common Shrew Ensembl
+Gene ID<br />
+825 inter_paralog_common_shrew_inter_paralog_ensembl_peptide
+Common Shrew Ensembl Protein ID<br />
+826 inter_paralog_common_shrew_chromosome Common Shrew Chromosome<br />
+827 inter_paralog_common_shrew_chrom_start Common Shrew Chromosome
+Start (bp)<br />
+828 inter_paralog_common_shrew_chrom_end Common Shrew Chromosome
+End (bp)<br />
+829 inter_paralog_common_shrew_orthology_type Homology Type<br />
+830 common_shrew_inter_paralog_subtype Ancestor<br />
+831 common_shrew_inter_paralog_dn dS<br />
+832 common_shrew_inter_paralog_ds dN<br />
+833 common_shrew_inter_paralog_perc_id % Identity<br />
+834 common_shrew_inter_paralog_perc_id_r1 Common Shrew %
+Identity<br />
+835 inter_paralog_cow_ensembl_gene Cow Ensembl Gene ID<br />
+836 inter_paralog_cow_inter_paralog_ensembl_peptide Cow Ensembl
+Protein ID<br />
+837 inter_paralog_cow_chromosome Cow Chromosome<br />
+838 inter_paralog_cow_chrom_start Cow Chromosome Start (bp)<br />
+839 inter_paralog_cow_chrom_end Cow Chromosome End (bp)<br />
+840 inter_paralog_cow_orthology_type Homology Type<br />
+841 cow_inter_paralog_subtype Ancestor<br />
+842 cow_inter_paralog_dn dS<br />
+843 cow_inter_paralog_ds dN<br />
+844 cow_inter_paralog_perc_id % Identity<br />
+845 cow_inter_paralog_perc_id_r1 Cow % Identity<br />
+846 inter_paralog_dog_ensembl_gene Dog Ensembl Gene ID<br />
+847 inter_paralog_dog_inter_paralog_ensembl_peptide Dog Ensembl
+Protein ID<br />
+848 inter_paralog_dog_chromosome Dog Chromosome<br />
+849 inter_paralog_dog_chrom_start Dog Chromosome Start (bp)<br />
+850 inter_paralog_dog_chrom_end Dog Chromosome End (bp)<br />
+851 inter_paralog_dog_orthology_type Homology Type<br />
+852 dog_inter_paralog_subtype Ancestor<br />
+853 dog_inter_paralog_dn dS<br />
+854 dog_inter_paralog_ds dN<br />
+855 dog_inter_paralog_perc_id % Identity<br />
+856 dog_inter_paralog_perc_id_r1 Dog % Identity<br />
+857 inter_paralog_dolphin_ensembl_gene Dolphin Ensembl Gene ID<br />
+858 inter_paralog_dolphin_inter_paralog_ensembl_peptide Dolphin
+Ensembl Protein ID<br />
+859 inter_paralog_dolphin_chromosome Dolphin Chromosome<br />
+860 inter_paralog_dolphin_chrom_start Dolphin Chromosome Start
+(bp)<br />
+861 inter_paralog_dolphin_chrom_end Dolphin Chromosome End (bp)<br />
+862 inter_paralog_dolphin_orthology_type Homology Type<br />
+863 dolphin_inter_paralog_subtype Ancestor<br />
+864 dolphin_inter_paralog_dn dS<br />
+865 dolphin_inter_paralog_ds dN<br />
+866 dolphin_inter_paralog_perc_id % Identity<br />
+867 dolphin_inter_paralog_perc_id_r1 Dolphin % Identity<br />
+868 inter_paralog_drosophila_ensembl_gene Drosophila Ensembl Gene
+ID<br />
+869 inter_paralog_drosophila_inter_paralog_ensembl_peptide
+Drosophila Ensembl Protein ID<br />
+870 inter_paralog_drosophila_chromosome Drosophila Chromosome<br />
+871 inter_paralog_drosophila_chrom_start Drosophila Chromosome Start
+(bp)<br />
+872 inter_paralog_drosophila_chrom_end Drosophila Chromosome End
+(bp)<br />
+873 inter_paralog_drosophila_orthology_type Homology Type<br />
+874 drosophila_inter_paralog_subtype Ancestor<br />
+875 drosophila_inter_paralog_dn dS<br />
+876 drosophila_inter_paralog_ds dN<br />
+877 drosophila_inter_paralog_perc_id % Identity<br />
+878 drosophila_inter_paralog_perc_id_r1 Drosophila % Identity<br />
+879 inter_paralog_elegans_ensembl_gene Elegans Ensembl Gene ID<br />
+880 inter_paralog_elegans_inter_paralog_ensembl_peptide Elegans
+Ensembl Protein ID<br />
+881 inter_paralog_elegans_chromosome Elegans Chromosome<br />
+882 inter_paralog_elegans_chrom_start Elegans Chromosome Start
+(bp)<br />
+883 inter_paralog_elegans_chrom_end Elegans Chromosome End (bp)<br />
+884 inter_paralog_elegans_orthology_type Homology Type<br />
+885 elegans_inter_paralog_subtype Ancestor<br />
+886 elegans_inter_paralog_dn dS<br />
+887 elegans_inter_paralog_ds dN<br />
+888 elegans_inter_paralog_perc_id % Identity<br />
+889 elegans_inter_paralog_perc_id_r1 Elegans % Identity<br />
+890 inter_paralog_elephant_ensembl_gene Elephant Ensembl Gene ID<br />
+891 inter_paralog_elephant_inter_paralog_ensembl_peptide Elephant
+Ensembl Protein ID<br />
+892 inter_paralog_elephant_chromosome Elephant Chromosome<br />
+893 inter_paralog_elephant_chrom_start Elephant Chromosome Start
+(bp)<br />
+894 inter_paralog_elephant_chrom_end Elephant Chromosome End (bp)<br />
+895 inter_paralog_elephant_orthology_type Homology Type<br />
+896 elephant_inter_paralog_subtype Ancestor<br />
+897 elephant_inter_paralog_dn dS<br />
+898 elephant_inter_paralog_ds dN<br />
+899 elephant_inter_paralog_perc_id % Identity<br />
+900 elephant_inter_paralog_perc_id_r1 Elephant % Identity<br />
+901 inter_paralog_xenopus_ensembl_gene Frog Ensembl Gene ID<br />
+902 inter_paralog_xenopus_inter_paralog_ensembl_peptide Frog
+Ensembl Protein ID<br />
+903 inter_paralog_xenopus_chromosome Frog Chromosome<br />
+904 inter_paralog_xenopus_chrom_start Frog Chromosome Start (bp)<br />
+905 inter_paralog_xenopus_chrom_end Frog Chromosome End (bp)<br />
+906 inter_paralog_xenopus_orthology_type Homology Type<br />
+907 xenopus_inter_paralog_subtype Ancestor<br />
+908 xenopus_inter_paralog_dn dS<br />
+909 xenopus_inter_paralog_ds dN<br />
+910 xenopus_inter_paralog_perc_id % Identity<br />
+911 xenopus_inter_paralog_perc_id_r1 Frog % Identity<br />
+912 inter_paralog_fugu_ensembl_gene Fugu Ensembl Gene ID<br />
+913 inter_paralog_fugu_inter_paralog_ensembl_peptide Fugu Ensembl
+Protein ID<br />
+914 inter_paralog_fugu_chromosome Fugu Chromosome<br />
+915 inter_paralog_fugu_chrom_start Fugu Chromosome Start (bp)<br />
+916 inter_paralog_fugu_chrom_end Fugu Chromosome End (bp)<br />
+917 inter_paralog_fugu_orthology_type Homology Type<br />
+918 fugu_inter_paralog_subtype Ancestor<br />
+919 fugu_inter_paralog_dn dS<br />
+920 fugu_inter_paralog_ds dN<br />
+921 fugu_inter_paralog_perc_id % Identity<br />
+922 fugu_inter_paralog_perc_id_r1 Fugu % Identity<br />
+923 inter_paralog_gorilla_ensembl_gene Gorilla Ensembl Gene ID<br />
+924 inter_paralog_gorilla_inter_paralog_ensembl_peptide Gorilla
+Ensembl Protein ID<br />
+925 inter_paralog_gorilla_chromosome Gorilla Chromosome<br />
+926 inter_paralog_gorilla_chrom_start Gorilla Chromosome Start
+(bp)<br />
+927 inter_paralog_gorilla_chrom_end Gorilla Chromosome End (bp)<br />
+928 inter_paralog_gorilla_orthology_type Homology Type<br />
+929 gorilla_inter_paralog_subtype Ancestor<br />
+930 gorilla_inter_paralog_dn dS<br />
+931 gorilla_inter_paralog_ds dN<br />
+932 gorilla_inter_paralog_perc_id % Identity<br />
+933 gorilla_inter_paralog_perc_id_r1 Gorilla % Identity<br />
+934 inter_paralog_guineapig_ensembl_gene Guinea Pig Ensembl Gene
+ID<br />
+935 inter_paralog_guineapig_inter_paralog_ensembl_peptide Guinea
+Pig Ensembl Protein ID<br />
+936 inter_paralog_guineapig_chromosome Guinea Pig Chromosome<br />
+937 inter_paralog_guineapig_chrom_start Guinea Pig Chromosome Start
+(bp)<br />
+938 inter_paralog_guineapig_chrom_end Guinea Pig Chromosome End
+(bp)<br />
+939 inter_paralog_guineapig_orthology_type Homology Type<br />
+940 guineapig_inter_paralog_subtype Ancestor<br />
+941 guineapig_inter_paralog_dn dS<br />
+942 guineapig_inter_paralog_ds dN<br />
+943 guineapig_inter_paralog_perc_id % Identity<br />
+944 guineapig_inter_paralog_perc_id_r1 Guinea Pig % Identity<br />
+945 inter_paralog_hedgehog_ensembl_gene Hedgehog Ensembl Gene ID<br />
+946 inter_paralog_hedgehog_inter_paralog_ensembl_peptide Hedgehog
+Ensembl Protein ID<br />
+947 inter_paralog_hedgehog_chromosome Hedgehog Chromosome<br />
+948 inter_paralog_hedgehog_chrom_start Hedgehog Chromosome Start
+(bp)<br />
+949 inter_paralog_hedgehog_chrom_end Hedgehog Chromosome End (bp)<br />
+950 inter_paralog_hedgehog_orthology_type Homology Type<br />
+951 hedgehog_inter_paralog_subtype Ancestor<br />
+952 hedgehog_inter_paralog_dn dS<br />
+953 hedgehog_inter_paralog_ds dN<br />
+954 hedgehog_inter_paralog_perc_id % Identity<br />
+955 hedgehog_inter_paralog_perc_id_r1 Hedgehog % Identity<br />
+956 inter_paralog_horse_ensembl_gene Horse Ensembl Gene ID<br />
+957 inter_paralog_horse_inter_paralog_ensembl_peptide Horse
+Ensembl Protein ID<br />
+958 inter_paralog_horse_chromosome Horse Chromosome<br />
+959 inter_paralog_horse_chrom_start Horse Chromosome Start (bp)<br />
+960 inter_paralog_horse_chrom_end Horse Chromosome End (bp)<br />
+961 inter_paralog_horse_orthology_type Homology Type<br />
+962 horse_inter_paralog_subtype Ancestor<br />
+963 horse_inter_paralog_dn dS<br />
+964 horse_inter_paralog_ds dN<br />
+965 horse_inter_paralog_perc_id % Identity<br />
+966 horse_inter_paralog_perc_id_r1 Horse % Identity<br />
+967 inter_paralog_dordii_ensembl_gene Kangaroo Ensembl Gene ID<br />
+968 inter_paralog_dordii_inter_paralog_ensembl_peptide Kangaroo
+Ensembl Protein ID<br />
+969 inter_paralog_dordii_chromosome Kangaroo Chromosome<br />
+970 inter_paralog_dordii_chrom_start Kangaroo Chromosome Start
+(bp)<br />
+971 inter_paralog_dordii_chrom_end Kangaroo Chromosome End (bp)<br />
+972 inter_paralog_dordii_orthology_type Homology Type<br />
+973 dordii_inter_paralog_subtype Ancestor<br />
+974 dordii_inter_paralog_dn dS<br />
+975 dordii_inter_paralog_ds dN<br />
+976 dordii_inter_paralog_perc_id % Identity<br />
+977 dordii_inter_paralog_perc_id_r1 Kangaroo % Identity<br />
+978 inter_paralog_mmur_ensembl_gene M.murinus Ensembl Gene ID<br />
+979 inter_paralog_mmur_inter_paralog_ensembl_peptide M.murinus
+Ensembl Protein ID<br />
+980 inter_paralog_mmur_chromosome M.murinus Chromosome<br />
+981 inter_paralog_mmur_chrom_start M.murinus Chromosome Start (bp)<br />
+982 inter_paralog_mmur_chrom_end M.murinus Chromosome End (bp)<br />
+983 inter_paralog_mmur_orthology_type Homology Type<br />
+984 mmur_inter_paralog_subtype Ancestor<br />
+985 mmur_inter_paralog_dn dS<br />
+986 mmur_inter_paralog_ds dN<br />
+987 mmur_inter_paralog_perc_id % Identity<br />
+988 mmur_inter_paralog_perc_id_r1 M.murinus % Identity<br />
+989 inter_paralog_marmoset_ensembl_gene Marmoset Ensembl Gene ID<br />
+990 inter_paralog_marmoset_inter_paralog_ensembl_peptide Marmoset
+Ensembl Protein ID<br />
+991 inter_paralog_marmoset_chromosome Marmoset Chromosome<br />
+992 inter_paralog_marmoset_chrom_start Marmoset Chromosome Start
+(bp)<br />
+993 inter_paralog_marmoset_chrom_end Marmoset Chromosome End (bp)<br />
+994 inter_paralog_marmoset_orthology_type Homology Type<br />
+995 marmoset_inter_paralog_subtype Ancestor<br />
+996 marmoset_inter_paralog_dn dS<br />
+997 marmoset_inter_paralog_ds dN<br />
+998 marmoset_inter_paralog_perc_id % Identity<br />
+999 marmoset_inter_paralog_perc_id_r1 Marmoset % Identity<br />
+1000 inter_paralog_medaka_ensembl_gene Medaka Ensembl Gene ID<br />
+1001 inter_paralog_medaka_inter_paralog_ensembl_peptide Medaka
+Ensembl Protein ID<br />
+1002 inter_paralog_medaka_chromosome Medaka Chromosome<br />
+1003 inter_paralog_medaka_chrom_start Medaka Chromosome Start (bp)<br />
+1004 inter_paralog_medaka_chrom_end Medaka Chromosome End (bp)<br />
+1005 inter_paralog_medaka_orthology_type Homology Type<br />
+1006 medaka_inter_paralog_subtype Ancestor<br />
+1007 medaka_inter_paralog_dn dS<br />
+1008 medaka_inter_paralog_ds dN<br />
+1009 medaka_inter_paralog_perc_id % Identity<br />
+1010 medaka_inter_paralog_perc_id_r1 Medaka % Identity<br />
+1011 inter_paralog_megabat_ensembl_gene Megabat Ensembl Gene ID<br />
+1012 inter_paralog_megabat_inter_paralog_ensembl_peptide Megabat
+Ensembl Protein ID<br />
+1013 inter_paralog_megabat_chromosome Megabat Chromosome<br />
+1014 inter_paralog_megabat_chrom_start Megabat Chromosome Start
+(bp)<br />
+1015 inter_paralog_megabat_chrom_end Megabat Chromosome End (bp)<br />
+1016 inter_paralog_megabat_orthology_type Homology Type<br />
+1017 megabat_inter_paralog_subtype Ancestor<br />
+1018 megabat_inter_paralog_dn dS<br />
+1019 megabat_inter_paralog_ds dN<br />
+1020 megabat_inter_paralog_perc_id % Identity<br />
+1021 megabat_inter_paralog_perc_id_r1 Megabat % Identity<br />
+1022 inter_paralog_microbat_ensembl_gene Microbat Ensembl Gene ID<br />
+1023 inter_paralog_microbat_inter_paralog_ensembl_peptide Microbat
+Ensembl Protein ID<br />
+1024 inter_paralog_microbat_chromosome Microbat Chromosome<br />
+1025 inter_paralog_microbat_chrom_start Microbat Chromosome Start
+(bp)<br />
+1026 inter_paralog_microbat_chrom_end Microbat Chromosome End (bp)<br />
+1027 inter_paralog_microbat_orthology_type Homology Type<br />
+1028 microbat_inter_paralog_subtype Ancestor<br />
+1029 microbat_inter_paralog_dn dS<br />
+1030 microbat_inter_paralog_ds dN<br />
+1031 microbat_inter_paralog_perc_id % Identity<br />
+1032 microbat_inter_paralog_perc_id_r1 Microbat % Identity<br />
+1033 inter_paralog_opossum_ensembl_gene Monodelphis domestica
+Ensembl Gene ID<br />
+1034 inter_paralog_opossum_inter_paralog_ensembl_peptide
+Monodelphis domestica Ensembl Protein ID<br />
+1035 inter_paralog_opossum_chromosome Monodelphis domestica
+Chromosome<br />
+1036 inter_paralog_opossum_chrom_start Monodelphis domestica
+Chromosome Start (bp)<br />
+1037 inter_paralog_opossum_chrom_end Monodelphis domestica
+Chromosome End (bp)<br />
+1038 inter_paralog_opossum_orthology_type Homology Type<br />
+1039 opossum_inter_paralog_subtype Ancestor<br />
+1040 opossum_inter_paralog_dn dS<br />
+1041 opossum_inter_paralog_ds dN<br />
+1042 opossum_inter_paralog_perc_id % Identity<br />
+1043 opossum_inter_paralog_perc_id_r1 Monodelphis domestica %
+Identity<br />
+1044 inter_paralog_mouse_ensembl_gene Mouse Ensembl Gene ID<br />
+1045 inter_paralog_mouse_inter_paralog_ensembl_peptide Mouse
+Ensembl Protein ID<br />
+1046 inter_paralog_mouse_chromosome Mouse Chromosome<br />
+1047 inter_paralog_mouse_chrom_start Mouse Chromosome Start (bp)<br />
+1048 inter_paralog_mouse_chrom_end Mouse Chromosome End (bp)<br />
+1049 inter_paralog_mouse_orthology_type Homology Type<br />
+1050 mouse_inter_paralog_subtype Ancestor<br />
+1051 mouse_inter_paralog_dn dS<br />
+1052 mouse_inter_paralog_ds dN<br />
+1053 mouse_inter_paralog_perc_id % Identity<br />
+1054 mouse_inter_paralog_perc_id_r1 Mouse % Identity<br />
+1055 inter_paralog_orangutan_ensembl_gene Orangutan Ensembl Gene
+ID<br />
+1056 inter_paralog_orangutan_inter_paralog_ensembl_peptide
+Orangutan Ensembl Protein ID<br />
+1057 inter_paralog_orangutan_chromosome Orangutan Chromosome<br />
+1058 inter_paralog_orangutan_chrom_start Orangutan Chromosome Start
+(bp)<br />
+1059 inter_paralog_orangutan_chrom_end Orangutan Chromosome End
+(bp)<br />
+1060 inter_paralog_orangutan_orthology_type Homology Type<br />
+1061 orangutan_inter_paralog_subtype Ancestor<br />
+1062 orangutan_inter_paralog_dn dS<br />
+1063 orangutan_inter_paralog_ds dN<br />
+1064 orangutan_inter_paralog_perc_id % Identity<br />
+1065 orangutan_inter_paralog_perc_id_r1 Orangutan % Identity<br />
+1066 inter_paralog_pig_ensembl_gene Pig Ensembl Gene ID<br />
+1067 inter_paralog_pig_inter_paralog_ensembl_peptide Pig Ensembl
+Protein ID<br />
+1068 inter_paralog_pig_chromosome Pig Chromosome<br />
+1069 inter_paralog_pig_chrom_start Pig Chromosome Start (bp)<br />
+1070 inter_paralog_pig_chrom_end Pig Chromosome End (bp)<br />
+1071 inter_paralog_pig_orthology_type Homology Type<br />
+1072 pig_inter_paralog_subtype Ancestor<br />
+1073 pig_inter_paralog_dn dS<br />
+1074 pig_inter_paralog_ds dN<br />
+1075 pig_inter_paralog_perc_id % Identity<br />
+1076 pig_inter_paralog_perc_id_r1 Pig % Identity<br />
+1077 inter_paralog_pika_ensembl_gene Pika Ensembl Gene ID<br />
+1078 inter_paralog_pika_inter_paralog_ensembl_peptide Pika Ensembl
+Protein ID<br />
+1079 inter_paralog_pika_chromosome Pika Chromosome<br />
+1080 inter_paralog_pika_chrom_start Pika Chromosome Start (bp)<br />
+1081 inter_paralog_pika_chrom_end Pika Chromosome End (bp)<br />
+1082 inter_paralog_pika_orthology_type Homology Type<br />
+1083 pika_inter_paralog_subtype Ancestor<br />
+1084 pika_inter_paralog_dn dS<br />
+1085 pika_inter_paralog_ds dN<br />
+1086 pika_inter_paralog_perc_id % Identity<br />
+1087 pika_inter_paralog_perc_id_r1 Pika % Identity<br />
+1088 inter_paralog_platypus_ensembl_gene Platypus Ensembl Gene ID<br />
+1089 inter_paralog_platypus_inter_paralog_ensembl_peptide Platypus
+Ensembl Protein ID<br />
+1090 inter_paralog_platypus_chromosome Platypus Chromosome<br />
+1091 inter_paralog_platypus_chrom_start Platypus Chromosome Start
+(bp)<br />
+1092 inter_paralog_platypus_chrom_end Platypus Chromosome End (bp)<br />
+1093 inter_paralog_platypus_orthology_type Homology Type<br />
+1094 platypus_inter_paralog_subtype Ancestor<br />
+1095 platypus_inter_paralog_dn dS<br />
+1096 platypus_inter_paralog_ds dN<br />
+1097 platypus_inter_paralog_perc_id % Identity<br />
+1098 platypus_inter_paralog_perc_id_r1 Platypus % Identity<br />
+1099 inter_paralog_rabbit_ensembl_gene Rabbit Ensembl Gene ID<br />
+1100 inter_paralog_rabbit_inter_paralog_ensembl_peptide Rabbit
+Ensembl Protein ID<br />
+1101 inter_paralog_rabbit_chromosome Rabbit Chromosome<br />
+1102 inter_paralog_rabbit_chrom_start Rabbit Chromosome Start (bp)<br />
+1103 inter_paralog_rabbit_chrom_end Rabbit Chromosome End (bp)<br />
+1104 inter_paralog_rabbit_orthology_type Homology Type<br />
+1105 rabbit_inter_paralog_subtype Ancestor<br />
+1106 rabbit_inter_paralog_dn dS<br />
+1107 rabbit_inter_paralog_ds dN<br />
+1108 rabbit_inter_paralog_perc_id % Identity<br />
+1109 rabbit_inter_paralog_perc_id_r1 Rabbit % Identity<br />
+1110 inter_paralog_rat_ensembl_gene Rat Ensembl Gene ID<br />
+1111 inter_paralog_rat_inter_paralog_ensembl_peptide Rat Ensembl
+Protein ID<br />
+1112 inter_paralog_rat_chromosome Rat Chromosome<br />
+1113 inter_paralog_rat_chrom_start Rat Chromosome Start (bp)<br />
+1114 inter_paralog_rat_chrom_end Rat Chromosome End (bp)<br />
+1115 inter_paralog_rat_orthology_type Homology Type<br />
+1116 rat_inter_paralog_subtype Ancestor<br />
+1117 rat_inter_paralog_dn dS<br />
+1118 rat_inter_paralog_ds dN<br />
+1119 rat_inter_paralog_perc_id % Identity<br />
+1120 rat_inter_paralog_perc_id_r1 Rat % Identity<br />
+1121 inter_paralog_rhesus_ensembl_gene Rhesus Ensembl Gene ID<br />
+1122 inter_paralog_rhesus_inter_paralog_ensembl_peptide Rhesus
+Ensembl Protein ID<br />
+1123 inter_paralog_rhesus_chromosome Rhesus Chromosome<br />
+1124 inter_paralog_rhesus_chrom_start Rhesus Chromosome Start (bp)<br />
+1125 inter_paralog_rhesus_chrom_end Rhesus Chromosome End (bp)<br />
+1126 inter_paralog_rhesus_orthology_type Homology Type<br />
+1127 rhesus_inter_paralog_subtype Ancestor<br />
+1128 rhesus_inter_paralog_dn dS<br />
+1129 rhesus_inter_paralog_ds dN<br />
+1130 rhesus_inter_paralog_perc_id % Identity<br />
+1131 rhesus_inter_paralog_perc_id_r1 Rhesus % Identity<br />
+1132 inter_paralog_pcapensis_ensembl_gene Rock Hyrax Ensembl Gene
+ID<br />
+1133 inter_paralog_pcapensis_inter_paralog_ensembl_peptide Rock
+Hyrax Ensembl Protein ID<br />
+1134 inter_paralog_pcapensis_chromosome Rock Hyrax Chromosome<br />
+1135 inter_paralog_pcapensis_chrom_start Rock Hyrax Chromosome Start
+(bp)<br />
+1136 inter_paralog_pcapensis_chrom_end Rock Hyrax Chromosome End
+(bp)<br />
+1137 inter_paralog_pcapensis_orthology_type Homology Type<br />
+1138 pcapensis_inter_paralog_subtype Ancestor<br />
+1139 pcapensis_inter_paralog_dn dS<br />
+1140 pcapensis_inter_paralog_ds dN<br />
+1141 pcapensis_inter_paralog_perc_id % Identity<br />
+1142 pcapensis_inter_paralog_perc_id_r1 Rock Hyrax % Identity<br />
+1143 inter_paralog_sloth_ensembl_gene Sloth Ensembl Gene ID<br />
+1144 inter_paralog_sloth_inter_paralog_ensembl_peptide Sloth
+Ensembl Protein ID<br />
+1145 inter_paralog_sloth_chromosome Sloth Chromosome<br />
+1146 inter_paralog_sloth_chrom_start Sloth Chromosome Start (bp)<br />
+1147 inter_paralog_sloth_chrom_end Sloth Chromosome End (bp)<br />
+1148 inter_paralog_sloth_orthology_type Homology Type<br />
+1149 sloth_inter_paralog_subtype Ancestor<br />
+1150 sloth_inter_paralog_dn dS<br />
+1151 sloth_inter_paralog_ds dN<br />
+1152 sloth_inter_paralog_perc_id % Identity<br />
+1153 sloth_inter_paralog_perc_id_r1 Sloth % Identity<br />
+1154 inter_paralog_squirrel_ensembl_gene Squirrel Ensembl Gene ID<br />
+1155 inter_paralog_squirrel_inter_paralog_ensembl_peptide Squirrel
+Ensembl Protein ID<br />
+1156 inter_paralog_squirrel_chromosome Squirrel Chromosome<br />
+1157 inter_paralog_squirrel_chrom_start Squirrel Chromosome Start
+(bp)<br />
+1158 inter_paralog_squirrel_chrom_end Squirrel Chromosome End (bp)<br />
+1159 inter_paralog_squirrel_orthology_type Homology Type<br />
+1160 squirrel_inter_paralog_subtype Ancestor<br />
+1161 squirrel_inter_paralog_dn dS<br />
+1162 squirrel_inter_paralog_ds dN<br />
+1163 squirrel_inter_paralog_perc_id % Identity<br />
+1164 squirrel_inter_paralog_perc_id_r1 Squirrel % Identity<br />
+1165 inter_paralog_gaculeatus_ensembl_gene Stickleback Ensembl Gene
+ID<br />
+1166 inter_paralog_gaculeatus_inter_paralog_ensembl_peptide
+Stickleback Ensembl Protein ID<br />
+1167 inter_paralog_gaculeatus_chromosome Stickleback Chromosome<br />
+1168 inter_paralog_gaculeatus_chrom_start Stickleback Chromosome
+Start (bp)<br />
+1169 inter_paralog_gaculeatus_chrom_end Stickleback Chromosome End
+(bp)<br />
+1170 inter_paralog_gaculeatus_orthology_type Homology Type<br />
+1171 gaculeatus_inter_paralog_subtype Ancestor<br />
+1172 gaculeatus_inter_paralog_dn dS<br />
+1173 gaculeatus_inter_paralog_ds dN<br />
+1174 gaculeatus_inter_paralog_perc_id % Identity<br />
+1175 gaculeatus_inter_paralog_perc_id_r1 Stickleback % Identity<br />
+1176 inter_paralog_tarsier_ensembl_gene Tarsier Ensembl Gene ID<br />
+1177 inter_paralog_tarsier_inter_paralog_ensembl_peptide Tarsier
+Ensembl Protein ID<br />
+1178 inter_paralog_tarsier_chromosome Tarsier Chromosome<br />
+1179 inter_paralog_tarsier_chrom_start Tarsier Chromosome Start
+(bp)<br />
+1180 inter_paralog_tarsier_chrom_end Tarsier Chromosome End (bp)<br />
+1181 inter_paralog_tarsier_orthology_type Homology Type<br />
+1182 tarsier_inter_paralog_subtype Ancestor<br />
+1183 tarsier_inter_paralog_dn dS<br />
+1184 tarsier_inter_paralog_ds dN<br />
+1185 tarsier_inter_paralog_perc_id % Identity<br />
+1186 tarsier_inter_paralog_perc_id_r1 Tarsier % Identity<br />
+1187 inter_paralog_tenrec_ensembl_gene Tenrec Ensembl Gene ID<br />
+1188 inter_paralog_tenrec_inter_paralog_ensembl_peptide Tenrec
+Ensembl Protein ID<br />
+1189 inter_paralog_tenrec_chromosome Tenrec Chromosome<br />
+1190 inter_paralog_tenrec_chrom_start Tenrec Chromosome Start (bp)<br />
+1191 inter_paralog_tenrec_chrom_end Tenrec Chromosome End (bp)<br />
+1192 inter_paralog_tenrec_orthology_type Homology Type<br />
+1193 tenrec_inter_paralog_subtype Ancestor<br />
+1194 tenrec_inter_paralog_dn dS<br />
+1195 tenrec_inter_paralog_ds dN<br />
+1196 tenrec_inter_paralog_perc_id % Identity<br />
+1197 tenrec_inter_paralog_perc_id_r1 Tenrec % Identity<br />
+1198 inter_paralog_tetraodon_ensembl_gene Tetraodon Ensembl Gene
+ID<br />
+1199 inter_paralog_tetraodon_inter_paralog_ensembl_peptide
+Tetraodon Ensembl Protein ID<br />
+1200 inter_paralog_tetraodon_chromosome Tetraodon Chromosome<br />
+1201 inter_paralog_tetraodon_chrom_start Tetraodon Chromosome Start
+(bp)<br />
+1202 inter_paralog_tetraodon_chrom_end Tetraodon Chromosome End
+(bp)<br />
+1203 inter_paralog_tetraodon_orthology_type Homology Type<br />
+1204 tetraodon_inter_paralog_subtype Ancestor<br />
+1205 tetraodon_inter_paralog_dn dS<br />
+1206 tetraodon_inter_paralog_ds dN<br />
+1207 tetraodon_inter_paralog_perc_id % Identity<br />
+1208 tetraodon_inter_paralog_perc_id_r1 Tetraodon % Identity<br />
+1209 inter_paralog_tree_shrew_ensembl_gene Tree Shrew Ensembl Gene
+ID<br />
+1210 inter_paralog_tree_shrew_inter_paralog_ensembl_peptide Tree
+Shrew Ensembl Protein ID<br />
+1211 inter_paralog_tree_shrew_chromosome Tree Shrew Chromosome<br />
+1212 inter_paralog_tree_shrew_chrom_start Tree Shrew Chromosome
+Start (bp)<br />
+1213 inter_paralog_tree_shrew_chrom_end Tree Shrew Chromosome End
+(bp)<br />
+1214 inter_paralog_tree_shrew_orthology_type Homology Type<br />
+1215 tree_shrew_inter_paralog_subtype Ancestor<br />
+1216 tree_shrew_inter_paralog_dn dS<br />
+1217 tree_shrew_inter_paralog_ds dN<br />
+1218 tree_shrew_inter_paralog_perc_id % Identity<br />
+1219 tree_shrew_inter_paralog_perc_id_r1 Tree Shrew % Identity<br />
+1220 inter_paralog_wallaby_ensembl_gene Wallaby Ensembl Gene ID<br />
+1221 inter_paralog_wallaby_inter_paralog_ensembl_peptide Wallaby
+Ensembl Protein ID<br />
+1222 inter_paralog_wallaby_chromosome Wallaby Chromosome<br />
+1223 inter_paralog_wallaby_chrom_start Wallaby Chromosome Start
+(bp)<br />
+1224 inter_paralog_wallaby_chrom_end Wallaby Chromosome End (bp)<br />
+1225 inter_paralog_wallaby_orthology_type Homology Type<br />
+1226 wallaby_inter_paralog_subtype Ancestor<br />
+1227 wallaby_inter_paralog_dn dS<br />
+1228 wallaby_inter_paralog_ds dN<br />
+1229 wallaby_inter_paralog_perc_id % Identity<br />
+1230 wallaby_inter_paralog_perc_id_r1 Wallaby % Identity<br />
+1231 inter_paralog_yeast_ensembl_gene Yeast Ensembl Gene ID<br />
+1232 inter_paralog_yeast_inter_paralog_ensembl_peptide Yeast
+Ensembl Protein ID<br />
+1233 inter_paralog_yeast_chromosome Yeast Chromosome<br />
+1234 inter_paralog_yeast_chrom_start Yeast Chromosome Start (bp)<br />
+1235 inter_paralog_yeast_chrom_end Yeast Chromosome End (bp)<br />
+1236 inter_paralog_yeast_orthology_type Homology Type<br />
+1237 yeast_inter_paralog_subtype Ancestor<br />
+1238 yeast_inter_paralog_dn dS<br />
+1239 yeast_inter_paralog_ds dN<br />
+1240 yeast_inter_paralog_perc_id % Identity<br />
+1241 yeast_inter_paralog_perc_id_r1 Yeast % Identity<br />
+1242 inter_paralog_zebra_finch_ensembl_gene Zebra Finch Ensembl
+Gene ID<br />
+1243 inter_paralog_zebra_finch_inter_paralog_ensembl_peptide
+Zebra Finch Ensembl Protein ID<br />
+1244 inter_paralog_zebra_finch_chromosome Zebra Finch Chromosome<br />
+1245 inter_paralog_zebra_finch_chrom_start Zebra Finch Chromosome
+Start (bp)<br />
+1246 inter_paralog_zebra_finch_chrom_end Zebra Finch Chromosome End
+(bp)<br />
+1247 inter_paralog_zebra_finch_orthology_type Homology Type<br />
+1248 zebra_finch_inter_paralog_subtype Ancestor<br />
+1249 zebra_finch_inter_paralog_dn dS<br />
+1250 zebra_finch_inter_paralog_ds dN<br />
+1251 zebra_finch_inter_paralog_perc_id % Identity<br />
+1252 zebra_finch_inter_paralog_perc_id_r1 Zebra Finch % Identity<br />
+1253 inter_paralog_zebrafish_ensembl_gene Zebrafish Ensembl Gene
+ID<br />
+1254 inter_paralog_zebrafish_inter_paralog_ensembl_peptide
+Zebrafish Ensembl Protein ID<br />
+1255 inter_paralog_zebrafish_chromosome Zebrafish Chromosome<br />
+1256 inter_paralog_zebrafish_chrom_start Zebrafish Chromosome Start
+(bp)<br />
+1257 inter_paralog_zebrafish_chrom_end Zebrafish Chromosome End
+(bp)<br />
+1258 inter_paralog_zebrafish_orthology_type Homology Type<br />
+1259 zebrafish_inter_paralog_subtype Ancestor<br />
+1260 zebrafish_inter_paralog_dn dS<br />
+1261 zebrafish_inter_paralog_ds dN<br />
+1262 zebrafish_inter_paralog_perc_id % Identity<br />
+1263 zebrafish_inter_paralog_perc_id_r1 Zebrafish % Identity<br />
+1264 human_paralog_ensembl_gene Human Paralog Ensembl Gene ID<br />
+1265 human_paralog_chromosome Human Paralog Chromosome<br />
+1266 human_paralog_chrom_start Human Paralog Chr Start (bp)<br />
+1267 human_paralog_chrom_end Human Paralog Chr End (bp)<br />
+1268 human_paralog_ensembl_peptide Representative Protein ID<br />
+1269 human_paralog_paralog_ensembl_peptide Human Paralog Ensembl
+Protein ID<br />
+1270 human_paralog_ancestor Ancestor<br />
+1271 paralog_hsap__dm_description_4014 Homology Type<br />
+1272 hsapiens_dn dN<br />
+1273 hsapiens_ds dS<br />
+1274 paralog_hsap__dm_tag_4060 Bootstrap/Duplication Confidence
+Score Type<br />
+1275 paralog_hsap__dm_value_4060 Bootstrap/Duplication Confidence
+Score<br />
+1276 paralog_hsap__dm_perc_id_4015 % Identity<br />
+1277 paralog_hsap__dm_perc_id_4015_r1 Human % Identity<br />
+1278 ensembl_gene_id Ensembl Gene ID<br />
+1279 ensembl_transcript_id Ensembl Transcript ID<br />
+1280 ensembl_peptide_id Ensembl Protein ID<br />
+1281 chromosome_name Chromosome Name<br />
+1282 start_position Gene Start (bp)<br />
+1283 end_position Gene End (bp)<br />
+1284 strand Strand<br />
+1285 band Band<br />
+1286 external_gene_id Associated Gene Name<br />
+1287 external_gene_db Associated Gene DB<br />
+1288 transcript_count Transcript count<br />
+1289 percentage_gc_content % GC content<br />
+1290 description Description<br />
+1291 source_name SNP Source<br />
+1292 source_description Source description<br />
+1293 external_id Reference ID<br />
+1294 allele Allele<br />
+1295 validated Validation status<br />
+1296 mapweight Mapweight<br />
+1297 transcript_location Transcript location (bp)<br />
+1298 snp_chromosome_strand SNP Chromosome Strand<br />
+1299 peptide_location Protein location (aa)<br />
+1300 chromosome_location Chromosome Location (bp)<br />
+1301 peptide_shift Protein Allele<br />
+1302 cds_start_2024 CDS Start<br />
+1303 cds_end_2024 CDS End<br />
+1304 transcript_exon_intron Unspliced (Transcript)<br />
+1305 gene_exon_intron Unspliced (Gene)<br />
+1306 transcript_flank Flank (Transcript)<br />
+1307 gene_flank Flank (Gene)<br />
+1308 coding_transcript_flank Flank-coding region (Transcript)<br />
+1309 coding_gene_flank Flank-coding region (Gene)<br />
+1310 5utr 5&rsquo; UTR<br />
+1311 3utr 3&rsquo; UTR<br />
+1312 gene_exon Exon sequences<br />
+1313 cdna cDNA sequences<br />
+1314 coding Coding sequence<br />
+1315 peptide Protein<br />
+1316 upstream_flank upstream_flank<br />
+1317 downstream_flank downstream_flank<br />
+1318 ensembl_gene_id Ensembl Gene ID<br />
+1319 description Description<br />
+1320 external_gene_id Associated Gene Name<br />
+1321 external_gene_db Associated Gene DB<br />
+1322 chromosome_name Chromosome Name<br />
+1323 start_position Gene Start (bp)<br />
+1324 end_position Gene End (bp)<br />
+1325 family Ensembl Protein Family ID(s)<br />
+1326 cds_length CDS Length<br />
+1327 cds_start CDS Start<br />
+1328 cds_end CDS End<br />
+1329 5_utr_start 5&rsquo; UTR Start<br />
+1330 5_utr_end 5&rsquo; UTR End<br />
+1331 3_utr_start 3&rsquo; UTR Start<br />
+1332 3_utr_end 3&rsquo; UTR End<br />
+1333 ensembl_transcript_id Ensembl Transcript ID<br />
+1334 ensembl_peptide_id Ensembl Protein ID<br />
+1335 strand Strand<br />
+1336 transcript_start Transcript Start (bp)<br />
+1337 transcript_end Transcript End (bp)<br />
+1338 ensembl_exon_id Ensembl Exon ID<br />
+1339 exon_chrom_start Exon Chr Start (bp)<br />
+1340 exon_chrom_end Exon Chr End (bp)<br />
+1341 strand Strand<br />
+1342 rank Exon Rank in Transcript<br />
+1343 is_constitutive Constitutive Exon</p>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

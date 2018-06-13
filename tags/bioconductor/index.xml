@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bioconductor on Biocozy.net</title>
+    <link>https://biocozy.net/tags/bioconductor/</link>
+    <description>Recent content in Bioconductor on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Mon, 05 Oct 2009 13:56:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/bioconductor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>parallel computation using the caret package</title>
+      <link>https://biocozy.net/posts/2009-10-05-parallel-computation-using-the-caret-package/</link>
+      <pubDate>Mon, 05 Oct 2009 13:56:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-10-05-parallel-computation-using-the-caret-package/</guid>
+      <description>Library caret is a wonderful R package for tuning a variety of machine learning classification and regression algorithms. But it can take a long time to run, since model tuning usually involves running multiple bootstrapped replicates for each point in your tuning grid.
+If you have a multi-core desktop machine, you can speed up your calls to the caret function train by using explicit parallelism.
+There were just a couple hitches to get it flying on my 64bit quad core Optiplex 960 running linux kernel 2.</description>
+    </item>
+    
+    <item>
+      <title>Another workaround for Memory Issues in R / Bioconductor</title>
+      <link>https://biocozy.net/posts/2009-04-15-another-workaround-for-memory-issues-in-r-bioconductor/</link>
+      <pubDate>Wed, 15 Apr 2009 11:35:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-04-15-another-workaround-for-memory-issues-in-r-bioconductor/</guid>
+      <description>This post could be entitled &amp;ldquo;Error: cannot allocate vector of size 256.0 Mb&amp;rdquo;. R provides this maddening response for even the most trivial seeming tasks. I have a 4 Gb linux system, and I have encountered this error message for &amp;ldquo;vector of size&amp;rdquo; in the 10s of Mb. And system wide, there appears to be plenty of memory still available, and the swap space hasn&amp;rsquo;t been touched.
+What&amp;rsquo;s going on with R memory management?</description>
+    </item>
+    
+    <item>
+      <title>The Girke R Bioconductor manual</title>
+      <link>https://biocozy.net/posts/2009-04-09-the-girke-r-bioconductor-manual/</link>
+      <pubDate>Thu, 09 Apr 2009 16:29:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-04-09-the-girke-r-bioconductor-manual/</guid>
+      <description>I came across Thomas Girke&amp;rsquo;s wonderful R/Bioconductor manual today. If I had had this UC Riverside professors notes when I started, I would have saved a lot of time.</description>
+    </item>
+    
+    <item>
+      <title>Pulling data from GEO into R Bioconductor expression sets (eSet)</title>
+      <link>https://biocozy.net/posts/2009-03-19-pulling-data-from-geo-into-r-bioconductor-expression-sets-eset/</link>
+      <pubDate>Thu, 19 Mar 2009 16:01:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-03-19-pulling-data-from-geo-into-r-bioconductor-expression-sets-eset/</guid>
+      <description>I just discovered how easy Bioconductor makes it to import data from the Gene Expression Omnibus (GEO).
+First, be sure you have the GEOquery package from Bioconductor. You will probably need to install the curl4 devel library package using apt-get or whatever you use to do such things. On my Ubuntu 8.10 distro, the requisite package is called libcurl4-gnutls-dev. After you have this, you should be able to install GEOquery like any other Bioconductor package, ie:</description>
+    </item>
+    
+  </channel>
+</rss>

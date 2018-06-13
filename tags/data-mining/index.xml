@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Mining on Biocozy.net</title>
+    <link>https://biocozy.net/tags/data-mining/</link>
+    <description>Recent content in Data Mining on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Wed, 25 Mar 2009 10:33:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/data-mining/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Integrating BioMart queries into BioConductor with the biomaRt package</title>
+      <link>https://biocozy.net/posts/2009-03-25-integrating-biomart-queries-into-bioconductor-with-the-biomart-package/</link>
+      <pubDate>Wed, 25 Mar 2009 10:33:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-03-25-integrating-biomart-queries-into-bioconductor-with-the-biomart-package/</guid>
+      <description>I&amp;rsquo;ve just realized the considerable power and convenience of a web-based bioinformatic resource I have overlooked in the past: biomart.org.
+What gets my attention now is the ability to integrate BioMart queries right into your BioConductor pipeline, with a package called biomaRt
+The Seattle 2009 BioConductor workshop looks like it was great &amp;ndash; sadly, I missed it. But you can still access some presentation materials on biomaRt.
+Installation of biomaRt is accomplished like any other BioConductor pacakge:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on Biocozy.net</title>
+    <link>https://biocozy.net/tags/algorithms/</link>
+    <description>Recent content in Algorithms on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Wed, 26 Oct 2011 06:25:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BWA on FPGA architecture</title>
+      <link>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</link>
+      <pubDate>Wed, 26 Oct 2011 06:25:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</guid>
+      <description>Convey Computing is offering a FPGA-based computational cluster that has been optimized forBWA.</description>
+    </item>
+    
+  </channel>
+</rss>

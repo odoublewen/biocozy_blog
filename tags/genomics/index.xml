@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Genomics on Biocozy.net</title>
+    <link>https://biocozy.net/tags/genomics/</link>
+    <description>Recent content in Genomics on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Thu, 16 Feb 2012 06:04:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/genomics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rRNA genes in the human genome</title>
+      <link>https://biocozy.net/posts/2012-02-16-rrna-genes-in-the-human-genome/</link>
+      <pubDate>Thu, 16 Feb 2012 06:04:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-02-16-rrna-genes-in-the-human-genome/</guid>
+      <description>Larry Moran has an excellent discussion of the organization of rRNA genes in the human genome. It&amp;rsquo;s an old post, but a good one.
+If you&amp;rsquo;re involved in RNA-Seq, you should read it. Dr. Moran&amp;rsquo;s discussion makes it clear why it is necessary to map reads to a synthetic rRNA-ome before doing full-genome alignment &amp;ndash; if you want to accurately count, or filter out, rRNA reads (which can predominate in RNA-seq datasets).</description>
+    </item>
+    
+  </channel>
+</rss>

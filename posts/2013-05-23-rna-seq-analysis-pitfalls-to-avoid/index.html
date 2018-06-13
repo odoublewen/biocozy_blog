@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="RNA-Seq analysis: pitfalls to avoid" />
+<meta property="og:description" content="Here I am writing out some of the details of my tophat/cufflinks RNA-Seq workflow. I will try to concisely summarize what works and what pitfalls to avoid. None of what follows is particularly cutting edge, but since these analyses often involve days of computation, each and every trial-and-error glitch adds up and sets you back. This document is intended to help you avoid such setbacks.
+I. Get reference genome and annotation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biocozy.net/posts/2013-05-23-rna-seq-analysis-pitfalls-to-avoid/" />
+
+
+
+<meta property="article:published_time" content="2013-05-23T20:09:00-07:00"/>
+
+<meta property="article:modified_time" content="2013-05-23T20:09:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RNA-Seq analysis: pitfalls to avoid"/>
+<meta name="twitter:description" content="Here I am writing out some of the details of my tophat/cufflinks RNA-Seq workflow. I will try to concisely summarize what works and what pitfalls to avoid. None of what follows is particularly cutting edge, but since these analyses often involve days of computation, each and every trial-and-error glitch adds up and sets you back. This document is intended to help you avoid such setbacks.
+I. Get reference genome and annotation"/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/2013-05-23-rna-seq-analysis-pitfalls-to-avoid/">
+
+    <title>
+      
+        RNA-Seq analysis: pitfalls to avoid | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/2013-05-23-rna-seq-analysis-pitfalls-to-avoid/">RNA-Seq analysis: pitfalls to avoid</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        May 23, 2013
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    <p>Here I am writing out some of the details of my tophat/cufflinks RNA-Seq
+workflow.  I will try to concisely summarize what works and what
+pitfalls to avoid.  None of what follows is particularly cutting edge,
+but since these analyses often involve days of computation, each and
+every trial-and-error glitch adds up and sets you back.  This document
+is intended to help you avoid such setbacks.</p>
+
+<p><strong>I. Get reference genome and annotation</strong></p>
+
+<p>The first step is to obtain the necessary reference files: the reference
+genome sequence (FASTA file) and the transcriptome annotation (GFF or
+GTF file.)  In the past, I have found these files from one of the main
+purveyors of public human genome data:
+<a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/H_sapiens/">NCBI</a>,
+<a href="http://hgdownload.soe.ucsc.edu/downloads.html#human">UCSC</a>, and
+<a href="http://www.ensembl.org/downloads.html">Ensembl</a>.  In principle, it
+should be possible to use the GFF (or GTF) files from any of these
+sources, but in practice, there are subtleties about the formatting of
+these &ldquo;standard&rdquo; files that can make them not play well with
+tophat/cufflinks (more on this in the next paragraph).  So I have found
+it is better to use <a href="http://cufflinks.cbcb.umd.edu/igenomes.html">Illumina&rsquo;s &ldquo;iGenome&rdquo; downloads, neatly indexed on
+the cufflinks site</a>.  Note
+that iGenome is not offering new annotations &ndash; they are just
+repackaging the annotations created by the big public projects in a
+standardized format.  Also, you are getting not only the annotations,
+but also the genome sequence and even a pre-built bowtie2 index &ndash; which
+may save you a couple hours!</p>
+
+<p>A note here about the annotation formats.  GFF/GTF files are available
+from pretty much all the sources listed above, but the formats are
+loose, not well adhered to, and thus the annotations created by these
+institutions are not all interchangeable.  The GFF2 format was <a href="http://www.sanger.ac.uk/resources/software/gff/spec.html">defined
+by Sanger</a> and
+is also <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format3">embraced by
+UCSC</a>.  Two attempts
+to improve GFF2 include GTF (<a href="http://mblab.wustl.edu/GTF2.html">defined by the Brent Lab at
+WUSTL</a>) and GFF3 (<a href="http://www.sequenceontology.org/gff3.shtml">described by
+SequenceOntology</a>).  Of
+these two updates, GTF is the more incremental (<a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format4">the difference is
+summarized by UCSC
+here</a> and has also
+been <a href="http://gmod.org/wiki/GFF#GTF">referred to as &ldquo;GFF2.5&rdquo;</a>).  GFF3 is
+more of a revamping (The SequenceOntology site states &ldquo;The GFF format,
+although widely used, has fragmented into multiple incompatible
+dialects&hellip; The proposed GFF3 format addresses the most common
+extensions to GFF, while preserving backward compatibility with previous
+formats.&ldquo;)</p>
+
+<p>In principle, TopHat will accept GTF or GFF3 annotations.  GTF seems to
+be somewhat more &ldquo;native&rdquo; to Tophat and iGenome uses GTF format, so this
+is a good thing.</p>
+
+<p>NB: be prepared to wait a while on those iGenome downloads, they are big
+downloads.  I recommend downloading them directly to your server with
+wget &ndash; just copy the link from the download page.  For example:</p>
+
+<p><span
+style="font-family: Courier New, Courier, monospace; font-size: x-small;">wget <a href="ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Homo_sapiens/Ensembl/GRCh37/Homo_sapiens_Ensembl_GRCh37.tar.gz">ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Homo_sapiens/Ensembl/GRCh37/Homo_sapiens_Ensembl_GRCh37.tar.gz</a></span></p>
+
+<p><strong>II. Quality check and filter raw reads (rinse and repeat)</strong></p>
+
+<p>Recent software improvements to Illumina NGS platforms means that data
+quality control is much better than in the &ldquo;early&rdquo; days.  But it is
+still necessary to check the quality of your incoming data, and
+(possibly) run a filter to remove low quality reads, low quality
+ends-of-reads, too short reads, and reads (or portions of reads) that
+have been &ldquo;contaminated&rdquo; by oligos used in the library prep.  These
+contaminating reads might be due to primer-dimer, inserts shorter than
+the read-length, etc.</p>
+
+<p>For QC, I typically use
+<a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a> in
+command-line mode, very simply like this:<br />
+<span
+style="font-family: Courier New, Courier, monospace; font-size: x-small;">fastqc
+-o fastqc_dir rawdata/Sample*fq.gz</span><br />
+<a href="../images/2013-05-23-rna-seq-analysis-pitfalls-to-avoid-per_base_quality.png"><img src="../images/thumbnails/2013-05-23-rna-seq-analysis-pitfalls-to-avoid-per_base_quality.png" alt="" /></a><br />
+This will generate a webpage with many useful plots, most important of
+which is the overall mean quality per base position (shown at right).  
+It is normal for the quality to fall at the end, but be wary if there is
+very much of the quality distribution down bellow 25-30.</p>
+
+<p>The other really useful piece of info returned by FastQC is a list of
+&ldquo;overrepresented sequences.&rdquo;  Such sequences are automatically checked
+against the included
+<a href="https://github.com/csf-ngs/fastqc/blob/master/Contaminants/contaminant_list.txt">contaminants_list.txt</a>
+file &ndash; definitely have a look at this &ndash; library sequence artifact, if
+common, will sink your analysis.</p>
+
+<p>For cleaning data, I typically use
+<a href="https://code.google.com/p/cutadapt/">cutadapt</a> (removes contaminating
+sequences) and
+the <a href="http://hannonlab.cshl.edu/fastx_toolkit/">FASTX-Toolkit</a> (trims and
+filters.)</p>
+
+<p>You can (and should) take advantage of <a href="http://en.wikipedia.org/wiki/Anonymous_pipe">Linux&rsquo;s ability to pipe commands
+together</a>.  Many commands
+are written to read from (and write to)
+<a href="http://en.wikipedia.org/wiki/Stdout">STDOUT</a>.  You can read the links
+if you want to learn more, but in practice, this might look like this:</p>
+
+<p><span
+style="font-family: Courier New, Courier, monospace; font-size: x-small;">cutadapt
+-O 5 -b  CAAGCAGAAGACGGCATACGAGCTCTTCCGATCT Sample01_1.fq.gz |
+fastx_quality_trimmer -Q33 -t 25 -l 50 | fastq_quality_filter -Q33
+-q 25 -p 80 -z &gt; Sample01_filtered_1.fq.gz</span></p>
+
+<p><strong>III. TopHat (map reads)</strong></p>
+
+<p>Now that you have the annotations, the reference genome sequence, and
+the bowtie2 index, and you have quality-filtered your data, you are
+ready to run TopHat.  Here is your basic TopHat command:</p>
+
+<p><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">tophat
+-G </span><span
+style="background-color: #fff2cc; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">genes.gtf</span><span
+style="color: #222222; font-family: Courier New, Courier, monospace; font-size: x-small;"><span
+style="line-height: 18px;"> </span></span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">&ndash;transcriptome-index=</span><span
+style="background-color: #d0e0e3; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">transcriptome</span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;"> </span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">-o
+</span><span
+style="background-color: #d5a6bd; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">out</span><span
+style="color: #222222; font-family: 'Courier New', Courier, monospace; font-size: x-small; line-height: 18px;"> </span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">-p
+</span><span
+style="background-color: #f1c232; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">6</span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;"> </span><span
+style="background-color: yellow; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: x-small; line-height: 18px;">&ndash;no-novel-juncs</span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;"> </span><span
+style="background-color: #fce5cd; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">genome</span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">
+file1_1.fq.gz file1_2.fq.gz</span></p>
+
+<p>Where:</p>
+
+<ul>
+<li><span style="background-color: #fff2cc;">genes.gtf</span> is the GTF
+annotation (it can be found at
+Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf in iGenomes)</li>
+<li><span style="background-color: #d0e0e3;">transcriptome</span> is the
+base name of the bowtie2 index of the transcriptome.  This file does
+not exist the first time you do an analysis &ndash; it is created by
+TopHat on the fly (takes about an hour) and subsequent runs will
+reuse this index and save time.  If you have more than 1 file to
+process (and surely you do) you <strong>definitely</strong> want to use this
+option.  You can put this file anywhere you want, but I usually tuck
+it in
+here: Homo_sapiens/Ensembl/GRCh37/Sequence/Bowtie2Index/transcriptome </li>
+<li><span style="background-color: #fce5cd;">genome</span> is the base
+name of the bowtie2 index of the genome (it can be found at
+Homo_sapiens/Ensembl/GRCh37/Sequence/Bowtie2Index/genome if you use
+the directory structure that comes from the iGenome download)</li>
+<li>Your output file is designated by &ldquo;<span
+style="background-color: #d5a6bd;">out</span>&ldquo;</li>
+<li>The number of process threads to use is set by <span
+style="background-color: #ffd966;">-p</span>.  I recommend setting
+it to somewhat less than the number of threads available (on an 8
+processor system, use 6 or 7.  On a 32 processor system, I typically
+use 24-28, depending on what else is going on.  In my experience, it
+is not better to use all of the processors &ndash; the jobs will actually
+run slower!)</li>
+</ul>
+
+<p>One TopHat option you may want to consider is the <span
+style="background-color: yellow;">&ndash;no-novel-juncs option</span>.
+ Detection of novel junctions (ie, genes that are not described in the
+provided annotations) is a fundamental part of how TopHat works.  You
+can even run TopHat without any annotation at all!  As I <a href="http://biocozy.blogspot.com/2013/02/what-your-father-never-told-you-about.html">described in a
+previous
+posting</a>,
+turning off novel-junction detection doesn&rsquo;t really save you very much
+time &ndash; so why would you want to turn it off?  Well, here is one
+possible reason.  Say you have dozens or even hundreds of samples to
+process, with 100s of millions of reads for each sample.  If novel
+junction discovery is used it will be performed for each sample
+independently.  This creates a problem when it is time to compare
+samples &ndash; you have to use the cuffmerge utility to merge the
+annotations back together and re-compute the transcript quantitation
+estimates.  In my experience, this can be very, very time and memory
+consuming.  So, unless you really <strong>are</strong> looking for novel transcripts
+(maybe you are working with a poorly characterized tissue or a non-model
+organism), I suggesting turning this function off and just leaning on
+the annotations provided by Ensemble.</p>
+
+<p>If you have many files to process, consider batch processing them with
+<a href="http://www.gnu.org/software/parallel/">GNU parallel</a>.  I use parallel
+all the time, even when I am not parallelizing the task at hand.  (Yes,
+I realize xargs would be a purer tool for such cases, but I like the
+bells and whistles that parallel comes with.)  It&rsquo;s just a handy way of
+processing many files in the same way.  You will want to read the man
+page for parallel, the syntax has a learning curve, but it is a huge
+help once you get the hang of it!</p>
+
+<p>Putting it all together:  Your command might look something like this:</p>
+
+<p><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">parallel
+-j 1 &ldquo;tophat -G </span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace;"><span
+style="font-size: x-small;"><span
+style="line-height: 18px;">Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf </span></span></span><span
+style="color: #222222; font-family: Courier New, Courier, monospace; font-size: x-small;"><span
+style="line-height: 18px;">&ndash;no-novel-juncs </span></span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">&ndash;transcriptome-index=</span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace;"><span
+style="font-size: x-small;"><span
+style="line-height: 18px;">Homo_sapiens/Ensembl/GRCh37/Sequence/Bowtie2Index/transcriptome -p
+6 -o {/} </span></span></span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace;"><span
+style="font-size: x-small;"><span
+style="line-height: 18px;">Homo_sapiens/Ensembl/GRCh37/Sequence/Bowtie2Index/genome {/}_1.fq.gz </span></span></span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: x-small; line-height: 18px;">{/}_2.fq.gz&rdquo;
+::: </span><span
+style="color: #222222; font-family: Courier New, Courier, monospace; font-size: x-small;"><span
+style="line-height: 18px;">`ls /path/to/data/sample_*_1.fq.gz | sed
+&rsquo;s/_1.fq.gz//&rsquo;`</span></span></p>
+
+<p><strong>IV. Cufflink (or, alternatives)</strong></p>
+
+<p>The next step in the analysis pipeline is to take the BAM of aligned
+reads and estimate transcript abundances.  Cufflinks is the &ldquo;standard&rdquo;
+(as if there was one) next step after TopHat.  Cufflinks takes the
+alignment BAM files produced by TopHat and computes the transcript
+abundances &ndash; summarized both at the gene level and at the transcript
+(ie, alternative splicing isoform) level as
+&ldquo;<a href="http://cufflinks.cbcb.umd.edu/faq.html#fpkm">FPKM</a>&rdquo; - fragments per
+kilobase per million reads.</p>
+
+<p>Cufflinks is probably the trickiest step in the analysis.  A note about
+&ldquo;no-effective-length-correction&rdquo;: This Cufflinks feature has been
+discussed by many folks all over, most notably this <a href="http://seqanswers.com/forums/showthread.php?p=76430">discussion on
+SeqAnswers</a> involving
+the author himself.  Previously, <a href="http://biocozy.blogspot.com/2013/01/what-your-mother-never-told-you-about.html">I noted that turning off &ldquo;effective
+length
+correction&rdquo;</a> reduces
+the variance in the transcript quantitation in a set of technical
+replicates. Also, in that same post, I note that using the &ldquo;bias
+correction&rdquo; option doesn&rsquo;t seem to help much (and it takes a lot
+longer.)  Note that &ldquo;effective length correction&rdquo; is something more than
+just lengh-correction.  Everyone corrects for transcript length</p>
+
+<p>A typical cufflinks command looks like this:</p>
+
+<p><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">cufflinks
+-p 6 <span
+style="background-color: yellow;">&ndash;no-effective-length-correction</span> -G
+</span><span
+style="background-color: #fff2cc; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">genes.gtf</span><span
+style="background-color: white; color: #222222; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 18px;">
+-o out out/accepted_hits.bam</span></p>
+
+<p>The genes.gtf file is same one used for the TopHat command and the BAM
+file you provide is the one that was made by the TopHat command.  The
+two key files produced by Cufflinks are:<br />
+<span
+style="font-family: Courier New, Courier, monospace;">genes.fpkm_tracking</span><br />
+<span
+style="font-family: Courier New, Courier, monospace;">isoforms.fpkm_tracking</span></p>
+
+<p>These are basically long flat files, really mainly consisting of two key
+columns: the Gene ID and the FPKM.  There are a lot of other columns
+providing info on the gene symbol, location, the confidence interval,
+etc.</p>
+
+<p><strong>V. Statistical testing</strong></p>
+
+<p>If all you want out of your RNASeq is a simple DE analysis, the
+recommended next step is
+<a href="http://cufflinks.cbcb.umd.edu/manual.html#cuffdiff">Cuffdiff</a>.  If you
+are coming to RNA-Seq from microarray analysis, like I was, you may be
+tempted to use these FPKMs just like array spot intensities, and choose
+Fisher&rsquo;s exact test to see if two populations have a significantly
+different level of gene expression.  However, there are fundamental
+statistical reasons why this is not okay.  RNA-Seq gene abundance is
+count data, and the distribution of count data is fundamentally
+different from that of spot intensities.  There is a lot written about
+this on the internet:  Simon Anders has been tirelessly preaching the
+gospel &ndash; if you are new to this, you should definitely read these
+posts:<br />
+<a href="http://seqanswers.com/forums/showthread.php?t=14484">Calculating p-values from
+FPKM?</a> 
+(particularly <a href="http://seqanswers.com/forums/showpost.php?p=52808&amp;postcount=6">post
+#6</a>)<br />
+<a href="http://seqanswers.com/forums/showthread.php?t=7905">Biological replicates for
+RNA-seq</a><br />
+<a href="http://seqanswers.com/forums/showthread.php?t=4349">Multiple DGE libraries comparison. (EdgeR baySeq
+DESeq)</a><br />
+<a href="http://seqanswers.com/forums/showthread.php?t=5180">Differential gene expression: Can Cufflinks/Cuffcompare handle
+biological
+replicates?</a><br />
+<a href="http://seqanswers.com/forums/showthread.php?t=5248">RNA-seq output</a><br />
+<a href="http://seqanswers.com/forums/showthread.php?t=7108">DEG for paired samples, biological
+replicates</a></p>
+
+<p>VI. Alternatives to Cufflinks</p>
+
+<p>You do have alternatives to Cufflinks and it&rsquo;s smart to check them out.
+ Options
+include <a href="http://bioconductor.org/packages/release/bioc/html/DESeq2.html">HTSeq2</a> (with
+is an R/Bioconductor based update to the Python
+based <a href="http://www-huber.embl.de/users/anders/HTSeq/doc/overview.html">HTSeq</a>)
+and <a href="http://bio.math.berkeley.edu/eXpress/overview.html#">eXpress</a>.
+ Both of these will accept the BAM file produced by TopHat as input.  In
+my hands, with the dataset of technical &amp; biological replicates, I have
+found HTSeq2 produces estimates with slightly less variance than
+Cufflinks.  I don&rsquo;t have enough experience with eXpress but I will check
+it out and update this post asap.</p>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ngs on Biocozy.net</title>
+    <link>https://biocozy.net/tags/ngs/</link>
+    <description>Recent content in Ngs on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Wed, 26 Oct 2011 06:25:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/ngs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BWA on FPGA architecture</title>
+      <link>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</link>
+      <pubDate>Wed, 26 Oct 2011 06:25:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</guid>
+      <description>Convey Computing is offering a FPGA-based computational cluster that has been optimized forBWA.</description>
+    </item>
+    
+    <item>
+      <title>indespensible bioinformatic resources</title>
+      <link>https://biocozy.net/posts/2011-09-09-indespensible-bioinformatic-resources/</link>
+      <pubDate>Fri, 09 Sep 2011 08:31:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-09-09-indespensible-bioinformatic-resources/</guid>
+      <description>Essentials tools for working with high-throughput sequencing data: bowtie &amp;ndash; bowtie-bio.sourceforge.net/
+my current NGS aligner of choice
+samtools &amp;ndash; samtools.sourceforge.net/
+essential. the lingua franca for working with the output of alignment
+picard &amp;ndash; picard.sourceforge.net/
+also essential for working with alignment files. very nicely complements samtools.
+fastx toolkit &amp;ndash; hannonlab.cshl.edu/fastx_toolkit/
+this looks like it will be handy&amp;hellip; though not yet part of any of the ubuntu software repositories I regularly use, it does look like it is included in the upcoming Oneiric Ocelot 11.</description>
+    </item>
+    
+    <item>
+      <title>Bio::SeqIO very very slow</title>
+      <link>https://biocozy.net/posts/2011-08-04-bio-seqio-very-very-slow/</link>
+      <pubDate>Thu, 04 Aug 2011 16:20:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-04-bio-seqio-very-very-slow/</guid>
+      <description>While it may be a convenient and flexible solution when reading in 10s or 100s or 1000s of sequences, the SeqIO module of BioPerl is just not a workable solution for reading in Next Gen Sequencing files.
+ Consider reading in 100,000 short reads from a fastq file:
+It takes 30 seconds to do it the bioperl way:
+use Bio::SeqIO;
+my $seqin = Bio::SeqIO-&amp;gt;new(-format =&amp;gt; &amp;ldquo;fastq&amp;rdquo;,-file =&amp;gt; &amp;ldquo;infilename&amp;rdquo;,);
+while( $seq = $seqin-&amp;gt;next_seq() ) { $seqhash{$seq-&amp;gt;seq() } ++; }</description>
+    </item>
+    
+  </channel>
+</rss>

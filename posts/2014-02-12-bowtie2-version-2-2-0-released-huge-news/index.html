@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Bowtie2 Version 2.2.0 released -- HUGE news!" />
+<meta property="og:description" content="How big is this news? Well, bigger than 4 GB, that&rsquo;s for sure.
+A while back I brought up this issue on BioStars.
+From the Bowtie2 news page:
+Version 2.2.0 - February 10, 2014  Improved index querying efficiency using &ldquo;population count&rdquo; instructions available since SSE4.2 Added support for large and small indexes, removing 4-billion-nucleotide barrier. Bowtie 2 can now be used with reference genomes of any size. Fixed bug that could cause bowtie2-build to crash when reference length is close to 4 billion." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biocozy.net/posts/2014-02-12-bowtie2-version-2-2-0-released-huge-news/" />
+
+
+
+<meta property="article:published_time" content="2014-02-12T15:13:00-08:00"/>
+
+<meta property="article:modified_time" content="2014-02-12T15:13:00-08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bowtie2 Version 2.2.0 released -- HUGE news!"/>
+<meta name="twitter:description" content="How big is this news? Well, bigger than 4 GB, that&rsquo;s for sure.
+A while back I brought up this issue on BioStars.
+From the Bowtie2 news page:
+Version 2.2.0 - February 10, 2014  Improved index querying efficiency using &ldquo;population count&rdquo; instructions available since SSE4.2 Added support for large and small indexes, removing 4-billion-nucleotide barrier. Bowtie 2 can now be used with reference genomes of any size. Fixed bug that could cause bowtie2-build to crash when reference length is close to 4 billion."/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/2014-02-12-bowtie2-version-2-2-0-released-huge-news/">
+
+    <title>
+      
+        Bowtie2 Version 2.2.0 released -- HUGE news! | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/2014-02-12-bowtie2-version-2-2-0-released-huge-news/">Bowtie2 Version 2.2.0 released &ndash; HUGE news!</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        Feb 12, 2014
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    
+
+<p>How big is this news?  Well, bigger than 4 GB, that&rsquo;s for sure.</p>
+
+<p>A while back I <a href="http://www.biostars.org/p/52742/">brought up this issue on
+BioStars</a>.</p>
+
+<p>From the <a href="http://bowtie-bio.sourceforge.net/bowtie2/news.shtml">Bowtie2 news
+page</a>:</p>
+
+<h2 id="version-2-2-0-february-10-2014">Version 2.2.0 - February 10, 2014</h2>
+
+<ul>
+<li>Improved index querying efficiency using &ldquo;population count&rdquo;
+instructions available since
+<a href="http://en.wikipedia.org/wiki/SSE4.2#SSE4.2">SSE4.2</a></li>
+<li><span style="background-color: yellow;">Added support for large and
+small indexes, removing 4-billion-nucleotide barrier. <strong>Bowtie 2 can
+now be used with reference genomes of any size</strong></span><strong>.</strong></li>
+<li>Fixed bug that could cause bowtie2-build to crash when reference
+length is close to 4 billion.</li>
+<li>Added a <code>CL:</code> string to the <code>@PG</code> SAM header to preserve information
+about the aligner binary and paramteres.</li>
+<li>Fixed bug that could cause <code>bowtie2-build</code> to crash when reference
+length is close to 4 billion.</li>
+<li>No longer releasing 32-bit binaries. Simplified manual and Makefile
+accordingly.</li>
+<li>Credits to the Intel® enabling team for performance optimizations
+included in this release. Thank you!</li>
+<li>Phased out CygWin support. MinGW can still be used for Windows
+building.</li>
+<li>Added the .bat generation for Windows.</li>
+<li>Fixed some issues with some uncommon chars in fasta files.</li>
+<li>Fixed wrappers so bowtie can now be used with symlinks.</li>
+</ul>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

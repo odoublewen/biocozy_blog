@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Using CASAVA to extract raw fastq files from Illumina BCL files" />
+<meta property="og:description" content="Here is how you can extract raw fastq files from Illumina BCL data.
+This will give you raw fastq files. No demultiplexing. Just the reads, and nothin&rsquo; but the reads.
+Read 1 is generally the forward read, Read 2 is generally the index read, and Read 3 is generally the reverse read.
+You might want to do this if you want to see the barcode read quality scores, which you may want to consider to do a more accurate demultiplexing." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biocozy.net/posts/2012-09-18-using-casava-to-extract-raw-fastq-files-from-illumina-bcl-files/" />
+
+
+
+<meta property="article:published_time" content="2012-09-18T13:51:00-07:00"/>
+
+<meta property="article:modified_time" content="2012-09-18T13:51:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Using CASAVA to extract raw fastq files from Illumina BCL files"/>
+<meta name="twitter:description" content="Here is how you can extract raw fastq files from Illumina BCL data.
+This will give you raw fastq files. No demultiplexing. Just the reads, and nothin&rsquo; but the reads.
+Read 1 is generally the forward read, Read 2 is generally the index read, and Read 3 is generally the reverse read.
+You might want to do this if you want to see the barcode read quality scores, which you may want to consider to do a more accurate demultiplexing."/>
+
+
+
+    <link rel="canonical" href="https://biocozy.net/posts/2012-09-18-using-casava-to-extract-raw-fastq-files-from-illumina-bcl-files/">
+
+    <title>
+      
+        Using CASAVA to extract raw fastq files from Illumina BCL files | Biocozy.net
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://biocozy.net/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120822435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120822435-1');
+</script>
+
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Biocozy.net
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/2012-09-18-using-casava-to-extract-raw-fastq-files-from-illumina-bcl-files/">Using CASAVA to extract raw fastq files from Illumina BCL files</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        Sep 18, 2012
+    
+    
+        by <span rel="author">Owen</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    <p>Here is how you can extract raw fastq files from Illumina BCL data.</p>
+
+<p>This will give you raw fastq files.  No demultiplexing.  Just the reads,
+and nothin&rsquo; but the reads.</p>
+
+<p>Read 1 is generally the forward read, Read 2 is generally the index
+read, and Read 3 is generally the reverse read.</p>
+
+<p>You might want to do this if you want to see the barcode read quality
+scores, which you may want to consider to do a more accurate
+demultiplexing.  Examining these quality scores may also help you
+understand &ldquo;barcode bleed&rdquo; (aka, Illumina&rsquo;s dirty little secret.)</p>
+
+<p>Here is what I did:</p>
+
+<p>1) get a copy of CASAVA 1.8.  Illumina technical support can hook you
+up.  I&rsquo;m using CASAVA-1.8.2.  [edit: seems you can download it from
+<a href="http://support.illumina.com/sequencing/sequencing_software/casava.ilmn">here</a>.]</p>
+
+<p>2) Get the entire run directory, which should look something like this
+(this is from MiSeq data):</p>
+
+<p><span
+style="font-family: Courier New, Courier, monospace;">120822_M00609_0035_A000000000-A1CDK</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|&ndash;
+Config</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|&ndash;
+Data</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |&ndash;
+Intensities</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |&ndash;
+BaseCalls</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|&ndash; L001</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|   |&ndash; C1.1   #</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|   |&ndash; C10.1  # the BCL files live here</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|   |&ndash; C100.1 # (one per cycle per tile)</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|   |&ndash; and so on</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|&ndash; Matrix</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+`&ndash; Phasing</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |&ndash;
+L001</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|&ndash; C1.1       #</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|&ndash; C10.1      # the FWHMMap files live here</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|&ndash; C100.1     # (one per cycle per tile per base)</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   |  
+|&ndash; and so on</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |   `&ndash;
+Offsets</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   |&ndash;
+RTALogs</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   `&ndash;
+TileStatus</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|&ndash;
+Images</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|   `&ndash;
+Focus</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|       `&ndash;
+L001</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|          
+|&ndash; C1.1       #</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|          
+|&ndash; C10.1      # the TIF images live here</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|          
+|&ndash; C100.1     # (one per cycle per tile)</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|          
+|&ndash; and so on</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|&ndash;
+InterOp</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|&ndash;
+Logs</span><br />
+<span style="font-family: Courier New, Courier, monospace;">|&ndash;
+Recipe</span><br />
+<span style="font-family: Courier New, Courier, monospace;">`&ndash;
+Thumbnail_Images</span><br />
+<span style="font-family: Courier New, Courier, monospace;">    `&ndash;
+L001</span><br />
+<span style="font-family: Courier New, Courier, monospace;">        |&ndash;
+C1.1</span><br />
+<span style="font-family: Courier New, Courier, monospace;">        |&ndash;
+C10.1</span><br />
+<span style="font-family: Courier New, Courier, monospace;">        |&ndash;
+C100.1</span></p>
+
+<p><span style="font-family: Courier New, Courier, monospace;">        |&ndash;
+and so on</span></p>
+
+<p><span style="font-family: Courier New, Courier, monospace;"><br />
+</span></p>
+
+<p><span style="font-family: Courier New, Courier, monospace;">1250
+directories</span></p>
+
+<p>3) Delete the SampleSheet.csv file &ndash; really!  In my experience, and for
+my purposes, I just want to get the raw fastq files.  I would actually
+prefer it if the standard Illumina pipeline ALWAYS produced an
+unprocessed, undemultiplexed FASTQ file for each read (R1 and the index
+read if single end, or R1, R2, and the index read if paired end).  I
+find the SampleSheet to be fussy, often this data is not available to me
+when I am trying to extract the sequences, and anyway, I would like to
+see empirically what barcodes are present in the raw reads.  So that is
+why I recommend doing this without a SampleSheet file.</p>
+
+<p>3) Run the configureBclToFastq.pl script to generate the make file (this
+is fast).  There are two tricks to getting this to work:  you must
+provide the Data/Intensities/BaseCalls directory, and you have to give
+it a &ldquo;bases-mask&rdquo;.  The bases mask defines which cycles gets assigned to
+which reads.  The &ldquo;y&rdquo; in &ldquo;y151&rdquo; means, &ldquo;Yes, I want the first 151
+cycle&rdquo;, then &ldquo;Yes, I wan the next 6 cyles&rdquo;, and &ldquo;Yes, I want the next
+151 cycles&rdquo;.  I think the standard way to run casava would be
+&ldquo;y151,<span style="background-color: yellow;">I</span>6,y151&rdquo; which
+renders the index read to the casava demultiplexing pipeline (in other
+words, you don&rsquo;t actually get to see the index reads).</p>
+
+<p><span style="font-family: Courier New, Courier, monospace;">$
+configureBclToFastq.pl &ndash;input-dir
+120822_M00609_0035_A000000000-A1CDK/Data/Intensities/BaseCalls/
+&ndash;output-dir fastq &ndash;force &ndash;use-bases-mask y151,y6,y151</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:24]   [configureBclToFastq.pl]        INFO: Creating directory
+&lsquo;/home/username/fastq&rsquo;</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:25]   [configureBclToFastq.pl]        INFO: Basecalling
+software: RTA</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:25]   [configureBclToFastq.pl]        INFO:            
+ version: 1.14 (build 23)</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:25]   [configureBclToFastq.pl]        INFO: Original use-bases
+mask: y151,y6,y151</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:25]   [configureBclToFastq.pl]        INFO: Guessed use-bases
+mask:
+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy,yyyyyy,yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</span><br />
+<span style="font-family: Courier New, Courier, monospace;">Creating
+directory
+&lsquo;/home/username/fastq/Project_000000000-A1CDK/Sample_lane1&rsquo;</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:25]   [configureBclToFastq.pl]        INFO: Read 1: length =
+151: mask =
+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:25]   [configureBclToFastq.pl]        INFO: Read 2: length = 6:
+mask = yyyyyy</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:25]   [configureBclToFastq.pl]        INFO: Read 3: length =
+151: mask =
+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:26]   [configureBclToFastq.pl]        INFO: Running self tests:
+&lsquo;make self_test&rsquo;</span><br />
+<span style="font-family: Courier New, Courier, monospace;">[2012-09-18
+12:06:27]   [configureBclToFastq.pl]        INFO: Running self tests
+on /home/username/fastq completed with no problems</span></p>
+
+<p>Note that there is something about adding one cycle to the expected
+number of bases, when working with MiSeq data.  It has something to do
+with the way the cycles are reported back from the machine.  Basically,
+it means that if you are expecting 150 bp reads, you need to put in
+&ldquo;y151&rdquo;.  Illumina can help you understand this, maybe.  Give them a
+call.</p>
+
+<p>4) Go to the newly create fastq directory and type make (this is
+slow).</p>
+
+<p><span style="font-family: Courier New, Courier, monospace;">cd
+fastq</span><br />
+<span
+style="font-family: Courier New, Courier, monospace;">make</span></p>
+
+<p>5) Your new fastq files should be in the &ldquo;Project&rdquo; directory (in my
+case, &ldquo;Project_000000000-A1CDK&rdquo;):</p>
+
+<p><span style="font-family: Courier New, Courier, monospace;">$ ls -l
+Project_000000000-A1CDK/Sample_lane1/</span><br />
+<span style="font-family: Courier New, Courier, monospace;">total
+1523748</span><br />
+<span style="font-family: Courier New, Courier, monospace;">-rw-rw-r&ndash; 1
+username username 427960158 Sep 18 12:08
+lane1_NoIndex_L001_R1_001.fastq.gz</span><br />
+<span style="font-family: Courier New, Courier, monospace;">-rw-rw-r&ndash;
+1 username username 342223846 Sep 18 12:09
+lane1_NoIndex_L001_R1_002.fastq.gz</span><br />
+<span style="font-family: Courier New, Courier, monospace;">-rw-rw-r&ndash;
+1 username username  44789925 Sep 18 12:09
+lane1_NoIndex_L001_R2_001.fastq.gz</span><br />
+<span style="font-family: Courier New, Courier, monospace;">-rw-rw-r&ndash;
+1 username username  35997119 Sep 18 12:10
+lane1_NoIndex_L001_R2_002.fastq.gz</span><br />
+<span style="font-family: Courier New, Courier, monospace;">-rw-rw-r&ndash;
+1 username username 392045984 Sep 18 12:11
+lane1_NoIndex_L001_R3_001.fastq.gz</span><br />
+<span style="font-family: Courier New, Courier, monospace;">-rw-rw-r&ndash;
+1 username username 315694744 Sep 18 12:12
+lane1_NoIndex_L001_R3_002.fastq.gz</span></p>
+
+<p>6) To demultiplex fastq files with a separate fastq file for the barcode
+read, refer to my recent post:  <a href="http://biocozy.blogspot.com/2012/10/how-to-demultiplex-fastq-files-with.html">How to demultiplex fastq files with a
+dedicated, separate barcode
+file</a>.</p>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/algorithms">algorithms</a>
+            
+            <a class="badge badge-primary" href="/tags/annotation">annotation</a>
+            
+            <a class="badge badge-primary" href="/tags/bioconductor">bioconductor</a>
+            
+            <a class="badge badge-primary" href="/tags/bioinformatics">bioinformatics</a>
+            
+            <a class="badge badge-primary" href="/tags/cart">cart</a>
+            
+            <a class="badge badge-primary" href="/tags/computers">computers</a>
+            
+            <a class="badge badge-primary" href="/tags/data-mining">data-mining</a>
+            
+            <a class="badge badge-primary" href="/tags/genomics">genomics</a>
+            
+            <a class="badge badge-primary" href="/tags/geo">geo</a>
+            
+            <a class="badge badge-primary" href="/tags/installation">installation</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/mac-os-x">mac-os-x</a>
+            
+            <a class="badge badge-primary" href="/tags/machine-learning">machine-learning</a>
+            
+            <a class="badge badge-primary" href="/tags/ngs">ngs</a>
+            
+            <a class="badge badge-primary" href="/tags/parallel-computing">parallel-computing</a>
+            
+            <a class="badge badge-primary" href="/tags/perl">perl</a>
+            
+            <a class="badge badge-primary" href="/tags/r">r</a>
+            
+            <a class="badge badge-primary" href="/tags/r-project">r-project</a>
+            
+            <a class="badge badge-primary" href="/tags/rnaseq">rnaseq</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/ubuntu">ubuntu</a>
+            
+            <a class="badge badge-primary" href="/tags/work">work</a>
+            
+            <a class="badge badge-primary" href="/tags/workaround">workaround</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Copyright Biocozy.net</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

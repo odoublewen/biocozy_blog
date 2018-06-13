@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Biocozy.net</title>
+    <link>https://biocozy.net/</link>
+    <description>Recent content on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Tue, 12 Jun 2018 21:00:36 -0700</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Feature table for 2018 Illumina sequencers</title>
+      <link>https://biocozy.net/posts/2018-06-12-illumina-sequencers/</link>
+      <pubDate>Tue, 12 Jun 2018 21:00:36 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2018-06-12-illumina-sequencers/</guid>
+      <description>Illumina has so many machines on the market these days, it has become hard to keep it all straight.
+This table was compiled mainly from the tables Illumina has here &amp;ndash; but all in one table, and with more information re: chemistry and flowcell technology.
+   Platform Run Time Max Output Max Reads/Run Max Len Scale Flowcells Chemistry     iSeq 100 9–17.5 hours 1.2 Gb 4 million 2×150 Benchtop ExAmp 1 channel   MiniSeq 4–24 hours 7.</description>
+    </item>
+    
+    <item>
+      <title>quickBLASTP not available in local install</title>
+      <link>https://biocozy.net/posts/2017-10-05-quickblastp-not-available-in-local-install/</link>
+      <pubDate>Thu, 05 Oct 2017 12:58:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2017-10-05-quickblastp-not-available-in-local-install/</guid>
+      <description>I recently read about &amp;ldquo;QuickBLASTP, an accelerated version of BLASTP&amp;rdquo; that is now available in the online BLAST application. There is a question on the NCBI announcement page, asking &amp;ldquo;Does exits the possibility of downloading the corresponding executables so we can try it locally?&amp;rdquo; but no answer is provided.
+I sent this question to the help desk and got a disappointing reply.
+Question to NCBI help desk: How to run QuickBLASTP on a local installation</description>
+    </item>
+    
+    <item>
+      <title>Hunting for the perfect codon aware aligner</title>
+      <link>https://biocozy.net/posts/2014-05-16-hunting-for-the-perfect-codon-aware-aligner/</link>
+      <pubDate>Fri, 16 May 2014 10:20:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2014-05-16-hunting-for-the-perfect-codon-aware-aligner/</guid>
+      <description>Yesterday I went looking for a well-behaved codon-aware aligner. A question that has been brought up on both Stack Overflow and BioStars.
+What I discovered is that many software projects that claim to be codon aligners are actually just (1) translating the nucleotide sequence to an amino acid seqeunce, (2) aligning the amino acid sequencing, and (3) mapping the a.a. alignment structure to the nucleotide sequences, in a codon-by-codon fashion.</description>
+    </item>
+    
+    <item>
+      <title>Color palettes in R (wrt ggplot2)</title>
+      <link>https://biocozy.net/posts/2014-02-19-color-palettes-in-r-wrt-ggplot2/</link>
+      <pubDate>Wed, 19 Feb 2014 12:29:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2014-02-19-color-palettes-in-r-wrt-ggplot2/</guid>
+      <description>I just found an outstanding rundown of color issues in R (with a nod to ggplot2) on cookbook-r.com.
+Mostly just a collection of resources from around the web.
+I really like their colorblind friendly palette:
+TEMPORARY
+ cbPalette &amp;lt;- span=&amp;quot;&amp;quot;&amp;gt; c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;, &amp;quot;#009E73&amp;quot;, &amp;quot;#F0E442&amp;quot;, &amp;quot;#0072B2&amp;quot;, &amp;quot;#D55E00&amp;quot;, &amp;quot;#CC79A7&amp;quot;)  Which is better than the ggplot2 defaults:
+TEMPORARY</description>
+    </item>
+    
+    <item>
+      <title>Bowtie2 Version 2.2.0 released -- HUGE news!</title>
+      <link>https://biocozy.net/posts/2014-02-12-bowtie2-version-2-2-0-released-huge-news/</link>
+      <pubDate>Wed, 12 Feb 2014 15:13:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2014-02-12-bowtie2-version-2-2-0-released-huge-news/</guid>
+      <description>How big is this news? Well, bigger than 4 GB, that&amp;rsquo;s for sure.
+A while back I brought up this issue on BioStars.
+From the Bowtie2 news page:
+Version 2.2.0 - February 10, 2014  Improved index querying efficiency using &amp;ldquo;population count&amp;rdquo; instructions available since SSE4.2 Added support for large and small indexes, removing 4-billion-nucleotide barrier. Bowtie 2 can now be used with reference genomes of any size. Fixed bug that could cause bowtie2-build to crash when reference length is close to 4 billion.</description>
+    </item>
+    
+    <item>
+      <title>pip install from github at a specific branch</title>
+      <link>https://biocozy.net/posts/2013-12-02-pip-install-from-github-at-a-specific-branch/</link>
+      <pubDate>Mon, 02 Dec 2013 12:15:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-12-02-pip-install-from-github-at-a-specific-branch/</guid>
+      <description>I had difficulties figuring out how to use pip to install a specific branch from a github repo. Because of my corporate firewall, all of the other methods that you can find around on various websites did not work for me. This is the method that worked:
+pip install git+ssh://git@github.com/h3/django-dajaxice.git@django-1.5+  Of course, I have http_proxy and https_proxy set and exported.</description>
+    </item>
+    
+    <item>
+      <title>Making sense of Python version madness and pip/setuptools/virtualenv game</title>
+      <link>https://biocozy.net/posts/2013-08-28-making-sense-of-python-version-madness-and-pip-setuptools-virtualenv-game/</link>
+      <pubDate>Wed, 28 Aug 2013 07:02:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-08-28-making-sense-of-python-version-madness-and-pip-setuptools-virtualenv-game/</guid>
+      <description>This posting is motivated by cases where you are stuck using an older server OS (CentOS 5.8 in this case) and want to install an up-to-date python 2.7 along with a raft of necessary packages. What is the best way?
+distribute? pip? setuptools? virtualenv? What to make of all this?
+Bottom line: use pip. To install pip, you either install it from source, or else install virtualenv (which includes pip). Installing from source allows you to manage packages with pip globally on your system (and not in a virtual environment), then you have to install pip from source.</description>
+    </item>
+    
+    <item>
+      <title>Roll call of my preferred bioinformatic tools (NGS focus)</title>
+      <link>https://biocozy.net/posts/2013-08-20-roll-call-of-my-preferred-bioinformatic-tools-ngs-focus/</link>
+      <pubDate>Tue, 20 Aug 2013 12:30:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-08-20-roll-call-of-my-preferred-bioinformatic-tools-ngs-focus/</guid>
+      <description>A roll call of my preferred bioinformatic tools
+A somewhat useless post, except that it helps me to remember a few of the lesser used (but occasionally very, very handy) pieces of software, like FLASH of Flexbar.
+ NGS aligner: bowtie2 SAM manipulation: samtools (of course) Paired-read joiner: FLASH: Fast Length Adjustment of SHort reads Adapter trimmer: flexbar Short read clustering: cd-hit  </description>
+    </item>
+    
+    <item>
+      <title>SSHFS: How to Mount Remote Partition via SSH on CentOS</title>
+      <link>https://biocozy.net/posts/2013-07-25-sshfs-how-to-mount-remote-partition-via-ssh-on-centos/</link>
+      <pubDate>Thu, 25 Jul 2013 12:59:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-07-25-sshfs-how-to-mount-remote-partition-via-ssh-on-centos/</guid>
+      <description>This is hugely helpful for anyone wanting mount-point accessible files over SSH. Don&amp;rsquo;t bother with fstab or the mount command. Full instructions here, and the executive summary is:
+yum install fuse sshfs sshfs user@remote_host:/remote_directory /local_mount_partition  </description>
+    </item>
+    
+    <item>
+      <title>RNA-Seq analysis: pitfalls to avoid</title>
+      <link>https://biocozy.net/posts/2013-05-23-rna-seq-analysis-pitfalls-to-avoid/</link>
+      <pubDate>Thu, 23 May 2013 20:09:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-05-23-rna-seq-analysis-pitfalls-to-avoid/</guid>
+      <description>Here I am writing out some of the details of my tophat/cufflinks RNA-Seq workflow. I will try to concisely summarize what works and what pitfalls to avoid. None of what follows is particularly cutting edge, but since these analyses often involve days of computation, each and every trial-and-error glitch adds up and sets you back. This document is intended to help you avoid such setbacks.
+I. Get reference genome and annotation</description>
+    </item>
+    
+    <item>
+      <title>Indispensable bookmarks for fixing computing annoyances</title>
+      <link>https://biocozy.net/posts/2013-05-01-indispensable-bookmarks-for-fixing-computing-annoyances/</link>
+      <pubDate>Wed, 01 May 2013 09:08:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-05-01-indispensable-bookmarks-for-fixing-computing-annoyances/</guid>
+      <description>This list will no doubt grow&amp;hellip;
+Understanding GNU Emacs and Tabs
+Executive summary: put this in your .emacs.el file:
+(setq-default major-mode &amp;lsquo;text-mode)
+(define-key text-mode-map (kbd &amp;ldquo;TAB&amp;rdquo;) &amp;lsquo;self-insert-command); 
+ggplot2: Changing the Default Order of Legend Labels and Stacking of Data
+Executive summary:
+ggplot(diamonds, aes(clarity, fill=cut, order= -as.numeric(cut))) 
+actually, this is better, available in recent versions of ggplot2:
+guides(color = guide_legend(reverse = TRUE))</description>
+    </item>
+    
+    <item>
+      <title>Bioinformatic workshops and courses (a list of lists)</title>
+      <link>https://biocozy.net/posts/2013-04-11-bioinformatic-workshops-and-courses-a-list-of-lists/</link>
+      <pubDate>Thu, 11 Apr 2013 11:48:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-04-11-bioinformatic-workshops-and-courses-a-list-of-lists/</guid>
+      <description> List of Bioinformatics Workshops and Training Resources posted by Stephen Turner A list of bioinformatics courses posted at C. Titus Brown  </description>
+    </item>
+    
+    <item>
+      <title>Getting yum to work with RHEL / RHN behind a proxy</title>
+      <link>https://biocozy.net/posts/2013-04-09-getting-yum-to-work-with-rhel-rhn-behind-a-proxy/</link>
+      <pubDate>Tue, 09 Apr 2013 13:19:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-04-09-getting-yum-to-work-with-rhel-rhn-behind-a-proxy/</guid>
+      <description>/etc/sysconfig/rhn/up2date
+enableProxy=0
+httpProxy=proxyserver.company.com:8080
+~/.bash_profile
+export http_proxy=http://proxyserver.company.com:8080
+export HTTP_PROXY=http://proxyserver.company.com:8080
+The thing is, there is no universal agreement among linux command line programs, some seem to use HTTP_PROXY and some use http_proxy. So, yes, export http_proxy both as lower and UPPER case!
+And complicating the picture is that RHN doesn&amp;rsquo;t use either of these &amp;ndash; it pulls the settings out of /etc/sysconfig/rhn/up2date</description>
+    </item>
+    
+    <item>
+      <title>command line reverse complement sequence in linux shell</title>
+      <link>https://biocozy.net/posts/2013-03-06-command-line-reverse-complement-sequence-in-linux-shell/</link>
+      <pubDate>Wed, 06 Mar 2013 16:40:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-03-06-command-line-reverse-complement-sequence-in-linux-shell/</guid>
+      <description>Sometimes it seems like BSD / GNU / Linux folks thought of everything.
+echo AATGATACGGCGACCACCGG | rev | tr ATGC TACG</description>
+    </item>
+    
+    <item>
+      <title>I&#39;m a bowtie2 partisan too</title>
+      <link>https://biocozy.net/posts/2013-03-06-im-a-bowtie2-partisan-too/</link>
+      <pubDate>Wed, 06 Mar 2013 07:58:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-03-06-im-a-bowtie2-partisan-too/</guid>
+      <description>I mean, I totally agree with the conclusions, but, um, is there a conflict of interest here? Just sayin.
+A Comprehensive Evaluation of Alignment Algorithms in the Context of RNA-Seq
+&amp;rdquo;&amp;hellip; Our results clearly showed the significant reduction in memory footprint and runtime provided by FM-index based aligners at a precision and recall comparable to the best hash table based aligners. Furthermore, the recently developed Bowtie 2 alignment algorithm shows a remarkable tolerance to both sequencing errors and indels, thus, essentially making hash-based aligners obsolete.</description>
+    </item>
+    
+    <item>
+      <title>Setting up JBrowse 1.8.1 on a CentOS 5.8</title>
+      <link>https://biocozy.net/posts/2013-02-27-setting-up-jbrowse-1-8-1-on-a-centos-5-8/</link>
+      <pubDate>Wed, 27 Feb 2013 11:06:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-02-27-setting-up-jbrowse-1-8-1-on-a-centos-5-8/</guid>
+      <description>Some important details to successfully set up JBrowse on a Centos 5.8 machine.
+Install and compile samtools from source. I built it with fPIC flags like this:
+make CXXFLAGS=-fPIC CFLAGS=-fPIC CPPFLAGS=-fPIC
+Be sure that the file libbam.a that you just created with the fPIC flag is (also) present in the lib directory. I had to rename the old one and copy the new one there.
+# ls -al /usr/local/samtools/lib*
+-rw-rw-r&amp;ndash; 1 odsolbe odsolbe 309986 Feb 27 09:51 /usr/local/samtools/libbam.</description>
+    </item>
+    
+    <item>
+      <title>What your father never told you about tophat</title>
+      <link>https://biocozy.net/posts/2013-02-01-what-your-father-never-told-you-about-tophat/</link>
+      <pubDate>Fri, 01 Feb 2013 14:16:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-02-01-what-your-father-never-told-you-about-tophat/</guid>
+      <description>Following up on yesterday&amp;rsquo;s posting about the &amp;ldquo;right&amp;rdquo; way to run cufflinks, I am here recording my experiences running tophat with and without the &amp;ndash;no-novel-juncs setting.
+Same dataset as described in the previous posting. Still using the Illumina iGenomes Ensembl annotation files. The command I used was like this (note: the transcriptome index was pre-built during a previous run.)
+tophat [&amp;ndash;no-novel-juncs] -G genes.gtf &amp;ndash;transcriptome-index=transcriptome -p 8 -o tophat_out file_1.fq.gz file_2.fq.gz</description>
+    </item>
+    
+    <item>
+      <title>data.table - my new favorite R package</title>
+      <link>https://biocozy.net/posts/2013-01-31-data-table-my-new-favorite-r-package/</link>
+      <pubDate>Thu, 31 Jan 2013 10:10:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-01-31-data-table-my-new-favorite-r-package/</guid>
+      <description>I love the plyr package and use ddply very often. But it becomes ungainly with big data.
+I found out about data.table today. Basically, it&amp;rsquo;s indexed data frames, allowing binary search operations.
+Their quick start guide has this footnote:
+&amp;ldquo;We wonder how many people are deploying parallel techniques to code that is vector scanning&amp;rdquo;
+(Yep, that was me. And yes, crazy that I am only discovering data.table in 2013.)
+But I see the light now!</description>
+    </item>
+    
+    <item>
+      <title>What your mother never told you about cufflinks</title>
+      <link>https://biocozy.net/posts/2013-01-30-what-your-mother-never-told-you-about-cufflinks/</link>
+      <pubDate>Wed, 30 Jan 2013 17:48:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-01-30-what-your-mother-never-told-you-about-cufflinks/</guid>
+      <description>In this post, I am trying to nail down the &amp;ldquo;best&amp;rdquo; way to run cufflinks, part of the so-called &amp;ldquo;tuxedo suite&amp;rdquo; of RNA-Seq tools (tophat, cufflinks, etc.)
+I have a dataset composed of 3 technical replicates &amp;ndash; exactly the same library, run in 3 separate hi-seq lanes (multiplexed along with other samples, but I am ignoring those for now.) They were run on an Illumina HiSeq 2000, with 101 bp paired-end reads.</description>
+    </item>
+    
+    <item>
+      <title>Assembly posts at Homolog.us</title>
+      <link>https://biocozy.net/posts/2013-01-14-assembly-posts-at-homolog-us/</link>
+      <pubDate>Mon, 14 Jan 2013 17:06:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2013-01-14-assembly-posts-at-homolog-us/</guid>
+      <description>Bookmark: excellent collection of blog posts by Homolog.us regarding genomic and meta-genomic assembly issues 
+I am sure I will be returning to this list often.</description>
+    </item>
+    
+    <item>
+      <title>Illumina finally publishes their &#34;proprietary&#34; oligo sequences</title>
+      <link>https://biocozy.net/posts/2012-12-07-illumina-finally-publishes-their-proprietary-oligo-sequences/</link>
+      <pubDate>Fri, 07 Dec 2012 12:32:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-12-07-illumina-finally-publishes-their-proprietary-oligo-sequences/</guid>
+      <description>File under &amp;ldquo;it&amp;rsquo;s about time&amp;rdquo;.
+http://support.illumina.com/downloads/illumina_adapter_sequences_letter.ilmn</description>
+    </item>
+    
+    <item>
+      <title>Amazed by RStudio!</title>
+      <link>https://biocozy.net/posts/2012-10-23-amazed-by-rstudio/</link>
+      <pubDate>Tue, 23 Oct 2012 12:02:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-10-23-amazed-by-rstudio/</guid>
+      <description>RStudio (http://www.rstudio.com/) has to be one of the coolest pieces of software I have installed in recent memory.
+RStudio provides a very well-planned and well-executed IDE for R. This alone would be a reason to sing Hosanna.
+TEMPORARY
+But it gets better!!! The Server package (deb and rpm packages available) allows you access to this same interface via a webserver, so you can run R on a beefy computational server from any web browser.</description>
+    </item>
+    
+    <item>
+      <title>How to demultiplex fastq files with a dedicated, separate barcode file</title>
+      <link>https://biocozy.net/posts/2012-10-16-how-to-demultiplex-fastq-files-with-a-dedicated-separate-barcode-file/</link>
+      <pubDate>Tue, 16 Oct 2012 12:12:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-10-16-how-to-demultiplex-fastq-files-with-a-dedicated-separate-barcode-file/</guid>
+      <description>Oh, Barcodes, How do I obtain thee? Let me count the ways:
+1) Internal to one of the reads
+2) Printed in the header:
+3) Encoded in the header
+4) In a separate file
+There are many tools out there to deal with multiplexed read data.
+fastx_barcode_splitter.pl(from FASTX_Toolkit)
+fastq-multx (from ea-utils)
+split_libraries_fastq.py (from QIIME)
+As far as I know, none of the above adequately deal with case (4) above. The QIIME tools does, but appears to turn the fastq into a fasta file in the process (?</description>
+    </item>
+    
+    <item>
+      <title>1000 Genomes Project Accessibility Mask (BED file)</title>
+      <link>https://biocozy.net/posts/2012-10-11-1000-genomes-project-accessibility-mask-bed-file/</link>
+      <pubDate>Thu, 11 Oct 2012 16:42:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-10-11-1000-genomes-project-accessibility-mask-bed-file/</guid>
+      <description>The 1000 genomes project publishes a .bed file mask (&amp;rdquo;Strict Accessibility Mask&amp;rdquo;) for regions of the human genome where it is difficult to place reads, due to repetitivity. Follow the link:
+
+http://www.1000genomes.org/announcements/genome-accessibility-information-now-available-1000-genomes-browser-2012-09-06</description>
+    </item>
+    
+    <item>
+      <title>bwa and the -n option (Maximum number of alignments)</title>
+      <link>https://biocozy.net/posts/2012-09-25-bwa-and-the-n-option-maximum-number-of-alignments/</link>
+      <pubDate>Tue, 25 Sep 2012 15:08:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-09-25-bwa-and-the-n-option-maximum-number-of-alignments/</guid>
+      <description>When you ask bwa to report multiple hits, it has a very strange behavior.
+I am addressing this behavior, highlighted in bold below, and especially the part in yellow italic bold (this is from the bwa manual):
+    samse bwa samse [-n maxOcc] &amp;gt;
+Generate alignments in the SAM format given single-end reads. Repetitive hits will be randomly chosen.  OPTIONS:
+     -n INT Maximum number of alignments to output in the XA tag for reads paired properly.</description>
+    </item>
+    
+    <item>
+      <title>Using CASAVA to extract raw fastq files from Illumina BCL files</title>
+      <link>https://biocozy.net/posts/2012-09-18-using-casava-to-extract-raw-fastq-files-from-illumina-bcl-files/</link>
+      <pubDate>Tue, 18 Sep 2012 13:51:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-09-18-using-casava-to-extract-raw-fastq-files-from-illumina-bcl-files/</guid>
+      <description>Here is how you can extract raw fastq files from Illumina BCL data.
+This will give you raw fastq files. No demultiplexing. Just the reads, and nothin&amp;rsquo; but the reads.
+Read 1 is generally the forward read, Read 2 is generally the index read, and Read 3 is generally the reverse read.
+You might want to do this if you want to see the barcode read quality scores, which you may want to consider to do a more accurate demultiplexing.</description>
+    </item>
+    
+    <item>
+      <title>join command requires alphanumeric sort</title>
+      <link>https://biocozy.net/posts/2012-09-12-join-command-requires-alphanumeric-sort/</link>
+      <pubDate>Wed, 12 Sep 2012 12:02:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-09-12-join-command-requires-alphanumeric-sort/</guid>
+      <description>You may already know that the linux join command requires sorted fields to work properly &amp;ndash; after all, it tells you so right in the man page:
+Important: FILE1 and FILE2 must be sorted on the join fields.
+But I just found out the hard way that it must be an alphanumeric sort, not a numeric sort.
+Lesson learned.</description>
+    </item>
+    
+    <item>
+      <title>Convert FASTQ to FASTA using sed command</title>
+      <link>https://biocozy.net/posts/2012-09-04-convert-fastq-to-fasta-using-sed-command/</link>
+      <pubDate>Tue, 04 Sep 2012 15:44:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-09-04-convert-fastq-to-fasta-using-sed-command/</guid>
+      <description>Easiest possible solution, and I believe significantly faster than awk-based methods:
+sed -n &#39;1~4s/^@/&amp;gt;/p;2~4p&#39;  The only assumption made is that each read occupies exactly 4 lines in the FASTQ file, but that seems pretty safe, in my experience.
+If you find this helpful, go up-vote my answer in StackOverflow.</description>
+    </item>
+    
+    <item>
+      <title>Convert FASTA file RNA to DNA using sed on the linux command line</title>
+      <link>https://biocozy.net/posts/2012-04-11-convert-fasta-file-rna-to-dna-using-sed-on-the-linux-command-line/</link>
+      <pubDate>Wed, 11 Apr 2012 13:31:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-04-11-convert-fasta-file-rna-to-dna-using-sed-on-the-linux-command-line/</guid>
+      <description>sed &amp;lsquo;/^[^&amp;gt;]/ y/uU/tT/&amp;rsquo; uracil.fasta &amp;gt; thymine.fasta
+Piece of cake.</description>
+    </item>
+    
+    <item>
+      <title>lftp mirror: best way to download an entire directory from a FTP server</title>
+      <link>https://biocozy.net/posts/2012-04-04-lftp-mirror-best-way-to-download-an-entire-directory-from-a-ftp-server/</link>
+      <pubDate>Wed, 04 Apr 2012 03:07:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-04-04-lftp-mirror-best-way-to-download-an-entire-directory-from-a-ftp-server/</guid>
+      <description>As much as I hate FTP, there situations where one must use it. I finally have settled on the best way to get an entire directory, with recursive file retrieval:
+lftp -e &amp;ldquo;mirror dir1/subdir2/subdir3&amp;rdquo; -u username,password ftphost.domain.com
+Of course, FTP must die, but until then, I am glad there is lftp.</description>
+    </item>
+    
+    <item>
+      <title>GNU parallel -- the best thing since sliced bread</title>
+      <link>https://biocozy.net/posts/2012-03-27-gnu-parallel-the-best-thing-since-sliced-bread/</link>
+      <pubDate>Tue, 27 Mar 2012 08:38:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-03-27-gnu-parallel-the-best-thing-since-sliced-bread/</guid>
+      <description>When I first found GNU parallel last fall, I thought it was the bee&amp;rsquo;s knees. So well conceived, so well executed, so well documented&amp;hellip; so generous to the user, and most of all, so darn handy.
+I&amp;rsquo;ve been using it extensively with the ::: notation to feed data files into a pipeline in parallel, and it does exactly what I want it to do.
+But today it goes to a whole new level, as I realize there is a whole other side to the tool: the ability to feed parts of a single input file into a pipeline in parallel.</description>
+    </item>
+    
+    <item>
+      <title>Of bash and streams and pipes - One Tee To Rule Them All</title>
+      <link>https://biocozy.net/posts/2012-03-19-of-bash-and-streams-and-pipes-one-tee-to-rule-them-all/</link>
+      <pubDate>Mon, 19 Mar 2012 05:17:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-03-19-of-bash-and-streams-and-pipes-one-tee-to-rule-them-all/</guid>
+      <description>There is a great answer on stack overflow showing how to feed one output stream into multiple processes. It is a little bit of a hack of the excellent tool tee, which I&amp;rsquo;ve been using for some time. Normally, tee take stout and writes it to a file, while passing it along to stout. This solution provided on s.o. shows how to hack this with the bash trick &amp;gt;(process) &amp;ndash; so as far as tee knows, it is writing to 2 or more files, but the &amp;ldquo;files&amp;rdquo; are actually background processes.</description>
+    </item>
+    
+    <item>
+      <title>mirbase gff annotations in bed format</title>
+      <link>https://biocozy.net/posts/2012-03-16-mirbase-gff-annotations-in-bed-format/</link>
+      <pubDate>Fri, 16 Mar 2012 03:11:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-03-16-mirbase-gff-annotations-in-bed-format/</guid>
+      <description>The mirbase.org folks in Manchester are doing a great job, I think, but they only release their annotations in gff format. I think the following will convert that into an acceptable bed-format file:
+## get mirbase18 annotation and convert to a bed like format wget ftp://mirbase.org/pub/mirbase/CURRENT/genomes/hsa.gff grep -v &amp;quot;#&amp;quot; hsa.gff | cut -f 1,4,5,9 &amp;gt;mirbase18.temp1 grep -v &amp;quot;#&amp;quot; hsa.gff | cut -f 6,7 &amp;gt;mirbase18.temp2 paste mirbase18.temp1 mirbase18.temp2 | sed s/^/chr/ &amp;gt;mirbase18.</description>
+    </item>
+    
+    <item>
+      <title>2012 NAR Database Summary (Category List)</title>
+      <link>https://biocozy.net/posts/2012-03-08-2012-nar-database-summary-category-list/</link>
+      <pubDate>Thu, 08 Mar 2012 02:27:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-03-08-2012-nar-database-summary-category-list/</guid>
+      <description>Bioinformatic databases grow like kudzu, so I&amp;rsquo;ll no doubt be referring to this directory in the coming year.
+http://www.oxfordjournals.org/nar/database/c/</description>
+    </item>
+    
+    <item>
+      <title>How to get the entire recursive directory structure of an FTP site
+using wget</title>
+      <link>https://biocozy.net/posts/2012-03-08-how-to-get-the-entire-recursive-directory-structure-of-an-ftp-site-using-wget/</link>
+      <pubDate>Thu, 08 Mar 2012 01:25:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-03-08-how-to-get-the-entire-recursive-directory-structure-of-an-ftp-site-using-wget/</guid>
+      <description>How can I use wget to get a recursive directory listing of an entire FTP site?
+yes, wget &amp;ndash;no-remove-listing ftp://myftpserver/ftpdirectory/ will get and retain a directory listing for a single directory (which was discussed here)
+but, wget -r &amp;ndash;no-remove-listing ftp://myftpserver/ftpdirectory/ will recurse and download an entire site
+so, if you want to get the recursive directory structure, but not download the entire site, try wget -r &amp;ndash;no-remove-listing &amp;ndash;spider ftp://myftpserver/ftpdirectory/</description>
+    </item>
+    
+    <item>
+      <title>rRNA genes in the human genome</title>
+      <link>https://biocozy.net/posts/2012-02-16-rrna-genes-in-the-human-genome/</link>
+      <pubDate>Thu, 16 Feb 2012 06:04:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-02-16-rrna-genes-in-the-human-genome/</guid>
+      <description>Larry Moran has an excellent discussion of the organization of rRNA genes in the human genome. It&amp;rsquo;s an old post, but a good one.
+If you&amp;rsquo;re involved in RNA-Seq, you should read it. Dr. Moran&amp;rsquo;s discussion makes it clear why it is necessary to map reads to a synthetic rRNA-ome before doing full-genome alignment &amp;ndash; if you want to accurately count, or filter out, rRNA reads (which can predominate in RNA-seq datasets).</description>
+    </item>
+    
+    <item>
+      <title>get rid of dashboard in mac os X</title>
+      <link>https://biocozy.net/posts/2012-02-02-get-rid-of-dashboard-in-mac-os-x/</link>
+      <pubDate>Thu, 02 Feb 2012 02:50:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-02-02-get-rid-of-dashboard-in-mac-os-x/</guid>
+      <description>Dashboard seems like a good idea, but I can&amp;rsquo;t stand how it always seems to take 5 seconds to &amp;ldquo;wake up&amp;rdquo; all those widgets whenever I open it up. So, as a result, I never use it. It just idles there in the background taking up a sliver of CPU cycles. Oh and occasionally I accidentally key into it. So, I am glad I finally did this:
+defaults write com.apple.dashboard mcx-disabled -boolean YES</description>
+    </item>
+    
+    <item>
+      <title>rRNA genes in human genome</title>
+      <link>https://biocozy.net/posts/2011-12-20-rrna-genes-in-human-genome/</link>
+      <pubDate>Tue, 20 Dec 2011 14:16:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-12-20-rrna-genes-in-human-genome/</guid>
+      <description>GRCh37/hg19
+http://sandwalk.blogspot.com/2008/01/human-ribosomal-rna-genes.html</description>
+    </item>
+    
+    <item>
+      <title>BWA on FPGA architecture</title>
+      <link>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</link>
+      <pubDate>Wed, 26 Oct 2011 06:25:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</guid>
+      <description>Convey Computing is offering a FPGA-based computational cluster that has been optimized forBWA.</description>
+    </item>
+    
+    <item>
+      <title>Loading custom genomes into IGV</title>
+      <link>https://biocozy.net/posts/2011-10-06-loading-custom-genomes-into-igv/</link>
+      <pubDate>Thu, 06 Oct 2011 04:37:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-10-06-loading-custom-genomes-into-igv/</guid>
+      <description>bp_genbank2gff3
+bp_genbank2gff3 -out stdout NC_014117.gbk &amp;gt;NC_014117.gff3
+NC_014117.gff3
+&amp;gt;gi|295675101|ref|NC_014117.1| Burkholderia sp. CCGE1002 chromosome 1, complete sequence
+AAAACCGCGCGATCATCGCTGAAAGCGCAATGGCCGGTGGTTTACTGGAATTGGTTTTCGCGGAACCCGC
+TATTTAAACCGGTTTTCCGTTGGCCGTCAATAGTTTAGCCCGCTTCTGACGCAGCCGACGTTTCCCGGGC
+NC_014117.gff3
+##gff-version 3
+# sequence-region NC_014117.1 1 3518940
+# conversion-by bp_genbank2gff3.pl
+# organism Burkholderia sp. CCGE1002
+# date 06-JUN-2011
+# Note Burkholderia sp. CCGE1002 chromosome 1, complete sequence.
+NC_014117.1 GenBank chromosome 1 3518940 . + . ID=NC_014117.1;Alias=1;Dbxref=taxon:640511
+NC_014117.1 GenBank gene 363 1961 . + . ID=BC1002_0001;Dbxref=GeneID:9090916;locus_tag=BC1002_0001
+samtools view ALL_NC_014117.sorted.bam |head
+SOLEXA2_0903_FC628A5AAXX:8:82:19168:11203#0/1 0 gi|295675101|ref|NC_014117.1| 130 255 15M * 0 0 GTTTCCCGGGCGATG fffffeffffffdff XA:i:0 MD:Z:15 NM:i:0</description>
+    </item>
+    
+    <item>
+      <title>Length filter for fastq files</title>
+      <link>https://biocozy.net/posts/2011-10-03-length-filter-for-fastq-files/</link>
+      <pubDate>Mon, 03 Oct 2011 09:41:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-10-03-length-filter-for-fastq-files/</guid>
+      <description>I wanted to remove all sequences less than n long from a fastq file. This is a solution that uses sed &amp;ldquo;paragraphs&amp;rdquo; &amp;ndash; see my earlier post. It works&amp;hellip; could probably be done more efficiently&amp;hellip; but this works for me, for now.
+Save this as a script, and then use in this manner:
+./fastqlenfilt.sh 15 input.fastq &amp;gt;output.filtered.fastq
+#!/bin/sh sed -n &#39; # thanks to http://www.grymoire.com/Unix/Sed.html # # if matching description, check the paragraph /^@/ b para # else add it to the hold buffer H # at end of file, check paragraph $ b para # now branch to end of script b # this is where a paragraph is checked for the pattern :para # return the entire paragraph # into the pattern space x # look for the pattern, if there - print # /&#39;.</description>
+    </item>
+    
+    <item>
+      <title>Mac function keys working with debian / ubuntu terminal and byobu</title>
+      <link>https://biocozy.net/posts/2011-09-22-mac-function-keys-working-with-debian-ubuntu-terminal-and-byobu/</link>
+      <pubDate>Thu, 22 Sep 2011 12:57:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-09-22-mac-function-keys-working-with-debian-ubuntu-terminal-and-byobu/</guid>
+      <description>A minor irritation, but as I have begun running longer jobs, and getting addicted to the excellent byobu adaptation of GNU screen, I&amp;rsquo;ve been frustrated that I can&amp;rsquo;t access those easy function keys when I ssh in from my Mac.
+I&amp;rsquo;ve pieced together a solution by reading this thread and this excellent resource.
+Here is what works for me, using OS X 10.6, with Terminal declaring itself as &amp;ldquo;xterm-color&amp;rdquo;: in Terminal.</description>
+    </item>
+    
+    <item>
+      <title>Pull desired sequences out of a multiple FASTA file with regex pattern
+match</title>
+      <link>https://biocozy.net/posts/2011-09-13-pull-desired-sequences-out-of-a-multiple-fasta-file-with-regex-pattern-match/</link>
+      <pubDate>Tue, 13 Sep 2011 07:01:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-09-13-pull-desired-sequences-out-of-a-multiple-fasta-file-with-regex-pattern-match/</guid>
+      <description>This simple problem stumped me for a while.
+Say you want just the human sequences (&amp;ldquo;hsa&amp;rdquo;) from the following multiple FASTA file:
+&amp;gt;cel-mir-90 MI0000059 Caenorhabditis elegans miR-90 stem-loop GGGCGCCAUUUCGAGCGGCUUUCAACGACGAUAUCAACCGACAACUCACACUUUUGCGUG UUGAUAUGUUGUUUGAAUGCCCCUUGAAUUGGAUGCCA &amp;gt;hsa-let-7a-1 MI0000060 Homo sapiens let-7a-1 stem-loop UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAU ACAAUCUACUGUCUUUCCUA &amp;gt;hsa-let-7a-2 MI0000061 Homo sapiens let-7a-2 stem-loop AGGUUGAGGUAGUAGGUUGUAUAGUUUAGAAUUACAUCAAGGGAGAUAACUGUACAGCCU CCUAGCUUUCCU &amp;gt;dme-mir-13b-2 MI0000135 Drosophila melanogaster miR-13b-2 stem-loop UAUUAACGCGUCAAAAUGACUGUGAGCUAUGUGGAUUUGACUUCAUAUCACAGCCAUUUU GACGAGUUUG &amp;gt;dme-mir-14 MI0000136 Drosophila melanogaster miR-14 stem-loop UGUGGGAGCGAGACGGGGACUCACUGUGCUUAUUAAAUAGUCAGUCUUUUUCUCUCUCCU AUA &amp;gt;mmu-let-7g MI0000137 Mus musculus let-7g stem-loop CCAGGCUGAGGUAGUAGUUUGUACAGUUUGAGGGUCUAUGAUACCACCCGGUACAGGAGA UAACUGUACAGGCCACUGCCUUGCCAGG &amp;gt;hsa-mir-30d MI0000255 Homo sapiens miR-30d stem-loop GUUGUUGUAAACAUCCCCGACUGGAAGCUGUAAGACACAGCUAAGCUUUCAGUCAGAUGU UUGCUGCUAC &amp;gt;mmu-mir-122 MI0000256 Mus musculus miR-122 stem-loop AGCUGUGGAGUGUGACAAUGGUGUUUGUGUCCAAACCAUCAAACGCCAUUAUCACACUAA AUAGCU  In other words, you want just these sequences:</description>
+    </item>
+    
+    <item>
+      <title>indespensible bioinformatic resources</title>
+      <link>https://biocozy.net/posts/2011-09-09-indespensible-bioinformatic-resources/</link>
+      <pubDate>Fri, 09 Sep 2011 08:31:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-09-09-indespensible-bioinformatic-resources/</guid>
+      <description>Essentials tools for working with high-throughput sequencing data: bowtie &amp;ndash; bowtie-bio.sourceforge.net/
+my current NGS aligner of choice
+samtools &amp;ndash; samtools.sourceforge.net/
+essential. the lingua franca for working with the output of alignment
+picard &amp;ndash; picard.sourceforge.net/
+also essential for working with alignment files. very nicely complements samtools.
+fastx toolkit &amp;ndash; hannonlab.cshl.edu/fastx_toolkit/
+this looks like it will be handy&amp;hellip; though not yet part of any of the ubuntu software repositories I regularly use, it does look like it is included in the upcoming Oneiric Ocelot 11.</description>
+    </item>
+    
+    <item>
+      <title>refactor in R</title>
+      <link>https://biocozy.net/posts/2011-08-22-refactor-in-r/</link>
+      <pubDate>Mon, 22 Aug 2011 08:59:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-22-refactor-in-r/</guid>
+      <description>I use this little R function almost daily. It just takes a factor, drops the unused levels, and otherwise keeps the same ordering.
+refactor &amp;lt;- function(x) { x &amp;lt;- factor(x, levels=levels(x)[levels(x) %in% x] ) return(x) }  File this under &amp;ldquo;commands that should be included in R.&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Package search tools: &#34;provided by&#34; and &#34;what provides&#34;</title>
+      <link>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</link>
+      <pubDate>Mon, 08 Aug 2011 13:27:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</guid>
+      <description>Ubuntu community help forum has a nice page if you need to be reminded how to search files provided by a particular package.
+dpkg -L will show you what files came with an installed package
+apt-file, which needs to be installed first, will tell you what package provides a given file. Actually, it can also replicate the same thing that dpkg -L does, see below:
+$ dpkg -L picard-tools /. /usr /usr/bin /usr/bin/picard-tools /usr/share /usr/share/java /usr/share/java/picard-1.</description>
+    </item>
+    
+    <item>
+      <title>Bio::SeqIO very very slow</title>
+      <link>https://biocozy.net/posts/2011-08-04-bio-seqio-very-very-slow/</link>
+      <pubDate>Thu, 04 Aug 2011 16:20:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-04-bio-seqio-very-very-slow/</guid>
+      <description>While it may be a convenient and flexible solution when reading in 10s or 100s or 1000s of sequences, the SeqIO module of BioPerl is just not a workable solution for reading in Next Gen Sequencing files.
+ Consider reading in 100,000 short reads from a fastq file:
+It takes 30 seconds to do it the bioperl way:
+use Bio::SeqIO;
+my $seqin = Bio::SeqIO-&amp;gt;new(-format =&amp;gt; &amp;ldquo;fastq&amp;rdquo;,-file =&amp;gt; &amp;ldquo;infilename&amp;rdquo;,);
+while( $seq = $seqin-&amp;gt;next_seq() ) { $seqhash{$seq-&amp;gt;seq() } ++; }</description>
+    </item>
+    
+    <item>
+      <title>PLANdbAffy - a resource for mapping Affymetrix probes</title>
+      <link>https://biocozy.net/posts/2011-05-26-plandbaffy-a-resource-for-mapping-affymetrix-probes/</link>
+      <pubDate>Thu, 26 May 2011 15:35:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-05-26-plandbaffy-a-resource-for-mapping-affymetrix-probes/</guid>
+      <description>I just discovered PLANdbAffy, which is a handy way to see exactly where Affy probes are interrogating a gene.
+Nurtdinov RN*, Vasiliev MO, Ershova AS, Lossev IS, Karyagina AS.
+PLANdbAffy: probe-level annotation database for Affymetrix expression microarrays.
+Nucleic Acids Res., 2010, 38 (Database issue): D726-730. PMID: 19906711
+Thanks, to all involved!</description>
+    </item>
+    
+    <item>
+      <title>How to access Time Machine files from Linux UNIX</title>
+      <link>https://biocozy.net/posts/2011-05-26-how-to-access-time-machine-files-from-linux-unix/</link>
+      <pubDate>Thu, 26 May 2011 12:34:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-05-26-how-to-access-time-machine-files-from-linux-unix/</guid>
+      <description>Found this very handy script that allows you to access a Time Machine created backup, which Apple engineered (almost) too cleverly.
+Handy if you want to copy files off of a backup, directly to a linux computer, for example.</description>
+    </item>
+    
+    <item>
+      <title>Very useful readme about NCBI entrez database</title>
+      <link>https://biocozy.net/posts/2010-11-05-very-useful-readme-about-ncbi-entrez-database/</link>
+      <pubDate>Fri, 05 Nov 2010 10:45:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2010-11-05-very-useful-readme-about-ncbi-entrez-database/</guid>
+      <description>Of course I&amp;rsquo;ve been doing a lot of these things myself over the years, but it&amp;rsquo;s good to read the official FAQ here in one place:
+http://www.ncbi.nlm.nih.gov/entrez/query/static/help/genefaq.html</description>
+    </item>
+    
+    <item>
+      <title>BrainArray resources</title>
+      <link>https://biocozy.net/posts/2010-10-28-brainarray-resources/</link>
+      <pubDate>Thu, 28 Oct 2010 16:34:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2010-10-28-brainarray-resources/</guid>
+      <description>Wow, I finally found this incredible resource: The BrainArray library of custom mapped CDF files and annotations, maintained by the Meng and Thompson Labs at U Michigan:
+http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/
+Really well done!</description>
+    </item>
+    
+    <item>
+      <title>Ensembl Biomart Attributes</title>
+      <link>https://biocozy.net/posts/2010-08-09-ensembl-biomart-attributes/</link>
+      <pubDate>Mon, 09 Aug 2010 12:52:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2010-08-09-ensembl-biomart-attributes/</guid>
+      <description>Here is the list, current as of posting, for the ensembl biomart attributes available from within R/Bioconductor&amp;hellip;
+name description
+1 ensembl_gene_id Ensembl Gene ID
+2 ensembl_transcript_id Ensembl Transcript ID
+3 ensembl_peptide_id Ensembl Protein ID
+4 canonical_transcript_stable_id Canonical transcript stable ID(s)
+5 description Description
+6 chromosome_name Chromosome Name
+7 start_position Gene Start (bp)
+8 end_position Gene End (bp)
+9 strand Strand
+10 band Band
+11 transcript_start Transcript Start (bp)
+12 transcript_end Transcript End (bp)</description>
+    </item>
+    
+    <item>
+      <title>BLAST record class</title>
+      <link>https://biocozy.net/posts/2010-03-05-blast-record-class/</link>
+      <pubDate>Fri, 05 Mar 2010 16:24:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2010-03-05-blast-record-class/</guid>
+      <description>Sometimes, it is hard to find the BLAST python record class documented anywhere.
+Here is the all-useful diagram, found on the bioinformatics.org website.
+
+(click the graphic for higher res).</description>
+    </item>
+    
+    <item>
+      <title>parallel computation using the caret package</title>
+      <link>https://biocozy.net/posts/2009-10-05-parallel-computation-using-the-caret-package/</link>
+      <pubDate>Mon, 05 Oct 2009 13:56:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-10-05-parallel-computation-using-the-caret-package/</guid>
+      <description>Library caret is a wonderful R package for tuning a variety of machine learning classification and regression algorithms. But it can take a long time to run, since model tuning usually involves running multiple bootstrapped replicates for each point in your tuning grid.
+If you have a multi-core desktop machine, you can speed up your calls to the caret function train by using explicit parallelism.
+There were just a couple hitches to get it flying on my 64bit quad core Optiplex 960 running linux kernel 2.</description>
+    </item>
+    
+    <item>
+      <title>fork processes in R using package multicore</title>
+      <link>https://biocozy.net/posts/2009-10-01-fork-processes-in-r-using-package-multicore/</link>
+      <pubDate>Thu, 01 Oct 2009 16:17:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-10-01-fork-processes-in-r-using-package-multicore/</guid>
+      <description>I just found this wicked cool way to fork processes (for multi-core CPUs) in R&amp;hellip;. Works just like you&amp;rsquo;d expect!
+library(multicore)
+job1 &amp;lt;- mcparallel(bigMachingLeaningFunction1())
+job2 &amp;lt;- mcparallel(bigMachingLeaningFunction2())
+job3 &amp;lt;- mcparallel(bigMachingLeaningFunction3())
+job4 &amp;lt;- mcparallel(bigMachingLeaningFunction4())
+###### time goes by &amp;hellip;..
+results1 &amp;lt;- collect(job1)
+results2 &amp;lt;- collect(job2)
+results3 &amp;lt;- collect(job3)
+results4 &amp;lt;- collect(job4)
+Note to emacs ESS users &amp;ndash; just be sure all your libraries are already loaded, and set silent=TRUE in the mcparallel call&amp;hellip;.</description>
+    </item>
+    
+    <item>
+      <title>Super sweet emacs keybindings and startup variables for ESS / R</title>
+      <link>https://biocozy.net/posts/2009-09-21-super-sweet-emacs-keybindings-and-startup-variables-for-ess-r/</link>
+      <pubDate>Mon, 21 Sep 2009 16:15:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-09-21-super-sweet-emacs-keybindings-and-startup-variables-for-ess-r/</guid>
+      <description>I just stumbled upon Felipe Csaszar&amp;rsquo;s blog and found his key bindings to be very very nice, if you use emacs with R a lot. Check it out:
+http://www.emacswiki.org/emacs/EmacsSpeaksStatistics</description>
+    </item>
+    
+    <item>
+      <title>How to use the sqlite connection to AnnotationDbi packages</title>
+      <link>https://biocozy.net/posts/2009-09-17-how-to-use-the-sqlite-connection-to-annotationdbi-packages/</link>
+      <pubDate>Thu, 17 Sep 2009 13:09:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-09-17-how-to-use-the-sqlite-connection-to-annotationdbi-packages/</guid>
+      <description>It is very fast and very straightforward:
+library(hgu133plus2.db)
+hgu133plus2_dbschema()
+sql = &amp;ldquo;
+select * from probes p, gene_info g, chromosome_locations c 
+where g._id=c._id and g._id=p._id limit 10
+&amp;ldquo;
+dbGetQuery(hgu133plus2_dbconn(), sql)
+If you look at the last few page of the manual for AnnotationDbi [site, PDF], you will see some tips about joining different databases together.</description>
+    </item>
+    
+    <item>
+      <title>Multiple lattice plots</title>
+      <link>https://biocozy.net/posts/2009-08-05-multiple-lattice-plots/</link>
+      <pubDate>Wed, 05 Aug 2009 16:27:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-08-05-multiple-lattice-plots/</guid>
+      <description>Here&amp;rsquo;s Owen&amp;rsquo;s trick for displaying multiple lattice dotplots:
+In the reshape package, the function melt() allows you to reshape data into variable/value columns, on one or more &amp;ldquo;id&amp;rdquo; column(s):
+&amp;gt; library(reshape)&amp;gt; library(lattice)&amp;gt; d &amp;lt;- data.frame(a=rnorm(10), b=rnorm(10), c=rnorm(10), cond=factor(sample(1:2,10,replace=TRUE)))&amp;gt; d a b c cond1 0.06927895 0.98947264 1.7256042 22 -2.02604891 -0.33003778 -0.6595201 13 0.38082836 -0.98114426 1.5448757 24 -2.73939190 -1.30930261 0.1118557 15 0.37405184 -0.45263384 1.0484490 16 -0.68747094 -0.78446749 0.3484745 27 0.13011011 1.01275070 -0.5005770 18 -0.</description>
+    </item>
+    
+    <item>
+      <title>Secret link for the annotation files on Bioconductor</title>
+      <link>https://biocozy.net/posts/2009-07-21-secret-link-for-the-annotation-files-on-bioconductor/</link>
+      <pubDate>Tue, 21 Jul 2009 13:22:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-07-21-secret-link-for-the-annotation-files-on-bioconductor/</guid>
+      <description>http://bioconductor.org/packages/2.4/data/annotation/
+enjoy!
+PS. of course you can update this for newer releases of Bioconductor
+http://bioconductor.org/packages/2.6/data/annotation/</description>
+    </item>
+    
+    <item>
+      <title>Another workaround for Memory Issues in R / Bioconductor</title>
+      <link>https://biocozy.net/posts/2009-04-15-another-workaround-for-memory-issues-in-r-bioconductor/</link>
+      <pubDate>Wed, 15 Apr 2009 11:35:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-04-15-another-workaround-for-memory-issues-in-r-bioconductor/</guid>
+      <description>This post could be entitled &amp;ldquo;Error: cannot allocate vector of size 256.0 Mb&amp;rdquo;. R provides this maddening response for even the most trivial seeming tasks. I have a 4 Gb linux system, and I have encountered this error message for &amp;ldquo;vector of size&amp;rdquo; in the 10s of Mb. And system wide, there appears to be plenty of memory still available, and the swap space hasn&amp;rsquo;t been touched.
+What&amp;rsquo;s going on with R memory management?</description>
+    </item>
+    
+    <item>
+      <title>The Girke R Bioconductor manual</title>
+      <link>https://biocozy.net/posts/2009-04-09-the-girke-r-bioconductor-manual/</link>
+      <pubDate>Thu, 09 Apr 2009 16:29:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-04-09-the-girke-r-bioconductor-manual/</guid>
+      <description>I came across Thomas Girke&amp;rsquo;s wonderful R/Bioconductor manual today. If I had had this UC Riverside professors notes when I started, I would have saved a lot of time.</description>
+    </item>
+    
+    <item>
+      <title>CRAN Task Views: Your guide to R packages</title>
+      <link>https://biocozy.net/posts/2009-03-25-cran-task-views-your-guide-to-r-packages/</link>
+      <pubDate>Wed, 25 Mar 2009 15:58:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-03-25-cran-task-views-your-guide-to-r-packages/</guid>
+      <description>If you&amp;rsquo;re like me, you&amp;rsquo;ve at times been frustrated by the looseness of the R package system. These are some of the facts of life in the R world:
+ There are often many different functions with overlapping goals [for example, princomp() and prcomp()].
+ The names of a packages may have little or no relationship to the functions in that package (for example, package &amp;ldquo;e1071&amp;rdquo; provides the tune() function for parameter tuning).</description>
+    </item>
+    
+    <item>
+      <title>R variable class (data types)</title>
+      <link>https://biocozy.net/posts/2009-03-25-r-variable-class-data-types/</link>
+      <pubDate>Wed, 25 Mar 2009 14:06:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-03-25-r-variable-class-data-types/</guid>
+      <description>R does some amazing things, and often seems to know just want you want to do. Data type &amp;ldquo;coercion&amp;rdquo; can also backfire.
+I just discovered a great way to check to see how R has interpreted the columns of a file you have just loaded.
+&amp;gt; sapply(dataframeobject, class)
+gender type score
+&amp;ldquo;factor&amp;rdquo; &amp;ldquo;factor&amp;rdquo; &amp;ldquo;numeric&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Integrating BioMart queries into BioConductor with the biomaRt package</title>
+      <link>https://biocozy.net/posts/2009-03-25-integrating-biomart-queries-into-bioconductor-with-the-biomart-package/</link>
+      <pubDate>Wed, 25 Mar 2009 10:33:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-03-25-integrating-biomart-queries-into-bioconductor-with-the-biomart-package/</guid>
+      <description>I&amp;rsquo;ve just realized the considerable power and convenience of a web-based bioinformatic resource I have overlooked in the past: biomart.org.
+What gets my attention now is the ability to integrate BioMart queries right into your BioConductor pipeline, with a package called biomaRt
+The Seattle 2009 BioConductor workshop looks like it was great &amp;ndash; sadly, I missed it. But you can still access some presentation materials on biomaRt.
+Installation of biomaRt is accomplished like any other BioConductor pacakge:</description>
+    </item>
+    
+    <item>
+      <title>Pulling data from GEO into R Bioconductor expression sets (eSet)</title>
+      <link>https://biocozy.net/posts/2009-03-19-pulling-data-from-geo-into-r-bioconductor-expression-sets-eset/</link>
+      <pubDate>Thu, 19 Mar 2009 16:01:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-03-19-pulling-data-from-geo-into-r-bioconductor-expression-sets-eset/</guid>
+      <description>I just discovered how easy Bioconductor makes it to import data from the Gene Expression Omnibus (GEO).
+First, be sure you have the GEOquery package from Bioconductor. You will probably need to install the curl4 devel library package using apt-get or whatever you use to do such things. On my Ubuntu 8.10 distro, the requisite package is called libcurl4-gnutls-dev. After you have this, you should be able to install GEOquery like any other Bioconductor package, ie:</description>
+    </item>
+    
+    <item>
+      <title>Classification and regression trees (CART)</title>
+      <link>https://biocozy.net/posts/2009-03-19-classification-and-regression-trees-cart/</link>
+      <pubDate>Thu, 19 Mar 2009 10:14:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2009-03-19-classification-and-regression-trees-cart/</guid>
+      <description>Just about the take the plunge into various machine learning analyses, starting with some simple classification and regression trees (CART) to try to model patient outcomes based on clinical observations. I&amp;rsquo;ll be mainly focusing on classification.
+In gearing up for this, I just found an amazing resource, this guide to machine learning R packages, maintained by Torsten Hothorn.</description>
+    </item>
+    
+    <item>
+      <title>How to get the BioConductor packages to install correctly in Ubuntu 8.10</title>
+      <link>https://biocozy.net/posts/2008-12-15-how-to-get-the-bioconductor-packages-to-install-correctly-in-ubuntu-8-10/</link>
+      <pubDate>Mon, 15 Dec 2008 11:15:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2008-12-15-how-to-get-the-bioconductor-packages-to-install-correctly-in-ubuntu-8-10/</guid>
+      <description>Apparently, the repositories for the 8.10 (Intrepid Ibex) release of Ubuntu do not completely specify all of the dependencies for the R-base synaptic package.
+I could not get various packages to compile, until I installed
+sudo apt-get install libxml2-dev libatlas-base-dev
+This solved many build problems, including package XML, but I was still getting the following error when attempting to load library vsn:
+
+ &amp;gt; library(vsn)
+Loading required package: lattice</description>
+    </item>
+    
+  </channel>
+</rss>

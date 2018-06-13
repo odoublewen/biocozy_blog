@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Work on Biocozy.net</title>
+    <link>https://biocozy.net/tags/work/</link>
+    <description>Recent content in Work on Biocozy.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Biocozy.net</copyright>
+    <lastBuildDate>Thu, 16 Feb 2012 06:04:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://biocozy.net/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rRNA genes in the human genome</title>
+      <link>https://biocozy.net/posts/2012-02-16-rrna-genes-in-the-human-genome/</link>
+      <pubDate>Thu, 16 Feb 2012 06:04:00 -0800</pubDate>
+      
+      <guid>https://biocozy.net/posts/2012-02-16-rrna-genes-in-the-human-genome/</guid>
+      <description>Larry Moran has an excellent discussion of the organization of rRNA genes in the human genome. It&amp;rsquo;s an old post, but a good one.
+If you&amp;rsquo;re involved in RNA-Seq, you should read it. Dr. Moran&amp;rsquo;s discussion makes it clear why it is necessary to map reads to a synthetic rRNA-ome before doing full-genome alignment &amp;ndash; if you want to accurately count, or filter out, rRNA reads (which can predominate in RNA-seq datasets).</description>
+    </item>
+    
+    <item>
+      <title>BWA on FPGA architecture</title>
+      <link>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</link>
+      <pubDate>Wed, 26 Oct 2011 06:25:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-10-26-bwa-on-fpga-architecture/</guid>
+      <description>Convey Computing is offering a FPGA-based computational cluster that has been optimized forBWA.</description>
+    </item>
+    
+    <item>
+      <title>Pull desired sequences out of a multiple FASTA file with regex pattern
+match</title>
+      <link>https://biocozy.net/posts/2011-09-13-pull-desired-sequences-out-of-a-multiple-fasta-file-with-regex-pattern-match/</link>
+      <pubDate>Tue, 13 Sep 2011 07:01:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-09-13-pull-desired-sequences-out-of-a-multiple-fasta-file-with-regex-pattern-match/</guid>
+      <description>This simple problem stumped me for a while.
+Say you want just the human sequences (&amp;ldquo;hsa&amp;rdquo;) from the following multiple FASTA file:
+&amp;gt;cel-mir-90 MI0000059 Caenorhabditis elegans miR-90 stem-loop GGGCGCCAUUUCGAGCGGCUUUCAACGACGAUAUCAACCGACAACUCACACUUUUGCGUG UUGAUAUGUUGUUUGAAUGCCCCUUGAAUUGGAUGCCA &amp;gt;hsa-let-7a-1 MI0000060 Homo sapiens let-7a-1 stem-loop UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAU ACAAUCUACUGUCUUUCCUA &amp;gt;hsa-let-7a-2 MI0000061 Homo sapiens let-7a-2 stem-loop AGGUUGAGGUAGUAGGUUGUAUAGUUUAGAAUUACAUCAAGGGAGAUAACUGUACAGCCU CCUAGCUUUCCU &amp;gt;dme-mir-13b-2 MI0000135 Drosophila melanogaster miR-13b-2 stem-loop UAUUAACGCGUCAAAAUGACUGUGAGCUAUGUGGAUUUGACUUCAUAUCACAGCCAUUUU GACGAGUUUG &amp;gt;dme-mir-14 MI0000136 Drosophila melanogaster miR-14 stem-loop UGUGGGAGCGAGACGGGGACUCACUGUGCUUAUUAAAUAGUCAGUCUUUUUCUCUCUCCU AUA &amp;gt;mmu-let-7g MI0000137 Mus musculus let-7g stem-loop CCAGGCUGAGGUAGUAGUUUGUACAGUUUGAGGGUCUAUGAUACCACCCGGUACAGGAGA UAACUGUACAGGCCACUGCCUUGCCAGG &amp;gt;hsa-mir-30d MI0000255 Homo sapiens miR-30d stem-loop GUUGUUGUAAACAUCCCCGACUGGAAGCUGUAAGACACAGCUAAGCUUUCAGUCAGAUGU UUGCUGCUAC &amp;gt;mmu-mir-122 MI0000256 Mus musculus miR-122 stem-loop AGCUGUGGAGUGUGACAAUGGUGUUUGUGUCCAAACCAUCAAACGCCAUUAUCACACUAA AUAGCU  In other words, you want just these sequences:</description>
+    </item>
+    
+    <item>
+      <title>indespensible bioinformatic resources</title>
+      <link>https://biocozy.net/posts/2011-09-09-indespensible-bioinformatic-resources/</link>
+      <pubDate>Fri, 09 Sep 2011 08:31:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-09-09-indespensible-bioinformatic-resources/</guid>
+      <description>Essentials tools for working with high-throughput sequencing data: bowtie &amp;ndash; bowtie-bio.sourceforge.net/
+my current NGS aligner of choice
+samtools &amp;ndash; samtools.sourceforge.net/
+essential. the lingua franca for working with the output of alignment
+picard &amp;ndash; picard.sourceforge.net/
+also essential for working with alignment files. very nicely complements samtools.
+fastx toolkit &amp;ndash; hannonlab.cshl.edu/fastx_toolkit/
+this looks like it will be handy&amp;hellip; though not yet part of any of the ubuntu software repositories I regularly use, it does look like it is included in the upcoming Oneiric Ocelot 11.</description>
+    </item>
+    
+    <item>
+      <title>refactor in R</title>
+      <link>https://biocozy.net/posts/2011-08-22-refactor-in-r/</link>
+      <pubDate>Mon, 22 Aug 2011 08:59:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-22-refactor-in-r/</guid>
+      <description>I use this little R function almost daily. It just takes a factor, drops the unused levels, and otherwise keeps the same ordering.
+refactor &amp;lt;- function(x) { x &amp;lt;- factor(x, levels=levels(x)[levels(x) %in% x] ) return(x) }  File this under &amp;ldquo;commands that should be included in R.&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Package search tools: &#34;provided by&#34; and &#34;what provides&#34;</title>
+      <link>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</link>
+      <pubDate>Mon, 08 Aug 2011 13:27:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-08-package-search-tools-provided-by-and-what-provides/</guid>
+      <description>Ubuntu community help forum has a nice page if you need to be reminded how to search files provided by a particular package.
+dpkg -L will show you what files came with an installed package
+apt-file, which needs to be installed first, will tell you what package provides a given file. Actually, it can also replicate the same thing that dpkg -L does, see below:
+$ dpkg -L picard-tools /. /usr /usr/bin /usr/bin/picard-tools /usr/share /usr/share/java /usr/share/java/picard-1.</description>
+    </item>
+    
+    <item>
+      <title>Bio::SeqIO very very slow</title>
+      <link>https://biocozy.net/posts/2011-08-04-bio-seqio-very-very-slow/</link>
+      <pubDate>Thu, 04 Aug 2011 16:20:00 -0700</pubDate>
+      
+      <guid>https://biocozy.net/posts/2011-08-04-bio-seqio-very-very-slow/</guid>
+      <description>While it may be a convenient and flexible solution when reading in 10s or 100s or 1000s of sequences, the SeqIO module of BioPerl is just not a workable solution for reading in Next Gen Sequencing files.
+ Consider reading in 100,000 short reads from a fastq file:
+It takes 30 seconds to do it the bioperl way:
+use Bio::SeqIO;
+my $seqin = Bio::SeqIO-&amp;gt;new(-format =&amp;gt; &amp;ldquo;fastq&amp;rdquo;,-file =&amp;gt; &amp;ldquo;infilename&amp;rdquo;,);
+while( $seq = $seqin-&amp;gt;next_seq() ) { $seqhash{$seq-&amp;gt;seq() } ++; }</description>
+    </item>
+    
+  </channel>
+</rss>
