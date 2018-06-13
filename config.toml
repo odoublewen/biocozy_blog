@@ -15,7 +15,7 @@ theme = "hugo-bootstrap"
   category = "categories"
 
 # Google analytics
-googleAnalytics = "UA-120822435-1""
+googleAnalytics = "UA-120822435-1"
 
 # Languages
 
